@@ -7,35 +7,199 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="enemy">
-      <sprite>sprites\spr_enemy_black_1</sprite>
+      <sprites name="black">
+        <sprite>sprites\spr_enemy_black_1</sprite>
+        <sprite>sprites\spr_enemy_black_2</sprite>
+        <sprite>sprites\spr_enemy_black_3</sprite>
+        <sprite>sprites\spr_enemy_black_4</sprite>
+        <sprite>sprites\spr_enemy_black_5</sprite>
+      </sprites>
+      <sprites name="blue">
+        <sprite>sprites\spr_enemy_blue_1</sprite>
+        <sprite>sprites\spr_enemy_blue_2</sprite>
+        <sprite>sprites\spr_enemy_blue_3</sprite>
+        <sprite>sprites\spr_enemy_blue_4</sprite>
+        <sprite>sprites\spr_enemy_blue_5</sprite>
+      </sprites>
+      <sprites name="green">
+        <sprite>sprites\spr_enemy_green_1</sprite>
+        <sprite>sprites\spr_enemy_green_2</sprite>
+        <sprite>sprites\spr_enemy_green_3</sprite>
+        <sprite>sprites\spr_enemy_green_4</sprite>
+        <sprite>sprites\spr_enemy_green_5</sprite>
+      </sprites>
+      <sprites name="red">
+        <sprite>sprites\spr_enemy_red_1</sprite>
+        <sprite>sprites\spr_enemy_red_2</sprite>
+        <sprite>sprites\spr_enemy_red_3</sprite>
+        <sprite>sprites\spr_enemy_red_4</sprite>
+        <sprite>sprites\spr_enemy_red_5</sprite>
+      </sprites>
     </sprites>
     <sprites name="lazer">
-      <sprite>sprites\spr_lazer_blue_1</sprite>
+      <sprites name="blue">
+        <sprites name="enemy">
+          <sprite>sprites\spr_lazer_blue_02</sprite>
+          <sprite>sprites\spr_lazer_blue_03</sprite>
+          <sprite>sprites\spr_lazer_blue_12</sprite>
+          <sprite>sprites\spr_lazer_blue_13</sprite>
+        </sprites>
+        <sprites name="player">
+          <sprites name="solid">
+            <sprite>sprites\spr_lazer_blue_04</sprite>
+            <sprite>sprites\spr_lazer_blue_05</sprite>
+            <sprite>sprites\spr_lazer_blue_14</sprite>
+            <sprite>sprites\spr_lazer_blue_15</sprite>
+          </sprites>
+          <sprites name="gradient">
+            <sprite>sprites\spr_lazer_blue_01</sprite>
+            <sprite>sprites\spr_lazer_blue_06</sprite>
+            <sprite>sprites\spr_lazer_blue_07</sprite>
+            <sprite>sprites\spr_lazer_blue_16</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="other">
+          <sprite>sprites\spr_lazer_blue_08</sprite>
+          <sprite>sprites\spr_lazer_blue_09</sprite>
+          <sprite>sprites\spr_lazer_blue_10</sprite>
+          <sprite>sprites\spr_lazer_blue_11</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="green">
+        <sprites name="enemy">
+          <sprite>sprites\spr_lazer_green_02</sprite>
+          <sprite>sprites\spr_lazer_green_03</sprite>
+          <sprite>sprites\spr_lazer_green_12</sprite>
+          <sprite>sprites\spr_lazer_green_13</sprite>
+        </sprites>
+        <sprites name="player">
+          <sprites name="solid">
+            <sprite>sprites\spr_lazer_green_04</sprite>
+            <sprite>sprites\spr_lazer_green_05</sprite>
+            <sprite>sprites\spr_lazer_green_14</sprite>
+            <sprite>sprites\spr_lazer_green_15</sprite>
+          </sprites>
+          <sprites name="gradient">
+            <sprite>sprites\spr_lazer_green_01</sprite>
+            <sprite>sprites\spr_lazer_green_06</sprite>
+            <sprite>sprites\spr_lazer_green_07</sprite>
+            <sprite>sprites\spr_lazer_green_16</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="other">
+          <sprite>sprites\spr_lazer_green_08</sprite>
+          <sprite>sprites\spr_lazer_green_09</sprite>
+          <sprite>sprites\spr_lazer_green_10</sprite>
+          <sprite>sprites\spr_lazer_green_11</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="red">
+        <sprites name="enemy">
+          <sprite>sprites\spr_lazer_red_02</sprite>
+          <sprite>sprites\spr_lazer_red_03</sprite>
+          <sprite>sprites\spr_lazer_red_12</sprite>
+          <sprite>sprites\spr_lazer_red_13</sprite>
+        </sprites>
+        <sprites name="player">
+          <sprites name="solid">
+            <sprite>sprites\spr_lazer_red_04</sprite>
+            <sprite>sprites\spr_lazer_red_05</sprite>
+            <sprite>sprites\spr_lazer_red_14</sprite>
+            <sprite>sprites\spr_lazer_red_15</sprite>
+          </sprites>
+          <sprites name="gradient">
+            <sprite>sprites\spr_lazer_red_01</sprite>
+            <sprite>sprites\spr_lazer_red_06</sprite>
+            <sprite>sprites\spr_lazer_red_07</sprite>
+            <sprite>sprites\spr_lazer_red_16</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="other">
+          <sprite>sprites\spr_lazer_red_08</sprite>
+          <sprite>sprites\spr_lazer_red_09</sprite>
+          <sprite>sprites\spr_lazer_red_10</sprite>
+          <sprite>sprites\spr_lazer_red_11</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="player">
-      <sprite>sprites\spr_player_blue_1</sprite>
+      <sprites name="blue">
+        <sprite>sprites\spr_player_blue_1</sprite>
+        <sprite>sprites\spr_player_blue_2</sprite>
+        <sprite>sprites\spr_player_blue_3</sprite>
+      </sprites>
+      <sprites name="green">
+        <sprite>sprites\spr_player_green_1</sprite>
+        <sprite>sprites\spr_player_green_2</sprite>
+        <sprite>sprites\spr_player_green_3</sprite>
+      </sprites>
+      <sprites name="red">
+        <sprite>sprites\spr_player_red_1</sprite>
+        <sprite>sprites\spr_player_red_2</sprite>
+        <sprite>sprites\spr_player_red_3</sprite>
+      </sprites>
     </sprites>
     <sprites name="meteor">
-      <sprite>sprites\spr_meteor_brown_big_1</sprite>
+      <sprites name="brown">
+        <sprites name="big">
+          <sprite>sprites\spr_meteor_brown_big_1</sprite>
+          <sprite>sprites\spr_meteor_brown_big_2</sprite>
+          <sprite>sprites\spr_meteor_brown_big_3</sprite>
+          <sprite>sprites\spr_meteor_brown_big_4</sprite>
+        </sprites>
+        <sprites name="med">
+          <sprite>sprites\spr_meteor_brown_med_1</sprite>
+          <sprite>sprites\spr_meteor_brown_med_2</sprite>
+        </sprites>
+        <sprites name="small">
+          <sprite>sprites\spr_meteor_brown_small_1</sprite>
+          <sprite>sprites\spr_meteor_brown_small_2</sprite>
+        </sprites>
+        <sprites name="tiny">
+          <sprite>sprites\spr_meteor_brown_tiny_1</sprite>
+          <sprite>sprites\spr_meteor_brown_tiny_2</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="grey">
+        <sprites name="big">
+          <sprite>sprites\spr_meteor_grey_big_1</sprite>
+          <sprite>sprites\spr_meteor_grey_big_2</sprite>
+          <sprite>sprites\spr_meteor_grey_big_3</sprite>
+          <sprite>sprites\spr_meteor_grey_big_4</sprite>
+        </sprites>
+        <sprites name="med">
+          <sprite>sprites\spr_meteor_grey_med_1</sprite>
+          <sprite>sprites\spr_meteor_grey_med_2</sprite>
+        </sprites>
+        <sprites name="small">
+          <sprite>sprites\spr_meteor_grey_small_1</sprite>
+          <sprite>sprites\spr_meteor_grey_small_2</sprite>
+        </sprites>
+        <sprites name="tiny">
+          <sprite>sprites\spr_meteor_grey_tiny_1</sprite>
+          <sprite>sprites\spr_meteor_grey_tiny_2</sprite>
+        </sprites>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
+    <background>background\blue</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts"/>
   <objects name="objects">
     <objects name="enemy">
-      <object>objects\obj_enemy_black_1</object>
+      <object>objects\enemy_spawner</object>
+      <object>objects\obj_enemy_1</object>
     </objects>
     <objects name="lazer">
-      <object>objects\obj_lazer_blue_1</object>
-    </objects>
-    <objects name="player">
-      <object>objects\obj_player_blue_1</object>
+      <object>objects\obj_lazer</object>
+      <object>objects\obj_lazer_enemy</object>
     </objects>
     <objects name="meteor">
-      <object>objects\obj_meteor_brown_big_1</object>
+      <object>objects\obj_meteor_big</object>
+    </objects>
+    <objects name="player">
+      <object>objects\obj_player</object>
     </objects>
   </objects>
   <rooms name="rooms">

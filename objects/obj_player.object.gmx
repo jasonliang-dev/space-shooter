@@ -30,6 +30,8 @@ vy = 0
 ax = 0
 ay = 0
 
+hit_points = 5
+
 can_shoot = 0
 
 SPEED = 2
@@ -95,7 +97,7 @@ image_angle = POINT_TOWARD_MOUSE - 90
 // shoot a lazer
 if (SHOOT and can_shoot &gt; 4) {
     can_shoot = 0
-    NEW_LAZER = instance_create(x, y, obj_lazer_blue_1)
+    NEW_LAZER = instance_create(x, y, obj_lazer)
     NEW_LAZER.image_angle = image_angle
     NEW_LAZER.direction = image_angle + 90
 }
