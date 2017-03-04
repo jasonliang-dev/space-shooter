@@ -83,8 +83,8 @@ vx += ax
 vy += ay
 
 // don't let the player move faster than MAX_SPEED (yes, air resistance in space...)
-if (MAX_SPEED &lt; abs(vx)) vx = MAX_SPEED * sign(vx)
-if (MAX_SPEED &lt; abs(vy)) vy = MAX_SPEED * sign(vy)
+vx = clamp(vx, -MAX_SPEED, MAX_SPEED)
+vy = clamp(vy, -MAX_SPEED, MAX_SPEED)
 
 // apply velocity to position
 x += vx
@@ -97,9 +97,10 @@ image_angle = POINT_TOWARD_MOUSE - 90
 // shoot a lazer
 if (SHOOT and can_shoot &gt; 4) {
     can_shoot = 0
-    NEW_LAZER = instance_create(x, y, obj_lazer)
+    NEW_LAZER = instance_create(x, y, obj_lazer_player)
     NEW_LAZER.image_angle = image_angle
     NEW_LAZER.direction = image_angle + 90
+    audio_play_sound(sfx_lazer1, 0, false)
 }
 </string>
           </argument>

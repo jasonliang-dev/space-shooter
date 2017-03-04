@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sfx_lazer1</sound>
+    <sound>sound\sfx_lazer2</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="enemy">
       <sprites name="black">
@@ -183,20 +186,30 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\blue</background>
+    <background>background\bg_blue</background>
+    <background>background\bg_dark_purple</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\spawner.gml</script>
+    <script>scripts\meteor_split.gml</script>
+  </scripts>
   <objects name="objects">
     <objects name="enemy">
-      <object>objects\enemy_spawner</object>
+      <object>objects\spawner_enemy</object>
       <object>objects\obj_enemy_1</object>
     </objects>
     <objects name="lazer">
-      <object>objects\obj_lazer</object>
+      <object>objects\obj_lazer_parent</object>
+      <object>objects\obj_lazer_player</object>
       <object>objects\obj_lazer_enemy</object>
     </objects>
     <objects name="meteor">
+      <object>objects\spawner_meteor</object>
+      <object>objects\obj_meteor_parent</object>
       <object>objects\obj_meteor_big</object>
+      <object>objects\obj_meteor_med</object>
+      <object>objects\obj_meteor_small</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
