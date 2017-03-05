@@ -30,12 +30,12 @@ vy = 0
 ax = 0
 ay = 0
 
-hit_points = 5
+player_health = 5
 
 can_shoot = 0
 
-SPEED = 2
 MAX_SPEED = 12
+point_toward_mouse = 0
 </string>
           </argument>
         </arguments>
@@ -64,19 +64,17 @@ LEFT  = keyboard_check(ord("A"))
 DOWN  = keyboard_check(ord("S"))
 RIGHT = keyboard_check(ord("D"))
 
-DASH  = mouse_check_button(mb_left)
-SHOOT = mouse_check_button(mb_right)
-
-// increment counter
-can_shoot++
+DASHING  = mouse_check_button(mb_left)
+SHOOTING = mouse_check_button(mb_right)
 
 // acceleration
-ax = (RIGHT - LEFT) * SPEED
-ay = (DOWN - UP) * SPEED
+ax = (RIGHT - LEFT)
+ay = (DOWN - UP)
 
 // friction (in space? what??)
-vx -= sign(vx)
-vy -= sign(vy)
+FRICTION_STRENGTH = 10 // higher = weaker
+vx -= sign(vx) / FRICTION_STRENGTH
+vy -= sign(vy) / FRICTION_STRENGTH
 
 // apply acceleration
 vx += ax
@@ -90,18 +88,51 @@ vy = clamp(vy, -MAX_SPEED, MAX_SPEED)
 x += vx
 y += vy
 
+// player is always within the room
+x = clamp(x, 0, room_width)
+y = clamp(y, 0, room_height)
+
 // player faces the cursor
-POINT_TOWARD_MOUSE = point_direction(x, y, mouse_x, mouse_y)
-image_angle = POINT_TOWARD_MOUSE - 90
+point_toward_mouse = point_direction(x, y, mouse_x, mouse_y)
+image_angle = point_toward_mouse - 90
 
 // shoot a lazer
-if (SHOOT and can_shoot &gt; 4) {
+can_shoot++
+if (SHOOTING and can_shoot &gt; 4) {
     can_shoot = 0
-    NEW_LAZER = instance_create(x, y, obj_lazer_player)
-    NEW_LAZER.image_angle = image_angle
-    NEW_LAZER.direction = image_angle + 90
+    new_lazer = instance_create(x, y, obj_lazer_player)
+    new_lazer.image_angle = image_angle
+    new_lazer.direction = image_angle + 90
     audio_play_sound(sfx_lazer1, 0, false)
 }
+else if (!SHOOTING) {
+    //TODO: HEALTH SYSTEM
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_lazer_enemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with other instance_destroy()
+global.damaged = true
+player_health--
 </string>
           </argument>
         </arguments>

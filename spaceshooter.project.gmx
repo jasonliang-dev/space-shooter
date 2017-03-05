@@ -38,6 +38,12 @@
         <sprite>sprites\spr_enemy_red_4</sprite>
         <sprite>sprites\spr_enemy_red_5</sprite>
       </sprites>
+      <sprites name="ufo">
+        <sprite>sprites\spr_ufo_blue</sprite>
+        <sprite>sprites\spr_ufo_green</sprite>
+        <sprite>sprites\spr_ufo_red</sprite>
+        <sprite>sprites\spr_ufo_yellow</sprite>
+      </sprites>
     </sprites>
     <sprites name="lazer">
       <sprites name="blue">
@@ -184,6 +190,7 @@
         </sprites>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_debug</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_blue</background>
@@ -194,9 +201,15 @@
     <script>scripts\spawner.gml</script>
     <script>scripts\meteor_split.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_kenvector_future</font>
+  </fonts>
   <objects name="objects">
+    <object>objects\ctrl_camera</object>
+    <object>objects\ctrl_global</object>
+    <object>objects\ctrl_hud</object>
     <objects name="enemy">
-      <object>objects\spawner_enemy</object>
+      <object>objects\ctrl_spawner_enemy</object>
       <object>objects\obj_enemy_1</object>
     </objects>
     <objects name="lazer">
@@ -205,11 +218,12 @@
       <object>objects\obj_lazer_enemy</object>
     </objects>
     <objects name="meteor">
-      <object>objects\spawner_meteor</object>
+      <object>objects\ctrl_spawner_meteor</object>
       <object>objects\obj_meteor_parent</object>
       <object>objects\obj_meteor_big</object>
       <object>objects\obj_meteor_med</object>
       <object>objects\obj_meteor_small</object>
+      <object>objects\obj_meteor_tiny</object>
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>

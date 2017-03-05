@@ -25,12 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 8
-speed = 8
+            <string>hit_points = 2
+speed = 12
 
 switch (irandom(2)) {
-    case 0: sprite_index = spr_meteor_brown_small_1; break
-    case 1: sprite_index = spr_meteor_brown_small_2; break
+    case 0: sprite_index = spr_meteor_brown_tiny_1; break
+    case 1: sprite_index = spr_meteor_brown_tiny_2; break
 }
 </string>
           </argument>
@@ -54,9 +54,8 @@ switch (irandom(2)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global._score += 150
+            <string>global._score += 300
 effect_create_above(ef_explosion, x, y, 1, c_orange)
-meteor_split(2, obj_meteor_tiny)
 </string>
           </argument>
         </arguments>

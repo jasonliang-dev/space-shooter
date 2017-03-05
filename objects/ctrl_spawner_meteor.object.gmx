@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_meteor_parent</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,19 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 8
-speed = 8
+            <string>METEOR_SPAWN_RATE = 3 * room_speed
 
-switch (irandom(2)) {
-    case 0: sprite_index = spr_meteor_brown_small_1; break
-    case 1: sprite_index = spr_meteor_brown_small_2; break
-}
+alarm[0] = METEOR_SPAWN_RATE
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,9 +50,13 @@ switch (irandom(2)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global._score += 150
-effect_create_above(ef_explosion, x, y, 1, c_orange)
-meteor_split(2, obj_meteor_tiny)
+            <string>if (irandom(1) &lt; 0.5) SPAWN_OBJECT = obj_meteor_big
+else SPAWN_OBJECT = obj_meteor_med
+NEW_METEOR = spawner(SPAWN_OBJECT)
+NEW_METEOR.direction = irandom(360)
+NEW_METEOR.image_angle = irandom(360)
+
+alarm[0] = METEOR_SPAWN_RATE
 </string>
           </argument>
         </arguments>
