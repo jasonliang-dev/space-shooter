@@ -1,12 +1,12 @@
 /// spawner(obj)
-rand_x = 0
-rand_y = 0
 
+// get the edges of the current view
 LEFT_END   = view_xview[0]
 RIGHT_END  = LEFT_END + view_wview[0]
 TOP_END    = view_yview[0]
 BOTTOM_END = TOP_END + view_hview[0]
 
+// create new x and y positions that are NOT in the view
 do {
     rand_x = irandom(room_width)
     rand_y = irandom(room_height)
@@ -14,6 +14,7 @@ do {
     in_range_y = TOP_END < rand_y and rand_y < BOTTOM_END
 } until (!(in_range_x and in_range_y))
 
-NEW_OBJECT = instance_create(rand_x, rand_y, argument0)
+// create the object
+new_object = instance_create(rand_x, rand_y, argument0)
 
-return NEW_OBJECT
+return new_object

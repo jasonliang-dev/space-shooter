@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>METEOR_SPAWN_RATE = 2 * room_speed
+            <string>METEOR_SPAWN_RATE = room_speed / 2
 
 alarm[0] = METEOR_SPAWN_RATE
 </string>

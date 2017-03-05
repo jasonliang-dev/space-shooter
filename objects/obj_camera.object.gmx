@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>INITIAL_VALUE = 10
+            <string>big_shake = false
+small_shake = false
+
+INITIAL_VALUE = 10
 big_shake_counter = INITIAL_VALUE
 </string>
           </argument>
@@ -49,44 +52,36 @@ big_shake_counter = INITIAL_VALUE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SMALL_SHAKE = 10
-BIG_SHAKE = 24
+            <string>SMALL_SHAKE_VALUE = 10
+BIG_SHAKE_VALUE = 24
 
 // create a large shake when the player is hit
 // the camera continues to shake for multiple steps
-if (obj_player.damaged or big_shake_counter != INITIAL_VALUE) {
-    obj_player.damaged = false
+if (big_shake or big_shake_counter != INITIAL_VALUE) {
+    big_shake = false
     big_shake_counter--
     if (big_shake_counter = 0) big_shake_counter = INITIAL_VALUE
     
-    do shake_offset = irandom_range(-BIG_SHAKE, BIG_SHAKE)
-    until (abs(shake_offset) &gt; BIG_SHAKE / 2) // camera shake shouldn't be too small
+    do shake_offset = irandom_range(-BIG_SHAKE_VALUE, BIG_SHAKE_VALUE)
+    until (abs(shake_offset) &gt; BIG_SHAKE_VALUE / 2) // camera shake shouldn't be too small
 }
 // smaller shake when an enemy is hit
-else if (global.hit) {
-    global.hit = false
+else if (small_shake) {
+    small_shake = false
     
-    do shake_offset = irandom_range(-SMALL_SHAKE, SMALL_SHAKE)
-    until (abs(shake_offset) &gt; SMALL_SHAKE / 2)
+    do shake_offset = irandom_range(-SMALL_SHAKE_VALUE, SMALL_SHAKE_VALUE)
+    until (abs(shake_offset) &gt; SMALL_SHAKE_VALUE / 2)
 }
 else shake_offset = 0
 
-DISTANCE = 30
+DISTANCE = 20
 DIRECTION = obj_player.point_toward_mouse
 x = obj_player.x + lengthdir_x(DISTANCE, DIRECTION)
-y = obj_player.y + shake_offset + lengthdir_y(DISTANCE, DIRECTION)
+y = obj_player.y + lengthdir_y(DISTANCE, DIRECTION) + shake_offset
 
 // make sure that the view is within the room
 HALF_VIEW_X = view_wview[0] / 2
 HALF_VIEW_Y = view_hview[0] / 2
-
-/*
-if (x &lt; HALF_VIEW_X) x = HALF_VIEW_X
-else if (x &gt; room_width - HALF_VIEW_X) x = room_width - HALF_VIEW_X
-if (y &lt; HALF_VIEW_Y) y = HALF_VIEW_Y
-else if (y &gt; room_height - HALF_VIEW_Y) y = room_height - HALF_VIEW_Y
-*/
-
 x = clamp(x, HALF_VIEW_X, room_width - HALF_VIEW_X)
 y = clamp(y, HALF_VIEW_Y, room_height - HALF_VIEW_Y)
 

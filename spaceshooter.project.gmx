@@ -9,6 +9,7 @@
     <sound>sound\sfx_lazer2</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\spr_debug</sprite>
     <sprites name="enemy">
       <sprites name="black">
@@ -222,12 +223,13 @@
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
-    <object>objects\ctrl_global</object>
     <object>objects\ctrl_hud</object>
+    <object>objects\obj_cursor</object>
     <object>objects\obj_camera</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
-      <object>objects\obj_enemy_1</object>
+      <object>objects\obj_enemy_black</object>
+      <object>objects\obj_enemy_blue</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>

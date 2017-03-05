@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 8
+            <string>hit_points = 4
 speed = 8
 
-switch (irandom(2)) {
+switch (irandom(1)) {
     case 0: sprite_index = spr_meteor_brown_small_1; break
     case 1: sprite_index = spr_meteor_brown_small_2; break
 }

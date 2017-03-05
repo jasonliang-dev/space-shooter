@@ -25,14 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 25
+            <string>/// hp, speed, sprite
+
+hit_points = 16
 speed = 2
 
 switch (irandom(3)) {
     case 0: sprite_index = spr_meteor_brown_big_1; break
     case 1: sprite_index = spr_meteor_brown_big_2; break
     case 2: sprite_index = spr_meteor_brown_big_3; break
-    case 4: sprite_index = spr_meteor_brown_big_4; break
+    case 3: sprite_index = spr_meteor_brown_big_4; break
 }
 </string>
           </argument>
@@ -56,8 +58,35 @@ switch (irandom(3)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>effect_create_above(ef_explosion, x, y, 5, c_orange)
+            <string>/// effects, meteor split
+
+effect_create_above(ef_explosion, x, y, 5, c_orange)
 meteor_split(3, obj_meteor_med)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_lazer_parent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited()
+
+if (random(1) &lt; 0.2) meteor_split(1, obj_meteor_tiny)
 </string>
           </argument>
         </arguments>

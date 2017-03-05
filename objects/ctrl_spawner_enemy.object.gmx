@@ -50,7 +50,7 @@ alarm[0] = ENEMY_SPAWN_RATE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawner(obj_enemy_1)
+            <string>spawner(obj_enemy_black)
 
 alarm[0] = ENEMY_SPAWN_RATE
 </string>

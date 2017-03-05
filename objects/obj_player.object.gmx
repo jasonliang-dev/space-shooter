@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vx = 0
+            <string>/// variables
+
+game_score = 0
+
+vx = 0
 vy = 0
 ax = 0
 ay = 0
@@ -36,7 +40,38 @@ point_toward_mouse = 0
 MAX_SPEED = 12
 
 invulnerable = false
-damaged = false
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// blink
+
+if (invulnerable) {
+    visible = !visible
+    alarm[1] = room_speed / 5
+}
+else {
+    visible = true
+}
 </string>
           </argument>
         </arguments>
@@ -59,7 +94,8 @@ damaged = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>invulnerable = false
+            <string>/// vulnerable
+invulnerable = false
 </string>
           </argument>
         </arguments>
@@ -82,14 +118,21 @@ damaged = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// user input
+            <string>/// a bunch of stuff
+
+// user input
 UP    = keyboard_check(ord("W"))
 LEFT  = keyboard_check(ord("A"))
 DOWN  = keyboard_check(ord("S"))
 RIGHT = keyboard_check(ord("D"))
 
-DASHING  = mouse_check_button(mb_left)
+BOMB = mouse_check_button(mb_left)
 SHOOTING = mouse_check_button(mb_right)
+
+point_toward_mouse = point_direction(x, y, mouse_x, mouse_y)
+
+// score is never under 0
+if (game_score &lt; 0) game_score = 0
 
 // acceleration
 ax = (RIGHT - LEFT)
@@ -117,20 +160,22 @@ x = clamp(x, 0, room_width)
 y = clamp(y, 0, room_height)
 
 // player faces the cursor
-point_toward_mouse = point_direction(x, y, mouse_x, mouse_y)
 image_angle = point_toward_mouse - 90
 
 // shoot a lazer
 can_shoot++
-if (SHOOTING and can_shoot &gt; 4) {
+if (BOMB) {
+    //TODO: BOMB SYSTEM
+}
+else if (!SHOOTING) {
+    //TODO: HEALTH SYSTEM
+}
+else if (can_shoot &gt; 4) {
     can_shoot = 0
     new_lazer = instance_create(x, y, obj_lazer_player)
     new_lazer.image_angle = image_angle
     new_lazer.direction = image_angle + 90
     audio_play_sound(sfx_lazer1, 0, false)
-}
-else if (!SHOOTING) {
-    //TODO: HEALTH SYSTEM
 }
 </string>
           </argument>
@@ -154,13 +199,21 @@ else if (!SHOOTING) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!invulnerable) {
+            <string>/// invulnerable
+
+if (!invulnerable) {
     invulnerable = true
-    with other instance_destroy()
-    global._score -= 300
-    damaged = true
+    obj_camera.big_shake = true
+    
+    with other {
+        effect_create_above(ef_ring, x, y, 5, c_red)
+        instance_destroy()
+    }
+    game_score -= 300
     hit_points--
+    
     alarm[0] = 3 * room_speed
+    alarm[1] = 1
 }
 </string>
           </argument>
