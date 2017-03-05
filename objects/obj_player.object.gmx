@@ -30,12 +30,36 @@ vy = 0
 ax = 0
 ay = 0
 
-player_health = 5
-
+hit_points = 5
 can_shoot = 0
-
-MAX_SPEED = 12
 point_toward_mouse = 0
+MAX_SPEED = 12
+
+invulnerable = false
+damaged = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>invulnerable = false
 </string>
           </argument>
         </arguments>
@@ -130,9 +154,14 @@ else if (!SHOOTING) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with other instance_destroy()
-global.damaged = true
-player_health--
+            <string>if (!invulnerable) {
+    invulnerable = true
+    with other instance_destroy()
+    global._score -= 300
+    damaged = true
+    hit_points--
+    alarm[0] = 3 * room_speed
+}
 </string>
           </argument>
         </arguments>

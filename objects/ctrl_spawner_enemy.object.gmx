@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ENEMY_ONE_RATE = 5 * room_speed
+            <string>ENEMY_SPAWN_RATE = 5 * room_speed
 
-alarm[0] = ENEMY_ONE_RATE
+alarm[0] = ENEMY_SPAWN_RATE
 </string>
           </argument>
         </arguments>
@@ -52,7 +52,7 @@ alarm[0] = ENEMY_ONE_RATE
             <kind>1</kind>
             <string>spawner(obj_enemy_1)
 
-alarm[0] = ENEMY_ONE_RATE
+alarm[0] = ENEMY_SPAWN_RATE
 </string>
           </argument>
         </arguments>

@@ -9,6 +9,7 @@
     <sound>sound\sfx_lazer2</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\spr_debug</sprite>
     <sprites name="enemy">
       <sprites name="black">
         <sprite>sprites\spr_enemy_black_1</sprite>
@@ -190,7 +191,23 @@
         </sprites>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_debug</sprite>
+    <sprites name="life">
+      <sprites name="blue">
+        <sprite>sprites\spr_life_blue_1</sprite>
+        <sprite>sprites\spr_life_blue_2</sprite>
+        <sprite>sprites\spr_life_blue_3</sprite>
+      </sprites>
+      <sprites name="green">
+        <sprite>sprites\spr_life_green_1</sprite>
+        <sprite>sprites\spr_life_green_2</sprite>
+        <sprite>sprites\spr_life_green_3</sprite>
+      </sprites>
+      <sprites name="red">
+        <sprite>sprites\spr_life_red_1</sprite>
+        <sprite>sprites\spr_life_red_2</sprite>
+        <sprite>sprites\spr_life_red_3</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_blue</background>
@@ -205,9 +222,9 @@
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
-    <object>objects\ctrl_camera</object>
     <object>objects\ctrl_global</object>
     <object>objects\ctrl_hud</object>
+    <object>objects\obj_camera</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
       <object>objects\obj_enemy_1</object>

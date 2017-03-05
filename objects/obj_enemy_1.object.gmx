@@ -89,9 +89,9 @@ image_angle = direction - 90
 can_shoot++
 if (can_shoot &gt; 7) {
     can_shoot = 0
-    NEW_LAZER = instance_create(x, y, obj_lazer_enemy)
-    NEW_LAZER.direction = direction
-    NEW_LAZER.image_angle = image_angle
+    new_lazer = instance_create(x, y, obj_lazer_enemy)
+    new_lazer.direction = direction
+    new_lazer.image_angle = image_angle
     audio_play_sound(sfx_lazer2, 0, false)
 }
 </string>

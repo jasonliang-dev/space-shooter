@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>global._score = 0
 global.hit = false
-global.damaged = false
 </string>
           </argument>
         </arguments>

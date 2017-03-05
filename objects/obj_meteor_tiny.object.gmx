@@ -54,8 +54,7 @@ switch (irandom(2)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global._score += 300
-effect_create_above(ef_explosion, x, y, 1, c_orange)
+            <string>effect_create_above(ef_explosion, x, y, 1, c_orange)
 </string>
           </argument>
         </arguments>
