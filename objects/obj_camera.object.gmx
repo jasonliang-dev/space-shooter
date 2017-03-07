@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>big_shake = false
-small_shake = false
+            <string>shaking = false
 
-INITIAL_VALUE = 10
-big_shake_counter = INITIAL_VALUE
+shake_counter = 0
+shake_value = 0
+shake_strength = 0
+
+DISTANCE = 20
 </string>
           </argument>
         </arguments>
@@ -52,38 +54,27 @@ big_shake_counter = INITIAL_VALUE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>SMALL_SHAKE_VALUE = 10
-BIG_SHAKE_VALUE = 24
-
-// create a large shake when the player is hit
-// the camera continues to shake for multiple steps
-if (big_shake or big_shake_counter != INITIAL_VALUE) {
-    big_shake = false
-    big_shake_counter--
-    if (big_shake_counter = 0) big_shake_counter = INITIAL_VALUE
-    
-    do shake_offset = irandom_range(-BIG_SHAKE_VALUE, BIG_SHAKE_VALUE)
-    until (abs(shake_offset) &gt; BIG_SHAKE_VALUE / 2) // camera shake shouldn't be too small
-}
-// smaller shake when an enemy is hit
-else if (small_shake) {
-    small_shake = false
-    
-    do shake_offset = irandom_range(-SMALL_SHAKE_VALUE, SMALL_SHAKE_VALUE)
-    until (abs(shake_offset) &gt; SMALL_SHAKE_VALUE / 2)
+            <string>// camera shake!
+if (shaking) {
+    shake_counter++
+    if (shake_counter &gt;= shake_value) {
+        shaking = false
+        shake_counter = 0
+    }
+    do shake_offset = irandom_range(-shake_strength, shake_strength)
+    until (abs(shake_offset) &gt; shake_strength / 2) // camera shake shouldn't be too small
 }
 else shake_offset = 0
 
-DISTANCE = 20
-DIRECTION = obj_player.point_toward_mouse
-x = obj_player.x + lengthdir_x(DISTANCE, DIRECTION)
-y = obj_player.y + lengthdir_y(DISTANCE, DIRECTION) + shake_offset
+player_direction = obj_player.direction_towards_mouse
+x = obj_player.x + lengthdir_x(DISTANCE, player_direction)
+y = obj_player.y + lengthdir_y(DISTANCE, player_direction) + shake_offset
 
 // make sure that the view is within the room
-HALF_VIEW_X = view_wview[0] / 2
-HALF_VIEW_Y = view_hview[0] / 2
-x = clamp(x, HALF_VIEW_X, room_width - HALF_VIEW_X)
-y = clamp(y, HALF_VIEW_Y, room_height - HALF_VIEW_Y)
+half_view_x = view_wview[0] / 2
+half_view_y = view_hview[0] / 2
+x = clamp(x, half_view_x, room_width - half_view_x)
+y = clamp(y, half_view_y, room_height - half_view_y)
 
 </string>
           </argument>

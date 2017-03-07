@@ -5,12 +5,20 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sound>sound\sfx_lose</sound>
     <sound>sound\sfx_lazer1</sound>
     <sound>sound\sfx_lazer2</sound>
+    <sound>sound\sfx_two_tone</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\spr_debug</sprite>
+    <sprites name="ufo">
+      <sprite>sprites\spr_ufo_blue</sprite>
+      <sprite>sprites\spr_ufo_green</sprite>
+      <sprite>sprites\spr_ufo_red</sprite>
+      <sprite>sprites\spr_ufo_yellow</sprite>
+    </sprites>
     <sprites name="enemy">
       <sprites name="black">
         <sprite>sprites\spr_enemy_black_1</sprite>
@@ -39,12 +47,6 @@
         <sprite>sprites\spr_enemy_red_3</sprite>
         <sprite>sprites\spr_enemy_red_4</sprite>
         <sprite>sprites\spr_enemy_red_5</sprite>
-      </sprites>
-      <sprites name="ufo">
-        <sprite>sprites\spr_ufo_blue</sprite>
-        <sprite>sprites\spr_ufo_green</sprite>
-        <sprite>sprites\spr_ufo_red</sprite>
-        <sprite>sprites\spr_ufo_yellow</sprite>
       </sprites>
     </sprites>
     <sprites name="lazer">
@@ -149,6 +151,7 @@
         <sprite>sprites\spr_player_red_2</sprite>
         <sprite>sprites\spr_player_red_3</sprite>
       </sprites>
+      <sprite>sprites\spr_hitbox</sprite>
     </sprites>
     <sprites name="meteor">
       <sprites name="brown">
@@ -209,6 +212,11 @@
         <sprite>sprites\spr_life_red_3</sprite>
       </sprites>
     </sprites>
+    <sprites name="shield">
+      <sprite>sprites\spr_shield_1</sprite>
+      <sprite>sprites\spr_shield_2</sprite>
+      <sprite>sprites\spr_shield_3</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_blue</background>
@@ -218,18 +226,23 @@
   <scripts name="scripts">
     <script>scripts\spawner.gml</script>
     <script>scripts\meteor_split.gml</script>
+    <script>scripts\hit_stun.gml</script>
+    <script>scripts\shake_camera.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
     <object>objects\ctrl_hud</object>
+    <object>objects\ctrl_hit_stun</object>
     <object>objects\obj_cursor</object>
     <object>objects\obj_camera</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
       <object>objects\obj_enemy_black</object>
       <object>objects\obj_enemy_blue</object>
+      <object>objects\obj_enemy_green</object>
+      <object>objects\obj_enemy_red</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>
@@ -246,6 +259,7 @@
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
+      <object>objects\obj_hitbox</object>
     </objects>
   </objects>
   <rooms name="rooms">

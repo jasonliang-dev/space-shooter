@@ -35,10 +35,14 @@ score_y = VIEW_Y + 50
 
 draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 
-draw_set_colour(c_white)
 draw_set_font(fnt_kenvector_future)
-draw_text(score_x, score_y, obj_player.game_score)
+draw_set_colour(c_gray)
+draw_text(score_x, score_y, obj_player.session_high_score)
+draw_set_colour(c_white)
+draw_text(score_x, score_y + 30, obj_player.game_score)
 draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
+draw_set_colour(c_aqua)
+draw_text(score_x, score_y + 60, obj_player.graze_score)
 </string>
           </argument>
         </arguments>
