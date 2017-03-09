@@ -26,6 +26,33 @@
           <argument>
             <kind>1</kind>
             <string>speed = 30
+TYPE = "PARENT"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_lazer_parent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (TYPE != other.TYPE) {
+    effect_create_above(ef_ring, x, y, 0.5, c_white)
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

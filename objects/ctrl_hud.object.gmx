@@ -28,19 +28,23 @@
             <string>VIEW_X = obj_camera.x - (view_wview[0] / 2)
 VIEW_Y = obj_camera.y - (view_hview[0] / 2)
 
-life_x = VIEW_X + 60
-life_y = VIEW_Y + view_hview[0] - 50
 score_x = VIEW_X + 50
 score_y = VIEW_Y + 50
+life_x = VIEW_X + 60
+life_y = VIEW_Y + view_hview[0] - 50
+ammo_x = VIEW_X + view_wview[0] - 100
+ammo_y = life_y
 
 draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 
 draw_set_font(fnt_kenvector_future)
 draw_set_colour(c_gray)
 draw_text(score_x, score_y, obj_player.session_high_score)
+draw_text(ammo_x, ammo_y - 18, obj_player.total_ammo)
 draw_set_colour(c_white)
 draw_text(score_x, score_y + 30, obj_player.game_score)
 draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
+draw_text(ammo_x, ammo_y - 48, obj_player.ammo)
 draw_set_colour(c_aqua)
 draw_text(score_x, score_y + 60, obj_player.graze_score)
 </string>

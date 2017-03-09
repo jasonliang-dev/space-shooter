@@ -231,27 +231,27 @@
         <sprite>sprites\spr_ui_blue_panel</sprite>
         <sprite>sprites\spr_ui_grey_panel</sprite>
       </sprites>
-      <sprites name="powerup">
-        <sprites name="bolt">
-          <sprite>sprites\spr_powerup_bolt_bronze</sprite>
-          <sprite>sprites\spr_powerup_bolt_silver</sprite>
-          <sprite>sprites\spr_powerup_bolt_gold</sprite>
-        </sprites>
-        <sprites name="shield">
-          <sprite>sprites\spr_powerup_shield_bronze</sprite>
-          <sprite>sprites\spr_powerup_shield_silver</sprite>
-          <sprite>sprites\spr_powerup_shield_gold</sprite>
-        </sprites>
-        <sprites name="pill">
-          <sprite>sprites\spr_powerup_pill_blue</sprite>
-          <sprite>sprites\spr_powerup_pill_green</sprite>
-          <sprite>sprites\spr_powerup_pill_red</sprite>
-        </sprites>
-        <sprites name="ammo">
-          <sprite>sprites\spr_powerup_ammo_bronze</sprite>
-          <sprite>sprites\spr_powerup_ammo_silver</sprite>
-          <sprite>sprites\spr_powerup_ammo_gold</sprite>
-        </sprites>
+    </sprites>
+    <sprites name="powerup">
+      <sprites name="bolt">
+        <sprite>sprites\spr_powerup_bolt_bronze</sprite>
+        <sprite>sprites\spr_powerup_bolt_silver</sprite>
+        <sprite>sprites\spr_powerup_bolt_gold</sprite>
+      </sprites>
+      <sprites name="shield">
+        <sprite>sprites\spr_powerup_shield_bronze</sprite>
+        <sprite>sprites\spr_powerup_shield_silver</sprite>
+        <sprite>sprites\spr_powerup_shield_gold</sprite>
+      </sprites>
+      <sprites name="pill">
+        <sprite>sprites\spr_powerup_pill_blue</sprite>
+        <sprite>sprites\spr_powerup_pill_green</sprite>
+        <sprite>sprites\spr_powerup_pill_red</sprite>
+      </sprites>
+      <sprites name="ammo">
+        <sprite>sprites\spr_powerup_ammo_bronze</sprite>
+        <sprite>sprites\spr_powerup_ammo_silver</sprite>
+        <sprite>sprites\spr_powerup_ammo_gold</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -297,6 +297,15 @@
     <objects name="player">
       <object>objects\obj_player</object>
       <object>objects\obj_hitbox</object>
+    </objects>
+    <objects name="powerup">
+      <object>objects\obj_powerup_parent</object>
+      <objects name="ammo">
+        <object>objects\obj_powerup_ammo_parent</object>
+        <object>objects\obj_powerup_ammo_bronze</object>
+        <object>objects\obj_powerup_ammo_silver</object>
+        <object>objects\obj_powerup_ammo_gold</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">

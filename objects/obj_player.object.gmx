@@ -36,13 +36,47 @@ vy = 0
 ax = 0
 ay = 0
 
+total_ammo = 90
+ammo = 30
+AMMO_CLIP = ammo
+
 hit_points = 5
 can_shoot = 0
 direction_towards_mouse = 0
-MAX_SPEED = 12
-FRICTION_STRENGTH = 8 // larger = weaker
 
+FRICTION_STRENGTH = 8 // larger = weaker
+MAX_SPEED = 15
+RELOAD_TIME = 2 * room_speed
+
+reloading = false
 invulnerable = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// reload
+reloading = false
+ammo += clamp(total_ammo, 0, AMMO_CLIP)
+total_ammo -= AMMO_CLIP
+if (total_ammo &lt; 0) total_ammo = 0
 </string>
           </argument>
         </arguments>
@@ -126,6 +160,7 @@ LEFT  = keyboard_check(ord("A"))
 DOWN  = keyboard_check(ord("S"))
 RIGHT = keyboard_check(ord("D"))
 
+RELOAD = keyboard_check_pressed(ord("R"))
 BOMB = keyboard_check_pressed(ord("E")) 
 
 SHOOTING = mouse_check_button(mb_left)
@@ -140,8 +175,8 @@ if (game_score &lt; 0) game_score = 0
 if (session_high_score &lt; game_score) session_high_score = game_score
 
 // acceleration
-ax = (RIGHT - LEFT)
-ay = (DOWN - UP)
+ax = (RIGHT - LEFT) / (FOCUS + 1)
+ay = (DOWN - UP) / (FOCUS + 1)
 
 // friction (in space? what??)
 vx -= sign(vx) / FRICTION_STRENGTH
@@ -151,9 +186,10 @@ vy -= sign(vy) / FRICTION_STRENGTH
 vx += ax
 vy += ay
 
-// don't let the player move faster than MAX_SPEED (yes, air resistance in space...)
-vx = clamp(vx, -MAX_SPEED, MAX_SPEED)
-vy = clamp(vy, -MAX_SPEED, MAX_SPEED)
+// don't let the player move faster than temp_max_speed
+temp_max_speed = MAX_SPEED / (FOCUS + 1)
+vx = clamp(vx, -temp_max_speed, temp_max_speed)
+vy = clamp(vy, -temp_max_speed, temp_max_speed)
 
 // apply velocity to position
 x += vx
@@ -166,23 +202,29 @@ y = clamp(y, 0, room_height)
 // player faces the cursor
 image_angle = direction_towards_mouse - 90
 
-// focus
-// TODO: this should be somewhere in shooting
+// hitbox visibility
 obj_hitbox.visible = FOCUS
 
+if (ammo = 0 and !reloading) {
+    reloading = true
+    alarm[2] = RELOAD_TIME
+}
+
 // shoot a lazer
-can_shoot++
+if (!reloading) can_shoot++
 if (BOMB) {
     //TODO: BOMB SYSTEM
 }
 else if (!SHOOTING) {
     //TODO: HEALTH SYSTEM
 }
-else if (can_shoot &gt; 4) {
+else if (can_shoot &gt; 2) {
     can_shoot = 0
+    ammo--
+    rand_offset = irandom_range(-20, 20) / ((FOCUS * 2) + 1)
     new_lazer = instance_create(x, y, obj_lazer_player)
-    new_lazer.image_angle = image_angle
-    new_lazer.direction = image_angle + 90
+    new_lazer.image_angle = image_angle + rand_offset
+    new_lazer.direction = image_angle + 90 + rand_offset
     audio_play_sound(sfx_lazer1, 0, false)
 }
 </string>

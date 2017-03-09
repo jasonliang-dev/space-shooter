@@ -63,6 +63,13 @@ switch (irandom(4)) {
             <string>obj_player.game_score += 100
 shake_camera(10, 24)
 hit_stun(2)
+
+switch (irandom(5)) {
+    case 0: instance_create(x, y, obj_powerup_ammo_bronze) break
+    case 1: instance_create(x, y, obj_powerup_ammo_silver) break
+    case 2: instance_create(x, y, obj_powerup_ammo_gold) break
+}
+
 effect_create_above(ef_explosion, x, y, 1, c_dkgray)
 audio_play_sound(sfx_two_tone, 0, false)
 </string>
