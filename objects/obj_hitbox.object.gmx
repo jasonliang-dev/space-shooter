@@ -78,11 +78,12 @@ y = obj_player.y
 with (obj_player) {
     if (!invulnerable) {
         invulnerable = true
+        hit_points--
+        if (hit_points = 0) obj_player.game_over = true
         shake_camera(24, 10)
         hit_stun(4)
         game_score -= 200
         graze_score = 0
-        hit_points--
         
         effect_create_above(ef_ring, other.x, other.y, 5, c_red)
         audio_play_sound(sfx_lose, 0, false)

@@ -50,6 +50,7 @@ RELOAD_TIME = 2 * room_speed
 
 reloading = false
 invulnerable = false
+game_over = false
 </string>
           </argument>
         </arguments>

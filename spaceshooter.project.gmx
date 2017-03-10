@@ -301,6 +301,7 @@
     <objects name="powerup">
       <object>objects\obj_powerup_parent</object>
       <objects name="ammo">
+        <object>objects\ctrl_spawner_powerup_ammo</object>
         <object>objects\obj_powerup_ammo_parent</object>
         <object>objects\obj_powerup_ammo_bronze</object>
         <object>objects\obj_powerup_ammo_silver</object>
@@ -311,7 +312,6 @@
   <rooms name="rooms">
     <room>rooms\i_dont_know_what_to_call_this___a_place_where_you_go_pew_pew_i_guess</room>
     <room>rooms\main_menu</room>
-    <room>rooms\game_over</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
