@@ -29,10 +29,10 @@
 can_shoot = 0
 speed = 15
 colour = c_lime
+event_inherited()
 
 enemy_list = ds_list_create()
 ds_list_add(enemy_list, spr_enemy_green_1, spr_enemy_green_2, spr_enemy_green_3, spr_enemy_green_4, spr_enemy_green_5)
-
 sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
 </string>
           </argument>
@@ -57,13 +57,13 @@ sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) -
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!obj_player.game_over) {
+if (!global.paused) {
     direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
     direction = direction_towards_player
     image_angle = direction + 90
     
     can_shoot++
-    if (can_shoot &gt; 40) {
+    if (can_shoot &gt; 20) {
         can_shoot = 0
         new_lazer = instance_create(x, y, obj_lazer_enemy_homing)
         new_lazer.direction = direction

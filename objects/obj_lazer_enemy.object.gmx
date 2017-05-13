@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>speed = 24
 colour = c_red
+event_inherited()
 </string>
           </argument>
         </arguments>

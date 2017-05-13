@@ -30,7 +30,7 @@
 
 //top left
 VIEW_X = obj_camera.x - (view_wview[0] / 2)
-VIEW_Y = obj_camera.y - (view_hview[0] / 2)
+VIEW_Y = obj_camera.y - (view_hview[0] / 2) + obj_camera.shake_offset
 
 // center
 CENTER_X = VIEW_X + (view_wview[0] / 2)
@@ -53,9 +53,16 @@ mmap_y = VIEW_Y + view_hview[0] - (room_height / mmap_scale) - PADDING
 
 // draw gun heat bar
 with (obj_player) {
-    if (reloading) cbar = c_fuchsia
-    else cbar = c_lime
-    draw_circular_bar(x - 100, y - 50, gun_heat, GUN_MAX_HEAT, cbar, 20, 0.9, 8)
+    if (reloading) cgun = c_fuchsia
+    else cgun = c_lime
+    if (can_dash = dash_max_count) cdash = c_aqua
+    else cdash = c_teal
+    //draw_circular_bar(x - 100, y - 50, GUN_MAX_HEAT - gun_heat, GUN_MAX_HEAT, cgun, 20, 0.9, 8)
+    //draw_circular_bar(x + 100, y - 50, can_dash, dash_max_count, c_aqua, 20, 0.9, 8)
+    gun_percent = ((GUN_MAX_HEAT - gun_heat) / GUN_MAX_HEAT) * 100
+    dash_percent = (can_dash / dash_max_count) * 100
+    draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, true, false)
+    draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, true, false)
 }
 
 draw_set_colour(c_white)
@@ -109,6 +116,10 @@ draw_set_valign(fa_middle)
 if (obj_player.game_over) {
     draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
     draw_text(CENTER_X, CENTER_Y + 200, "PRESS ENTER TO RESTART")
+}
+// pause screen
+else if (global.paused) {
+    draw_text(CENTER_X, CENTER_Y - 100, "PAUSED")
 }
 </string>
           </argument>

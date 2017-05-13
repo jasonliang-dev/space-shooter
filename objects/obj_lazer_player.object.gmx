@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>speed = 40
+event_inherited()
 </string>
           </argument>
         </arguments>

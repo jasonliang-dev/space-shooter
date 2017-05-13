@@ -27,12 +27,12 @@
             <kind>1</kind>
             <string>hit_points = 6
 speed = 30
-colour = c_orange
 ghost_count = 0
+colour = c_orange
+event_inherited()
 
 enemy_list = ds_list_create()
 ds_list_add(enemy_list, spr_enemy_red_1, spr_enemy_red_2, spr_enemy_red_3, spr_enemy_red_4, spr_enemy_red_5)
-
 sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
 </string>
           </argument>
@@ -57,19 +57,13 @@ sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) -
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!within_view(x, y, 100)) {
-    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
-    direction = direction_towards_player
-    image_angle = direction + 90
-}
-else {
-    ghost_count++
-    if (ghost_count = 2) {
-        ghost_count = 0
-        ghost = instance_create(x, y, obj_enemy_red_ghost)
-        ghost.sprite_index = sprite_index
-        ghost.image_angle = image_angle
+if (!global.paused) {
+    if (!within_view(x, y, 100)) {
+        direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
+        direction = direction_towards_player
+        image_angle = direction + 90
     }
+    else ghost_trail(2)
 }
 </string>
           </argument>

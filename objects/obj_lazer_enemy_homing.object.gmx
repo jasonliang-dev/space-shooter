@@ -26,7 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>speed = 24
+old_direction_to_player = point_direction(x, y, obj_player.x, obj_player.y)
+turn_rate = 3
 colour = c_lime
+event_inherited()
 </string>
           </argument>
         </arguments>
@@ -49,13 +52,15 @@ colour = c_lime
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
-if (abs(direction - direction_towards_player &lt; 120)) turn_rate = 1
-else turn_rate = 4
-if (direction &lt; direction_towards_player) direction += 3 * turn_rate
-else if (direction &gt; direction_towards_player) direction -= 3 * turn_rate
-
-image_angle = direction + 90
+            <string>event_inherited()
+if (!obj_player.game_over) {
+    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
+    angle_diff = direction_towards_player - old_direction_to_player
+    direction += sign(angle_diff) * min(turn_rate, abs(angle_diff))
+    old_direction_to_player = direction_towards_player
+    
+    image_angle = direction + 90
+}
 </string>
           </argument>
         </arguments>

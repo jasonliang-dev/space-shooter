@@ -274,15 +274,19 @@
     <script>scripts\draw_mmap_obj.gml</script>
     <script>scripts\draw_all_mmap_obj.gml</script>
     <script>scripts\hitbox_collision.gml</script>
+    <script>scripts\ghost_trail.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
+    <object>objects\ctrl_global</object>
+    <object>objects\ctrl_spawner</object>
     <object>objects\ctrl_hud</object>
     <object>objects\ctrl_hit_stun</object>
-    <object>objects\obj_cursor</object>
     <object>objects\obj_camera</object>
+    <object>objects\obj_cursor</object>
+    <object>objects\obj_moving</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
       <object>objects\obj_enemy_parent</object>
@@ -290,7 +294,7 @@
       <object>objects\obj_enemy_blue</object>
       <object>objects\obj_enemy_green</object>
       <object>objects\obj_enemy_red</object>
-      <object>objects\obj_enemy_red_ghost</object>
+      <object>objects\obj_ghost</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>
