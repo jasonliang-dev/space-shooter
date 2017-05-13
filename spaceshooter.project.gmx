@@ -265,6 +265,15 @@
     <script>scripts\meteor_split.gml</script>
     <script>scripts\hit_stun.gml</script>
     <script>scripts\shake_camera.gml</script>
+    <script>scripts\player_hit.gml</script>
+    <script>scripts\draw_circular_bar.gml</script>
+    <script>scripts\gun_cooldown_rate.gml</script>
+    <script>scripts\enemy_meteor_collision.gml</script>
+    <script>scripts\within_view.gml</script>
+    <script>scripts\shield_hit.gml</script>
+    <script>scripts\draw_mmap_obj.gml</script>
+    <script>scripts\draw_all_mmap_obj.gml</script>
+    <script>scripts\hitbox_collision.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
@@ -276,15 +285,19 @@
     <object>objects\obj_camera</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
+      <object>objects\obj_enemy_parent</object>
       <object>objects\obj_enemy_black</object>
       <object>objects\obj_enemy_blue</object>
       <object>objects\obj_enemy_green</object>
       <object>objects\obj_enemy_red</object>
+      <object>objects\obj_enemy_red_ghost</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>
+      <object>objects\obj_lazer_enemy_parent</object>
       <object>objects\obj_lazer_player</object>
       <object>objects\obj_lazer_enemy</object>
+      <object>objects\obj_lazer_enemy_homing</object>
     </objects>
     <objects name="meteor">
       <object>objects\ctrl_spawner_meteor</object>
@@ -296,16 +309,23 @@
     </objects>
     <objects name="player">
       <object>objects\obj_player</object>
+      <object>objects\obj_shield</object>
       <object>objects\obj_hitbox</object>
     </objects>
     <objects name="powerup">
       <object>objects\obj_powerup_parent</object>
-      <objects name="ammo">
-        <object>objects\ctrl_spawner_powerup_ammo</object>
-        <object>objects\obj_powerup_ammo_parent</object>
-        <object>objects\obj_powerup_ammo_bronze</object>
-        <object>objects\obj_powerup_ammo_silver</object>
-        <object>objects\obj_powerup_ammo_gold</object>
+      <objects name="health">
+        <object>objects\ctrl_spawner_powerup_health</object>
+        <object>objects\obj_powerup_health_parent</object>
+        <object>objects\obj_powerup_health_bronze</object>
+        <object>objects\obj_powerup_health_silver</object>
+        <object>objects\obj_powerup_health_gold</object>
+      </objects>
+      <objects name="shield">
+        <object>objects\obj_powerup_shield_parent</object>
+        <object>objects\obj_powerup_shield_bronze</object>
+        <object>objects\obj_powerup_shield_silver</object>
+        <object>objects\obj_powerup_shield_gold</object>
       </objects>
     </objects>
   </objects>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_lazer_parent</parentName>
+  <parentName>obj_lazer_enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 20
-TYPE = "ENEMY"
+            <string>speed = 24
+colour = c_red
 </string>
           </argument>
         </arguments>

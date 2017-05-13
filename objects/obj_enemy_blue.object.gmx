@@ -5,9 +5,74 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hit_points = 3
+speed = 25
+colour = c_aqua
+
+enemy_list = ds_list_create()
+ds_list_add(enemy_list, spr_enemy_blue_1, spr_enemy_blue_2, spr_enemy_blue_3, spr_enemy_blue_4, spr_enemy_blue_5)
+
+sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
+
+direction = point_direction(x, y, obj_player.x, obj_player.y)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited()
+if (!obj_player.game_over) {
+    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
+    if (abs(direction - direction_towards_player &lt; 120)) turn_rate = 1
+    else turn_rate = 4
+    if (direction &lt; direction_towards_player) direction += 3 * turn_rate
+    else if (direction &gt; direction_towards_player) direction -= 3 * turn_rate
+    
+    image_angle = direction + 90
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

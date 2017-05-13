@@ -75,7 +75,6 @@ half_view_x = view_wview[0] / 2
 half_view_y = view_hview[0] / 2
 x = clamp(x, half_view_x, room_width - half_view_x)
 y = clamp(y, half_view_y, room_height - half_view_y)
-
 </string>
           </argument>
         </arguments>

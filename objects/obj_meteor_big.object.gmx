@@ -26,22 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>/// hp, speed, sprite
+event_inherited()
 
 hit_points = 16
 speed = 2
 
 // random sprite
-// grey meteors have more hit points
-// there's a better way of doing this
-// I just can't find it since it's 10:00pm rn
-// TODO: grey meteors
-switch (irandom(3)) {
-    case 0: sprite_index = spr_meteor_brown_big_1; break
-    case 1: sprite_index = spr_meteor_brown_big_2; break
-    case 2: sprite_index = spr_meteor_brown_big_3; break
-    case 3: sprite_index = spr_meteor_brown_big_4; break
-    
-}
+meteor_list = ds_list_create()
+ds_list_add(meteor_list, spr_meteor_brown_big_1, spr_meteor_brown_big_2, spr_meteor_brown_big_3, spr_meteor_brown_big_4)
+
+sprite_index = ds_list_find_value(meteor_list, irandom(ds_list_size(meteor_list) - 1))
 </string>
           </argument>
         </arguments>

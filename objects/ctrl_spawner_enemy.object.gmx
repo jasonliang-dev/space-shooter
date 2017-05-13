@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ENEMY_SPAWN_RATE = 5 * room_speed
+            <string>enemies = ds_list_create()
+ds_list_add(enemies, obj_enemy_black, obj_enemy_blue, obj_enemy_green, obj_enemy_red)
 
-alarm[0] = ENEMY_SPAWN_RATE
+alarm[0] = 15 * room_speed
+spawn_rate = 2 * room_speed
 </string>
           </argument>
         </arguments>
@@ -50,9 +52,16 @@ alarm[0] = ENEMY_SPAWN_RATE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawner(obj_enemy_black)
+            <string>if (false and instance_number(obj_enemy_parent) &lt; 6) {
+    rand_enemy = ds_list_find_value(enemies, irandom(ds_list_size(enemies) - 1))
+    spawner(rand_enemy)
+    if (spawn_rate &gt;= 16) spawn_rate--
+}
+spawner(obj_enemy_green)
+spawner(obj_enemy_green)
+spawner(obj_enemy_green)
 
-alarm[0] = ENEMY_SPAWN_RATE
+if (!obj_player.game_over) alarm[0] = spawn_rate
 </string>
           </argument>
         </arguments>

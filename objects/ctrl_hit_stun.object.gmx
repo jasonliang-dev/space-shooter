@@ -52,7 +52,7 @@ INITIAL_ROOM_SPEED = room_speed
             <kind>1</kind>
             <string>if (stuned) {
     steps--
-    room_speed = INITIAL_ROOM_SPEED / 2
+    room_speed = INITIAL_ROOM_SPEED * 0.8
     if (steps = 0) {
         stuned = false
         room_speed = INITIAL_ROOM_SPEED

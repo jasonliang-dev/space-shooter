@@ -25,42 +25,91 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>VIEW_X = obj_camera.x - (view_wview[0] / 2)
-VIEW_Y = obj_camera.y - (view_hview[0] / 2)
-CENTER_X = view_xview[0] + (view_wview[0] / 2)
-CENTER_Y = view_yview[0] + (view_hview[0] / 2)
+            <string>// please don't look at this
+// it's a mess
 
-score_x = VIEW_X + 50
-score_y = VIEW_Y + 50
-life_x = VIEW_X + 60
-life_y = VIEW_Y + view_hview[0] - 50
-ammo_x = VIEW_X + view_wview[0] - 50
-ammo_y = life_y
+//top left
+VIEW_X = obj_camera.x - (view_wview[0] / 2)
+VIEW_Y = obj_camera.y - (view_hview[0] / 2)
+
+// center
+CENTER_X = VIEW_X + (view_wview[0] / 2)
+CENTER_Y = VIEW_Y + (view_hview[0] / 2)
+
+PADDING = 50
+
+// score
+score_x = VIEW_X + PADDING
+score_y = VIEW_Y + PADDING
+
+// lives
+life_x = VIEW_X + 50
+life_y = VIEW_Y + view_hview[0] - PADDING
+
+// minimap
+mmap_scale = 12 // larger number -&gt; smaller minimap
+mmap_x = VIEW_X + view_wview[0] - (room_width / mmap_scale) - PADDING
+mmap_y = VIEW_Y + view_hview[0] - (room_height / mmap_scale) - PADDING
+
+// draw gun heat bar
+with (obj_player) {
+    if (reloading) cbar = c_fuchsia
+    else cbar = c_lime
+    draw_circular_bar(x - 100, y - 50, gun_heat, GUN_MAX_HEAT, cbar, 20, 0.9, 8)
+}
+
+draw_set_colour(c_white)
+
+// draw minimap
+draw_rectangle(mmap_x, mmap_y, mmap_x + room_width / mmap_scale, mmap_y + room_height / mmap_scale, 4)
+draw_rectangle(mmap_x + VIEW_X / mmap_scale,
+    mmap_y + VIEW_Y / mmap_scale,
+    mmap_x + (VIEW_X + view_wview[0]) / mmap_scale,
+    mmap_y + (VIEW_Y + view_hview[0]) / mmap_scale,
+    5)
+
+// draw player on minimap
+draw_mmap_obj(obj_player)
+
+// draw player direction line on minimap
+ang = point_direction(obj_player.x, obj_player.y, obj_cursor.x, obj_cursor.y)
+draw_line(mmap_x + obj_player.x / mmap_scale,
+    mmap_y + obj_player.y / mmap_scale,
+    mmap_x + obj_cursor.x / mmap_scale,
+    mmap_y + obj_cursor.y / mmap_scale)
+
+draw_set_colour(c_red)
+
+// draw enemies on minimap
+draw_all_mmap_obj(obj_enemy_parent)
+
+draw_set_colour(c_orange)
+
+// draw meteors on minimap
+draw_all_mmap_obj(obj_meteor_parent)
+
 
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 
+// draw life sprite
 draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 
+draw_set_colour(c_white)
 draw_set_font(fnt_kenvector_future)
-draw_set_colour(c_gray)
-draw_text(score_x, score_y, obj_player.session_high_score)
-draw_set_halign(fa_right)
-draw_text(ammo_x, ammo_y - 18, obj_player.total_ammo)
-draw_set_colour(c_white)
-draw_set_halign(fa_left)
-draw_text(score_x, score_y + 30, obj_player.game_score)
-draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
-draw_set_halign(fa_right)
-draw_text(ammo_x, ammo_y - 48, obj_player.ammo)
-draw_set_colour(c_aqua)
-draw_set_halign(fa_left)
-draw_text(score_x, score_y + 60, obj_player.graze_score)
 
-draw_set_colour(c_white)
+// draw score and lives
+draw_text(score_x, score_y, obj_player.game_score)
+draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
+
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
-if (obj_player.game_over) draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
+
+// game over screen
+if (obj_player.game_over) {
+    draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
+    draw_text(CENTER_X, CENTER_Y + 200, "PRESS ENTER TO RESTART")
+}
 </string>
           </argument>
         </arguments>

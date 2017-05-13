@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,53 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 15
+            <string>hit_points = 8
 can_shoot = 0
-speed = 8
+speed = 11
+colour = c_gray
 
-HIT_STUN = 2
+enemy_list = ds_list_create()
+ds_list_add(enemy_list, spr_enemy_black_1, spr_enemy_black_2, spr_enemy_black_3, spr_enemy_black_4, spr_enemy_black_5)
 
-switch (irandom(4)) {
-    case 0: sprite_index = spr_enemy_black_1 break
-    case 1: sprite_index = spr_enemy_black_2 break
-    case 2: sprite_index = spr_enemy_black_3 break
-    case 3: sprite_index = spr_enemy_black_4 break
-    case 4: sprite_index = spr_enemy_black_5 break
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>obj_player.game_score += 100
-shake_camera(10, 24)
-hit_stun(2)
-
-switch (irandom(5)) {
-    case 0: instance_create(x, y, obj_powerup_ammo_bronze) break
-    case 1: instance_create(x, y, obj_powerup_ammo_silver) break
-    case 2: instance_create(x, y, obj_powerup_ammo_gold) break
-}
-
-effect_create_above(ef_explosion, x, y, 1, c_dkgray)
-audio_play_sound(sfx_two_tone, 0, false)
+sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
 </string>
           </argument>
         </arguments>
@@ -94,72 +56,21 @@ audio_play_sound(sfx_two_tone, 0, false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>POINT_TOWARDS_PLAYER = point_direction(x, y, obj_player.x, obj_player.y)
-direction = POINT_TOWARDS_PLAYER
-image_angle = direction - 90
-
-can_shoot++
-if (can_shoot &gt; 30) {
-    can_shoot = 0
-    new_lazer = instance_create(x, y, obj_lazer_enemy)
-    new_lazer.direction = direction
-    new_lazer.image_angle = image_angle
-    audio_play_sound(sfx_lazer2, 0, false)
+            <string>event_inherited()
+if (!obj_player.game_over) {
+    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
+    direction = direction_towards_player
+    image_angle = direction + 90
+    
+    can_shoot++
+    if (can_shoot &gt; 20) {
+        can_shoot = 0
+        new_lazer = instance_create(x, y, obj_lazer_enemy)
+        new_lazer.direction = direction
+        new_lazer.image_angle = image_angle
+        audio_play_sound(sfx_lazer2, 0, false)
+    }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_lazer_player">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>obj_player.game_score++
-shake_camera(1, 10)
-
-with other {
-    effect_create_above(ef_ring, x, y, 1, c_aqua)
-    instance_destroy()
-}
-hit_points--
-if (hit_points == 0) instance_destroy()
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_enemy_black">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>instance_destroy()
 </string>
           </argument>
         </arguments>

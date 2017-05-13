@@ -26,7 +26,38 @@
           <argument>
             <kind>1</kind>
             <string>speed = 40
-TYPE = "PLAYER"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemy_parent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_player.game_score++
+shake_camera(1, 10)
+
+effect_create_above(ef_ring, x, y, 1, c_aqua)
+instance_destroy()
+
+with (other) {
+    hit_points--
+    if (hit_points == 0) instance_destroy()
+}
 </string>
           </argument>
         </arguments>

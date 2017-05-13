@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>METEOR_SPAWN_RATE = room_speed / 2
+            <string>SPAWN_RATE = room_speed / 2
 
-alarm[0] = METEOR_SPAWN_RATE
+if (!obj_player.game_over) alarm[0] = SPAWN_RATE
 </string>
           </argument>
         </arguments>
@@ -50,13 +50,11 @@ alarm[0] = METEOR_SPAWN_RATE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (irandom(1) &lt; 0.5) SPAWN_OBJECT = obj_meteor_big
+            <string>if (random(1) &lt; 0.5) SPAWN_OBJECT = obj_meteor_big
 else SPAWN_OBJECT = obj_meteor_med
-new_meteor = spawner(SPAWN_OBJECT)
-new_meteor.direction = irandom(360)
-new_meteor.image_angle = irandom(360)
+spawner(SPAWN_OBJECT)
 
-alarm[0] = METEOR_SPAWN_RATE
+alarm[0] = SPAWN_RATE
 </string>
           </argument>
         </arguments>

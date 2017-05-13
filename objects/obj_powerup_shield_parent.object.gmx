@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_powerup_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,15 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>AMMO_SPAWN_RATE = 5 * room_speed
-
-alarm[0] = AMMO_SPAWN_RATE
+            <string>STRENGTH = 1
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="4" ename="obj_hitbox">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,9 +48,16 @@ alarm[0] = AMMO_SPAWN_RATE
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (irandom(1) &lt; 0.1) spawner(obj_powerup_ammo_bronze)
-
-alarm[0] = AMMO_SPAWN_RATE
+            <string>event_inherited()
+if (instance_exists(obj_shield)) {
+    if (obj_shield.shield_strength &lt; STRENGTH) {
+        obj_shield.shield_strength = STRENGTH
+    }
+}
+else {
+    new_shield = instance_create(obj_player.x, obj_player.y, obj_shield)
+    new_shield.shield_strength = STRENGTH
+}
 </string>
           </argument>
         </arguments>

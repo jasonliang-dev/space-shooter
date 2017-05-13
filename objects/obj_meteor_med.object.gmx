@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 8
+            <string>event_inherited()
+hit_points = 8
 speed = 6
 
 switch (irandom(1)) {
