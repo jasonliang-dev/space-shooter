@@ -59,8 +59,7 @@ rand_sprite(enemy_list)
             <string>event_inherited()
 if (!global.paused) {
     if (!within_view(x, y, 100)) {
-        direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
-        direction = direction_towards_player
+        direction = direction_to_player(id)
         image_angle = direction + 90
     }
     else ghost_trail(2)

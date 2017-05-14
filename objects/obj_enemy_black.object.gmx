@@ -58,8 +58,7 @@ rand_sprite(enemy_list)
             <kind>1</kind>
             <string>event_inherited()
 if (!global.paused) {
-    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
-    direction = direction_towards_player
+    direction = direction_to_player(id)
     image_angle = direction + 90
     
     can_shoot++

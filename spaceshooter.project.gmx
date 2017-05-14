@@ -256,10 +256,12 @@
       <script>scripts\shield_hit.gml</script>
       <script>scripts\gun_cooldown_rate.gml</script>
       <script>scripts\hitbox_collision.gml</script>
+      <script>scripts\direction_to_player.gml</script>
     </scripts>
     <scripts name="enemy">
       <script>scripts\rand_sprite.gml</script>
       <script>scripts\enemy_meteor_collision.gml</script>
+      <script>scripts\turn_to_player.gml</script>
     </scripts>
     <scripts name="minimap">
       <script>scripts\draw_mmap_obj.gml</script>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>hit_points = 3
 speed = 25
-old_direction_to_player = point_direction(x, y, obj_player.x, obj_player.y)
+old_direction_to_player = direction_to_player(id)
 ghost_count = 0
 colour = c_aqua
 event_inherited()
@@ -36,7 +36,7 @@ enemy_list = ds_list_create()
 ds_list_add(enemy_list, spr_enemy_blue_1, spr_enemy_blue_2, spr_enemy_blue_3, spr_enemy_blue_4, spr_enemy_blue_5)
 rand_sprite(enemy_list)
 
-direction = point_direction(x, y, obj_player.x, obj_player.y)
+direction = old_direction_to_player
 </string>
           </argument>
         </arguments>
@@ -67,12 +67,7 @@ if (!global.paused) {
     }
     else turn_rate = 30
     
-    direction_towards_player = point_direction(x, y, obj_player.x, obj_player.y)
-    angle_diff = direction_towards_player - old_direction_to_player
-    direction += sign(angle_diff) * min(turn_rate, abs(angle_diff))
-    old_direction_to_player = direction_towards_player
-    
-    image_angle = direction + 90
+    turn_to_player()
 }
 </string>
           </argument>

@@ -52,6 +52,8 @@
     add_score(100)
     shake_camera(10, 18)
     hit_stun(2)
+    effect_create_above(ef_explosion, x, y, 1, colour)
+    audio_play_sound(sfx_two_tone, 0, false)
 }
 
 switch (irandom(20)) {
@@ -63,9 +65,6 @@ switch (irandom(20)) {
     case 5:
     case 6: instance_create(x, y, obj_powerup_shield_bronze) break
 }
-
-effect_create_above(ef_explosion, x, y, 1, colour)
-audio_play_sound(sfx_two_tone, 0, false)
 </string>
           </argument>
         </arguments>
