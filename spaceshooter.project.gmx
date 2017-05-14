@@ -281,6 +281,7 @@
     <object>objects\ctrl_hit_stun</object>
     <object>objects\obj_camera</object>
     <object>objects\obj_cursor</object>
+    <object>objects\obj_ghost</object>
     <object>objects\obj_moving</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
@@ -289,7 +290,6 @@
       <object>objects\obj_enemy_blue</object>
       <object>objects\obj_enemy_green</object>
       <object>objects\obj_enemy_red</object>
-      <object>objects\obj_ghost</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>

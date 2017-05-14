@@ -46,14 +46,14 @@ RELOAD_TIME = 2 * room_speed
 
 hit_points = 5
 can_shoot = 0
-dash_max_count = room_speed * 5
+dash_max_count = room_speed * 4
 can_dash = dash_max_count
 ghost_count = 0
 direction_towards_mouse = 0
 
 friction_strength = 0.3
-MAX_SPEED = 15
-dash_speed = MAX_SPEED * 2
+MAX_SPEED = 12
+dash_speed = MAX_SPEED * 3
 
 reloading = false
 invulnerable = false

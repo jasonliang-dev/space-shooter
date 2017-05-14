@@ -80,7 +80,9 @@ if (!global.paused) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// destroy
+            <string>score_num = 300
+obj_player.game_score += score_num
+score_effect(x, y, score_num)
 instance_destroy()
 </string>
           </argument>

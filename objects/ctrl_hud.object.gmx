@@ -47,7 +47,7 @@ life_x = VIEW_X + 50
 life_y = VIEW_Y + view_hview[0] - PADDING
 
 // minimap
-mmap_scale = 1 / 12
+mmap_scale = 0.08
 mmap_x = VIEW_X + view_wview[0] - (room_width * mmap_scale) - PADDING
 mmap_y = VIEW_Y + view_hview[0] - (room_height * mmap_scale) - PADDING
 
@@ -77,21 +77,22 @@ draw_rectangle(mmap_x + VIEW_X * mmap_scale,
 draw_mmap_obj(obj_player)
 
 // draw player direction line on minimap
-ang = point_direction(obj_player.x, obj_player.y, obj_cursor.x, obj_cursor.y)
 draw_line(mmap_x + obj_player.x * mmap_scale,
     mmap_y + obj_player.y * mmap_scale,
     mmap_x + obj_cursor.x * mmap_scale,
     mmap_y + obj_cursor.y * mmap_scale)
 
-draw_set_colour(c_red)
-
 // draw enemies on minimap
+draw_set_colour(c_red)
 draw_all_mmap_obj(obj_enemy_parent)
 
-draw_set_colour(c_orange)
-
 // draw meteors on minimap
+draw_set_colour(c_orange)
 draw_all_mmap_obj(obj_meteor_parent)
+
+// draw powerups on minimap
+draw_set_colour(c_white)
+draw_all_mmap_obj(obj_powerup_parent)
 
 
 draw_set_halign(fa_left)
@@ -100,7 +101,6 @@ draw_set_valign(fa_top)
 // draw life sprite
 draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 
-draw_set_colour(c_white)
 draw_set_font(fnt_kenvector_future)
 
 // draw score and lives
@@ -112,8 +112,7 @@ draw_set_valign(fa_middle)
 
 // game over screen
 if (obj_player.game_over) {
-    draw_text_transformed(CENTER_X, CENTER_Y - 200, "GAME OVER", 2, 2, 0)
-    draw_text(CENTER_X, CENTER_Y + 200, "PRESS ENTER TO RESTART")
+    draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
 }
 // pause screen
 else if (global.paused) {

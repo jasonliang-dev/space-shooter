@@ -52,7 +52,7 @@
     score_num = 100
     obj_player.game_score += score_num
     score_effect(x, y, score_num)
-    shake_camera(10, 24)
+    shake_camera(10, 18)
     hit_stun(2)
 }
 
@@ -116,7 +116,7 @@ audio_play_sound(sfx_two_tone, 0, false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shake_camera(1, 10)
+            <string>shake_camera(2, 10)
 
 with (other) {
     score_num = 1

@@ -28,7 +28,7 @@
             <string>enemies = ds_list_create()
 ds_list_add(enemies, obj_enemy_black, obj_enemy_blue, obj_enemy_green, obj_enemy_red)
 
-spawn_rate = 2.5 * room_speed
+spawn_rate = 2.2 * room_speed
 
 alarm[0] = 15 * room_speed
 
