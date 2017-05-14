@@ -204,10 +204,11 @@ if (!global.paused) {
     
     // velocity
     if (dashing) {
-        dash_direction = 360 - darctan2(vy, vx) // I'm mad.
-                                                // -45 degrees SHOULDN'T BE IN THE FIRST QUADRANT
-                                                // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-                                                // took me 30 mins to figure this out
+        // I'm mad.
+        // -45 degrees SHOULDN'T BE IN THE FIRST QUADRANT
+        // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+        // took me 30 mins to figure this out
+        dash_direction = 360 - darctan2(vy, vx) 
         vx = lengthdir_x(dash_speed, dash_direction)
         vy = lengthdir_y(dash_speed, dash_direction)
     }
