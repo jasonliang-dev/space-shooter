@@ -79,9 +79,10 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>/// score, effects, hp
-obj_player.game_score++
-
 with (other) {
+    score_num = 1
+    obj_player.game_score += score_num
+    score_effect(x , y, score_num)
     DISTANCE = 25
     direction_towards_meteor = point_direction(x, y, other.x, other.y)
     x += lengthdir_x(DISTANCE, direction_towards_meteor)

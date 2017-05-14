@@ -49,7 +49,9 @@
           <argument>
             <kind>1</kind>
             <string>if (within_view(x, y, 0)) {
-    obj_player.game_score += 100
+    score_num = 100
+    obj_player.game_score += score_num
+    score_effect(x, y, score_num)
     shake_camera(10, 24)
     hit_stun(2)
 }
@@ -92,6 +94,41 @@ audio_play_sound(sfx_two_tone, 0, false)
     with (other) instance_destroy()
     instance_destroy()
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_lazer_player">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>shake_camera(1, 10)
+
+with (other) {
+    score_num = 1
+    obj_player.game_score += score_num
+    score_effect(x, y, score_num)
+    effect_create_above(ef_ring, x, y, 1, c_aqua)
+    instance_destroy()
+}
+
+hit_points--
+if (hit_points == 0) instance_destroy()
+
 </string>
           </argument>
         </arguments>

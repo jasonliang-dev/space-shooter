@@ -33,7 +33,7 @@ event_inherited()
 
 enemy_list = ds_list_create()
 ds_list_add(enemy_list, spr_enemy_black_1, spr_enemy_black_2, spr_enemy_black_3, spr_enemy_black_4, spr_enemy_black_5)
-sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
+rand_sprite(enemy_list)
 </string>
           </argument>
         </arguments>

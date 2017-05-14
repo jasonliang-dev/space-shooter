@@ -34,7 +34,7 @@ event_inherited()
 
 enemy_list = ds_list_create()
 ds_list_add(enemy_list, spr_enemy_blue_1, spr_enemy_blue_2, spr_enemy_blue_3, spr_enemy_blue_4, spr_enemy_blue_5)
-sprite_index = ds_list_find_value(enemy_list, irandom(ds_list_size(enemy_list) - 1))
+rand_sprite(enemy_list)
 
 direction = point_direction(x, y, obj_player.x, obj_player.y)
 </string>

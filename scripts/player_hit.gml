@@ -9,8 +9,9 @@ with (obj_player) {
         }
         shake_camera(argument0, argument1)
         hit_stun(argument2)
-        game_score -= 200
-        graze_score = 0
+        score_num = -500
+        game_score += score_num
+        score_effect(x, y, score_num)
         
         effect_create_above(ef_ring, other.x, other.y, 5, argument3)
         audio_play_sound(sfx_lose, 0, false)

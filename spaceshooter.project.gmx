@@ -275,6 +275,8 @@
     <script>scripts\draw_all_mmap_obj.gml</script>
     <script>scripts\hitbox_collision.gml</script>
     <script>scripts\ghost_trail.gml</script>
+    <script>scripts\score_effect.gml</script>
+    <script>scripts\rand_sprite.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
@@ -283,6 +285,7 @@
     <object>objects\ctrl_global</object>
     <object>objects\ctrl_spawner</object>
     <object>objects\ctrl_hud</object>
+    <object>objects\obj_score</object>
     <object>objects\ctrl_hit_stun</object>
     <object>objects\obj_camera</object>
     <object>objects\obj_cursor</object>
@@ -334,7 +337,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\i_dont_know_what_to_call_this___a_place_where_you_go_pew_pew_i_guess</room>
+    <room>rooms\survival_room</room>
     <room>rooms\main_menu</room>
   </rooms>
   <help>

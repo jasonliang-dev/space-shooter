@@ -114,7 +114,7 @@ draw_set_valign(fa_middle)
 
 // game over screen
 if (obj_player.game_over) {
-    draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
+    draw_text_transformed(CENTER_X, CENTER_Y - 200, "GAME OVER", 2, 2, 0)
     draw_text(CENTER_X, CENTER_Y + 200, "PRESS ENTER TO RESTART")
 }
 // pause screen

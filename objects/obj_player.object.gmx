@@ -194,8 +194,8 @@ if (!global.paused) {
         dashing = true
         can_dash = 0
         alarm[2] = room_speed / 2
-        ax *= 4
-        ay *= 4
+        ax = sign(ax) * 12
+        ay = sign(ay) * 12
     }
     
     // friction 
