@@ -217,21 +217,6 @@
       <sprite>sprites\spr_shield_2</sprite>
       <sprite>sprites\spr_shield_3</sprite>
     </sprites>
-    <sprites name="ui">
-      <sprites name="button">
-        <sprite>sprites\spr_ui_blue_button_3</sprite>
-        <sprite>sprites\spr_ui_blue_button_6</sprite>
-      </sprites>
-      <sprites name="dropdown">
-        <sprite>sprites\spr_ui_dropdown_top</sprite>
-        <sprite>sprites\spr_ui_dropdown_mid</sprite>
-        <sprite>sprites\spr_ui_dropdown_bot</sprite>
-      </sprites>
-      <sprites name="panel">
-        <sprite>sprites\spr_ui_blue_panel</sprite>
-        <sprite>sprites\spr_ui_grey_panel</sprite>
-      </sprites>
-    </sprites>
     <sprites name="powerup">
       <sprites name="bolt">
         <sprite>sprites\spr_powerup_bolt_bronze</sprite>

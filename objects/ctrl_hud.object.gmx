@@ -47,9 +47,9 @@ life_x = VIEW_X + 50
 life_y = VIEW_Y + view_hview[0] - PADDING
 
 // minimap
-mmap_scale = 12 // larger number -&gt; smaller minimap
-mmap_x = VIEW_X + view_wview[0] - (room_width / mmap_scale) - PADDING
-mmap_y = VIEW_Y + view_hview[0] - (room_height / mmap_scale) - PADDING
+mmap_scale = 1 / 12
+mmap_x = VIEW_X + view_wview[0] - (room_width * mmap_scale) - PADDING
+mmap_y = VIEW_Y + view_hview[0] - (room_height * mmap_scale) - PADDING
 
 // draw shooting and dash bar
 with (obj_player) {
@@ -66,11 +66,11 @@ with (obj_player) {
 draw_set_colour(c_white)
 
 // draw minimap
-draw_rectangle(mmap_x, mmap_y, mmap_x + room_width / mmap_scale, mmap_y + room_height / mmap_scale, 4)
-draw_rectangle(mmap_x + VIEW_X / mmap_scale,
-    mmap_y + VIEW_Y / mmap_scale,
-    mmap_x + (VIEW_X + view_wview[0]) / mmap_scale,
-    mmap_y + (VIEW_Y + view_hview[0]) / mmap_scale,
+draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 4)
+draw_rectangle(mmap_x + VIEW_X * mmap_scale,
+    mmap_y + VIEW_Y * mmap_scale,
+    mmap_x + (VIEW_X + view_wview[0]) * mmap_scale,
+    mmap_y + (VIEW_Y + view_hview[0]) * mmap_scale,
     5)
 
 // draw player on minimap
@@ -78,10 +78,10 @@ draw_mmap_obj(obj_player)
 
 // draw player direction line on minimap
 ang = point_direction(obj_player.x, obj_player.y, obj_cursor.x, obj_cursor.y)
-draw_line(mmap_x + obj_player.x / mmap_scale,
-    mmap_y + obj_player.y / mmap_scale,
-    mmap_x + obj_cursor.x / mmap_scale,
-    mmap_y + obj_cursor.y / mmap_scale)
+draw_line(mmap_x + obj_player.x * mmap_scale,
+    mmap_y + obj_player.y * mmap_scale,
+    mmap_x + obj_cursor.x * mmap_scale,
+    mmap_y + obj_cursor.y * mmap_scale)
 
 draw_set_colour(c_red)
 
