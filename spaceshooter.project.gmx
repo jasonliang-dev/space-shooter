@@ -246,28 +246,28 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\spawner.gml</script>
-    <script>scripts\meteor_split.gml</script>
-    <script>scripts\ghost_trail.gml</script>
     <script>scripts\add_score.gml</script>
-    <script>scripts\hit_stun.gml</script>
+    <script>scripts\ghost_trail.gml</script>
     <scripts name="player">
-      <script>scripts\player_hit.gml</script>
-      <script>scripts\shield_hit.gml</script>
+      <script>scripts\direction_to_player.gml</script>
       <script>scripts\gun_cooldown_rate.gml</script>
       <script>scripts\hitbox_collision.gml</script>
-      <script>scripts\direction_to_player.gml</script>
+      <script>scripts\player_hit.gml</script>
+      <script>scripts\shield_hit.gml</script>
     </scripts>
-    <scripts name="enemy">
-      <script>scripts\rand_sprite.gml</script>
+    <scripts name="nonplayer">
       <script>scripts\enemy_meteor_collision.gml</script>
+      <script>scripts\meteor_split.gml</script>
+      <script>scripts\rand_sprite.gml</script>
+      <script>scripts\spawner.gml</script>
       <script>scripts\turn_to_player.gml</script>
     </scripts>
     <scripts name="minimap">
-      <script>scripts\draw_mmap_obj.gml</script>
       <script>scripts\draw_all_mmap_obj.gml</script>
+      <script>scripts\draw_mmap_obj.gml</script>
     </scripts>
     <scripts name="view">
+      <script>scripts\hit_stun.gml</script>
       <script>scripts\shake_camera.gml</script>
       <script>scripts\within_view.gml</script>
     </scripts>
@@ -281,10 +281,10 @@
     <object>objects\ctrl_hud</object>
     <object>objects\obj_score</object>
     <object>objects\ctrl_hit_stun</object>
+    <object>objects\obj_moving</object>
+    <object>objects\obj_ghost</object>
     <object>objects\obj_camera</object>
     <object>objects\obj_cursor</object>
-    <object>objects\obj_ghost</object>
-    <object>objects\obj_moving</object>
     <objects name="enemy">
       <object>objects\ctrl_spawner_enemy</object>
       <object>objects\obj_enemy_parent</object>
