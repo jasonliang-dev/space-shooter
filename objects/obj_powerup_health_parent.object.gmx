@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp_value = 1
+            <string>event_inherited()
+hp_value = 1
 </string>
           </argument>
         </arguments>

@@ -51,15 +51,13 @@ mmap_scale = 12 // larger number -&gt; smaller minimap
 mmap_x = VIEW_X + view_wview[0] - (room_width / mmap_scale) - PADDING
 mmap_y = VIEW_Y + view_hview[0] - (room_height / mmap_scale) - PADDING
 
-// draw gun heat bar
+// draw shooting and dash bar
 with (obj_player) {
     if (reloading) cgun = c_fuchsia
     else cgun = c_lime
     if (can_dash = dash_max_count) cdash = c_aqua
     else cdash = c_teal
-    //draw_circular_bar(x - 100, y - 50, GUN_MAX_HEAT - gun_heat, GUN_MAX_HEAT, cgun, 20, 0.9, 8)
-    //draw_circular_bar(x + 100, y - 50, can_dash, dash_max_count, c_aqua, 20, 0.9, 8)
-    gun_percent = ((GUN_MAX_HEAT - gun_heat) / GUN_MAX_HEAT) * 100
+    gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
     dash_percent = (can_dash / dash_max_count) * 100
     draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, true, false)
     draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, true, false)

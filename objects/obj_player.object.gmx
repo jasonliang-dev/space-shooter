@@ -41,7 +41,7 @@ upgrade_brakes = false
 
 gun_cooldown = 0
 gun_heat = 0
-GUN_MAX_HEAT = 30
+max_gun_heat = 30
 RELOAD_TIME = 2 * room_speed
 
 hit_points = 5
@@ -51,8 +51,9 @@ can_dash = dash_max_count
 ghost_count = 0
 direction_towards_mouse = 0
 
-FRICTION_STRENGTH = 0.2
+friction_strength = 0.3
 MAX_SPEED = 15
+dash_speed = MAX_SPEED * 2
 
 reloading = false
 invulnerable = false
@@ -159,7 +160,6 @@ invulnerable = false
             <string>/// a bunch of stuff
 
 // user input
-
 UP    = keyboard_check(ord("W"))
 LEFT  = keyboard_check(ord("A"))
 DOWN  = keyboard_check(ord("S"))
@@ -194,19 +194,23 @@ if (!global.paused) {
         dashing = true
         can_dash = 0
         alarm[2] = room_speed / 2
-        ax = sign(ax) * 12
-        ay = sign(ay) * 12
     }
     
     // friction 
     // "What? In space?"
     // "Yep."
-    vx -= sign(vx) * FRICTION_STRENGTH
-    vy -= sign(vy) * FRICTION_STRENGTH
+    vx -= sign(vx) * friction_strength
+    vy -= sign(vy) * friction_strength
     
-    // apply acceleration to velocity
-    vx += ax
-    vy += ay
+    // velocity
+    if (dashing) {
+        vx = sign(vx) * dash_speed
+        vy = sign(vy) * dash_speed
+    }
+    else {
+        vx += ax
+        vy += ay
+    }
     
     // don't let the player move faster than max_speed
     // unless if the player is dashing
@@ -227,15 +231,13 @@ if (!global.paused) {
     image_angle = direction_towards_mouse - 90
     
     // create a trail if the player is dashing
-    if (dashing) {
-        ghost_trail(1)
-    }
+    if (dashing) ghost_trail(1)
     
     // hitbox visibility
     obj_hitbox.visible = FOCUS
     
     // reload
-    if (gun_heat = GUN_MAX_HEAT and !reloading) reloading = true
+    if (gun_heat = max_gun_heat and !reloading) reloading = true
     else if (gun_heat = 0 and reloading) reloading = false
     
     // shooting

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>STRENGTH = 1
+            <string>event_inherited()
+strength = 1
 </string>
           </argument>
         </arguments>

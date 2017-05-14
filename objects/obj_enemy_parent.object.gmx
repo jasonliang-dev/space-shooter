@@ -57,7 +57,7 @@
 }
 
 switch (irandom(20)) {
-    case 0: instance_create(x, y, obj_powerup_health_silver) break
+    case 0: instance_create(x, y, obj_powerup_health) break
     case 1: instance_create(x, y, obj_powerup_shield_gold) break
     case 2: 
     case 3: instance_create(x, y, obj_powerup_shield_silver) break

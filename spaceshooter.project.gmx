@@ -263,20 +263,27 @@
   <scripts name="scripts">
     <script>scripts\spawner.gml</script>
     <script>scripts\meteor_split.gml</script>
-    <script>scripts\hit_stun.gml</script>
-    <script>scripts\shake_camera.gml</script>
-    <script>scripts\player_hit.gml</script>
-    <script>scripts\draw_circular_bar.gml</script>
-    <script>scripts\gun_cooldown_rate.gml</script>
-    <script>scripts\enemy_meteor_collision.gml</script>
-    <script>scripts\within_view.gml</script>
-    <script>scripts\shield_hit.gml</script>
-    <script>scripts\draw_mmap_obj.gml</script>
-    <script>scripts\draw_all_mmap_obj.gml</script>
-    <script>scripts\hitbox_collision.gml</script>
     <script>scripts\ghost_trail.gml</script>
     <script>scripts\score_effect.gml</script>
-    <script>scripts\rand_sprite.gml</script>
+    <script>scripts\hit_stun.gml</script>
+    <scripts name="player">
+      <script>scripts\player_hit.gml</script>
+      <script>scripts\shield_hit.gml</script>
+      <script>scripts\gun_cooldown_rate.gml</script>
+      <script>scripts\hitbox_collision.gml</script>
+    </scripts>
+    <scripts name="enemy">
+      <script>scripts\rand_sprite.gml</script>
+      <script>scripts\enemy_meteor_collision.gml</script>
+    </scripts>
+    <scripts name="minimap">
+      <script>scripts\draw_mmap_obj.gml</script>
+      <script>scripts\draw_all_mmap_obj.gml</script>
+    </scripts>
+    <scripts name="view">
+      <script>scripts\shake_camera.gml</script>
+      <script>scripts\within_view.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
@@ -322,11 +329,8 @@
     <objects name="powerup">
       <object>objects\obj_powerup_parent</object>
       <objects name="health">
-        <object>objects\ctrl_spawner_powerup_health</object>
         <object>objects\obj_powerup_health_parent</object>
-        <object>objects\obj_powerup_health_bronze</object>
-        <object>objects\obj_powerup_health_silver</object>
-        <object>objects\obj_powerup_health_gold</object>
+        <object>objects\obj_powerup_health</object>
       </objects>
       <objects name="shield">
         <object>objects\obj_powerup_shield_parent</object>
