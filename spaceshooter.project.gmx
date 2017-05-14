@@ -249,7 +249,7 @@
     <script>scripts\spawner.gml</script>
     <script>scripts\meteor_split.gml</script>
     <script>scripts\ghost_trail.gml</script>
-    <script>scripts\score_effect.gml</script>
+    <script>scripts\add_score.gml</script>
     <script>scripts\hit_stun.gml</script>
     <scripts name="player">
       <script>scripts\player_hit.gml</script>

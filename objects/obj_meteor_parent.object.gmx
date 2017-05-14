@@ -51,11 +51,7 @@ event_inherited()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch (irandom(5)) {
-    case 0: instance_create(x, y, obj_powerup_ammo_bronze) break
-    case 1: instance_create(x, y, obj_powerup_ammo_silver) break
-    case 2: instance_create(x, y, obj_powerup_ammo_gold) break
-}
+            <string>add_score(10)
 </string>
           </argument>
         </arguments>
@@ -80,9 +76,6 @@ event_inherited()
             <kind>1</kind>
             <string>/// score, effects, hp
 with (other) {
-    score_num = 1
-    obj_player.game_score += score_num
-    score_effect(x , y, score_num)
     DISTANCE = 25
     direction_towards_meteor = point_direction(x, y, other.x, other.y)
     x += lengthdir_x(DISTANCE, direction_towards_meteor)

@@ -58,7 +58,7 @@ sprite_index = ds_list_find_value(meteor_list, irandom(ds_list_size(meteor_list)
           <argument>
             <kind>1</kind>
             <string>/// effects, meteor split
-
+event_inherited()
 effect_create_above(ef_explosion, x, y, 5, c_orange)
 meteor_split(3, obj_meteor_med)
 </string>
