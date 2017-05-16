@@ -76,10 +76,10 @@ event_inherited()
             <kind>1</kind>
             <string>/// score, effects, hp
 with (other) {
-    DISTANCE = 25
+    distance = 25
     direction_towards_meteor = point_direction(x, y, other.x, other.y)
-    x += lengthdir_x(DISTANCE, direction_towards_meteor)
-    y += lengthdir_y(DISTANCE, direction_towards_meteor)
+    x += lengthdir_x(distance, direction_towards_meteor)
+    y += lengthdir_y(distance, direction_towards_meteor)
     effect_create_above(ef_smoke, x, y, 1, c_orange)
     instance_destroy()
 }
