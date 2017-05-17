@@ -4,7 +4,7 @@ with (obj_player) {
         invulnerable = true
         hit_points--
         if (hit_points = 0) {
-            obj_player.game_over = true
+            global.game_over = true
             global.paused = true
         }
         shake_camera(argument0, argument1)

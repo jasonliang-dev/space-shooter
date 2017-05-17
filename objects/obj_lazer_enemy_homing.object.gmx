@@ -53,7 +53,7 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!obj_player.game_over) {
+if (!global.paused) {
     turn_to_player()
 }
 </string>

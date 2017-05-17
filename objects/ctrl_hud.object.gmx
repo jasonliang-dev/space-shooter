@@ -51,9 +51,10 @@ mmap_scale = 0.08
 mmap_x = VIEW_X + view_wview[0] - (room_width * mmap_scale) - PADDING
 mmap_y = VIEW_Y + view_hview[0] - (room_height * mmap_scale) - PADDING
 
+
 // draw shooting and dash bar
 with (obj_player) {
-    if (reloading) cgun = c_fuchsia
+    if (reloading) cgun = c_green
     else cgun = c_lime
     if (can_dash = dash_max_count) cdash = c_aqua
     else cdash = c_teal
@@ -63,9 +64,9 @@ with (obj_player) {
     draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, true, false)
 }
 
-draw_set_colour(c_white)
 
 // draw minimap
+draw_set_colour(c_white)
 draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 4)
 draw_rectangle(mmap_x + VIEW_X * mmap_scale,
     mmap_y + VIEW_Y * mmap_scale,
@@ -95,6 +96,18 @@ draw_set_colour(c_white)
 draw_all_mmap_obj(obj_powerup_parent)
 
 
+// draw offscreen enemy indicator
+for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
+    enemy = instance_find(obj_enemy_parent, i)
+    if (!within_view(enemy.x, enemy.y, enemy.sprite_width)) {
+        arrow_rot = direction_to_player(enemy) + 90
+        ex = clamp(enemy.x, VIEW_X + (PADDING * 2), VIEW_X + view_wview[0] - (PADDING * 2))
+        ey = clamp(enemy.y, VIEW_Y + (PADDING * 2), VIEW_Y + view_hview[0] - (PADDING * 2))
+        draw_sprite_ext(spr_lazer_red_16, 0, ex, ey, 1, 1, arrow_rot, c_white, 1)
+    }
+}
+
+
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 
@@ -104,14 +117,14 @@ draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 draw_set_font(fnt_kenvector_future)
 
 // draw score and lives
-draw_text(score_x, score_y, obj_player.game_score)
+draw_text(score_x, score_y, "Score: " + string(global.game_score))
 draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
 
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 
 // game over screen
-if (obj_player.game_over) {
+if (global.game_over) {
     draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
 }
 // pause screen

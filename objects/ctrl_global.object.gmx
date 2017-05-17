@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>global.paused = false
+global.game_over = false
 
+global.game_score = 0
 </string>
           </argument>
         </arguments>
@@ -49,9 +51,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// pause
+            <string>// score is never under 0
+if (global.game_score &lt; 0) global.game_score = 0
+
 PAUSE = keyboard_check_pressed(vk_escape)
-if (PAUSE and !obj_player.game_over) global.paused = !global.paused
+if (PAUSE) {
+    if (global.game_over) room_restart()
+    else global.paused = !global.paused
+}
 </string>
           </argument>
         </arguments>

@@ -27,9 +27,6 @@
             <kind>1</kind>
             <string>/// variables
 
-session_high_score = 0
-game_score = 0
-
 vx = 0
 vy = 0
 ax = 0
@@ -58,7 +55,6 @@ dash_speed = MAX_SPEED * 3
 reloading = false
 invulnerable = false
 dashing = false
-game_over = false
 </string>
           </argument>
         </arguments>
@@ -176,12 +172,6 @@ direction_towards_mouse = point_direction(x, y, mouse_x, mouse_y)
 // cheats
 if (keyboard_check(ord("H"))) hit_points += 1
 
-// score is never under 0
-if (game_score &lt; 0) game_score = 0
-
-// update high score
-if (session_high_score &lt; game_score) session_high_score = game_score
-
 if (!global.paused) {
     // acceleration
     ax = 2 * (RIGHT - LEFT) / ((3 * FOCUS) + 1)
@@ -208,7 +198,7 @@ if (!global.paused) {
         // -45 degrees SHOULDN'T BE IN THE FIRST QUADRANT
         // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
         // took me 30 mins to figure this out
-        dash_direction = 360 - darctan2(vy, vx) 
+        dash_direction = 360 - darctan2(vy, vx)
         vx = lengthdir_x(dash_speed, dash_direction)
         vy = lengthdir_y(dash_speed, dash_direction)
     }
@@ -262,9 +252,6 @@ if (!global.paused) {
     else gun_cooldown_rate(1)
 
 } //end if (!global.paused)
-
-// restart game
-else if (game_over and keyboard_check_pressed(vk_return)) room_restart()
 </string>
           </argument>
         </arguments>
