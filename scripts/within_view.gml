@@ -1,4 +1,8 @@
-///within_view(x, y, distance)
+/// within_view(x, y, distance)
+// checks if the point is within the current view
+// x: horizontal position
+// y: vertical position
+// distance: length offscreen
 
 // get the position of the edges in the view
 LEFT_END   = view_xview[0]

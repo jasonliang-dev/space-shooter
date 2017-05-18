@@ -1,6 +1,7 @@
 /// shake_camera(steps, strength)
-// 10, 24
-// 1, 10
+// shakes the camera. yeah I know.
+// steps: amount of time
+// strength: offset
 
 C = obj_camera
 

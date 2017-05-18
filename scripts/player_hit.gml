@@ -1,4 +1,10 @@
 /// player_hit(camera_shake_step, camera_shake_strengh, hit_stun, effect_colour)
+// removes one health, player is invulnerable, some other stuff I guess.
+// camera_shake_step: duration of camera shake
+// camera_shake_strength: the shake offset
+// hit_stun: the amount to steps for hit stun
+// effect_colour: the colour of the ring above the player
+
 shake_camera(argument0, argument1)
 hit_stun(argument2)
 add_score(-500)
