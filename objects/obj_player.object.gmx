@@ -43,6 +43,7 @@ RELOAD_TIME = 2 * room_speed
 
 hit_points = 5
 can_shoot = 0
+dash_length = room_speed / 2
 dash_max_count = room_speed * 4
 can_dash = dash_max_count
 ghost_count = 0
@@ -183,7 +184,8 @@ if (!global.paused) {
     if (DASH and can_dash = dash_max_count) {
         dashing = true
         can_dash = 0
-        alarm[2] = room_speed / 2
+        shake_camera(dash_length, 10)
+        alarm[2] = dash_length
     }
     
     // friction 
@@ -241,6 +243,7 @@ if (!global.paused) {
         if (!SHOOTING) gun_cooldown_rate(2)
         else if (can_shoot &gt; 1) {
             can_shoot = 0
+            shake_camera(1, 1)
             gun_heat++
             rand_offset = irandom_range(-12, 12) / ((FOCUS * 2) + 1)
             new_lazer = instance_create(x, y, obj_lazer_player)

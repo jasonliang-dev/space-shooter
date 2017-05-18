@@ -1,4 +1,8 @@
 /// player_hit(camera_shake_step, camera_shake_strengh, hit_stun, effect_colour)
+shake_camera(argument0, argument1)
+hit_stun(argument2)
+add_score(-500)
+
 with (obj_player) {
     if (!invulnerable) {
         invulnerable = true
@@ -7,10 +11,6 @@ with (obj_player) {
             global.game_over = true
             global.paused = true
         }
-        shake_camera(argument0, argument1)
-        hit_stun(argument2)
-        add_score(-500)
-        
         effect_create_above(ef_ring, other.x, other.y, 5, argument3)
         audio_play_sound(sfx_lose, 0, false)
         

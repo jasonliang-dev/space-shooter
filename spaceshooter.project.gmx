@@ -11,6 +11,7 @@
     <sound>sound\sfx_two_tone</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\spr_debug</sprite>
     <sprites name="ufo">
@@ -256,6 +257,7 @@
       <script>scripts\shield_hit.gml</script>
     </scripts>
     <scripts name="nonplayer">
+      <script>scripts\enemy_drop.gml</script>
       <script>scripts\enemy_meteor_collision.gml</script>
       <script>scripts\meteor_split.gml</script>
       <script>scripts\rand_sprite.gml</script>
@@ -324,6 +326,12 @@
         <object>objects\obj_powerup_shield_bronze</object>
         <object>objects\obj_powerup_shield_silver</object>
         <object>objects\obj_powerup_shield_gold</object>
+      </objects>
+      <objects name="bomb">
+        <object>objects\obj_powerup_bomb_parent</object>
+        <object>objects\obj_powerup_bomb_bronze</object>
+        <object>objects\obj_powerup_bomb_silver</object>
+        <object>objects\obj_powerup_bomb_gold</object>
       </objects>
     </objects>
   </objects>

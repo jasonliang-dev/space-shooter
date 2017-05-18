@@ -60,28 +60,22 @@ with (obj_player) {
     else cdash = c_teal
     gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
     dash_percent = (can_dash / dash_max_count) * 100
-    draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, true, false)
-    draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, true, false)
+    draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
+    draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
 }
 
 
 // draw minimap
 draw_set_colour(c_white)
-draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 4)
+draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 1)
 draw_rectangle(mmap_x + VIEW_X * mmap_scale,
     mmap_y + VIEW_Y * mmap_scale,
     mmap_x + (VIEW_X + view_wview[0]) * mmap_scale,
     mmap_y + (VIEW_Y + view_hview[0]) * mmap_scale,
-    5)
+    1)
 
 // draw player on minimap
 draw_mmap_obj(obj_player)
-
-// draw player direction line on minimap
-draw_line(mmap_x + obj_player.x * mmap_scale,
-    mmap_y + obj_player.y * mmap_scale,
-    mmap_x + obj_cursor.x * mmap_scale,
-    mmap_y + obj_cursor.y * mmap_scale)
 
 // draw enemies on minimap
 draw_set_colour(c_red)
@@ -100,10 +94,10 @@ draw_all_mmap_obj(obj_powerup_parent)
 for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     enemy = instance_find(obj_enemy_parent, i)
     if (!within_view(enemy.x, enemy.y, enemy.sprite_width)) {
-        arrow_rot = direction_to_player(enemy) + 90
+        arrow_rot = direction_to_player(enemy) - 180
         ex = clamp(enemy.x, VIEW_X + (PADDING * 2), VIEW_X + view_wview[0] - (PADDING * 2))
         ey = clamp(enemy.y, VIEW_Y + (PADDING * 2), VIEW_Y + view_hview[0] - (PADDING * 2))
-        draw_sprite_ext(spr_lazer_red_16, 0, ex, ey, 1, 1, arrow_rot, c_white, 1)
+        draw_sprite_ext(spr_arrow, 0, ex, ey, 1, 1, arrow_rot, enemy.colour, 1)
     }
 }
 
@@ -117,7 +111,7 @@ draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 draw_set_font(fnt_kenvector_future)
 
 // draw score and lives
-draw_text(score_x, score_y, "Score: " + string(global.game_score))
+draw_text(score_x, score_y, global.game_score)
 draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
 
 draw_set_halign(fa_center)

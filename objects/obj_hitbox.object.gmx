@@ -73,7 +73,7 @@ y = obj_player.y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hitbox_collision()
+            <string>if (object_get_name(other.object_index) = "obj_meteor_tiny") hitbox_collision()
 </string>
           </argument>
         </arguments>

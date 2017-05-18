@@ -26,6 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
+
+powerups[0] = ds_list_create()
+powerups[1] = ds_list_create()
+powerups[2] = ds_list_create()
+
+ds_list_add(powerups[0], obj_powerup_shield_bronze, obj_powerup_bomb_bronze)
+ds_list_add(powerups[1], obj_powerup_shield_silver, obj_powerup_bomb_silver)
+ds_list_add(powerups[2], obj_powerup_shield_gold, obj_powerup_bomb_gold, obj_powerup_health)
+
 </string>
           </argument>
         </arguments>
@@ -57,13 +66,15 @@
 }
 
 switch (irandom(20)) {
-    case 0: instance_create(x, y, obj_powerup_health) break
-    case 1: instance_create(x, y, obj_powerup_shield_gold) break
+    case 0: enemy_drop(powerups[2]) break
+    case 1: 
     case 2: 
-    case 3: instance_create(x, y, obj_powerup_shield_silver) break
+    case 3: enemy_drop(powerups[1]) break
     case 4:
     case 5:
-    case 6: instance_create(x, y, obj_powerup_shield_bronze) break
+    case 6:
+    case 7:
+    case 8: enemy_drop(powerups[0]) break
 }
 </string>
           </argument>
@@ -113,16 +124,14 @@ switch (irandom(20)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shake_camera(2, 10)
-
-with (other) {
+            <string>with (other) {
     add_score(1)
     effect_create_above(ef_ring, x, y, 1, c_aqua)
     instance_destroy()
 }
 
 hit_points--
-if (hit_points == 0) instance_destroy()
+if (hit_points &lt;= 0) instance_destroy()
 
 </string>
           </argument>
