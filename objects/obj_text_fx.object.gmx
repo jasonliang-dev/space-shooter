@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>alpha = 1
-display_num = 0
+text = "--"
 </string>
           </argument>
         </arguments>
@@ -76,7 +76,7 @@ if (alpha &lt;= 0) instance_destroy()
             <kind>1</kind>
             <string>c = c_white
 draw_set_halign(fa_center)
-draw_text_transformed_colour(x, y, string(display_num), 0.7, 0.7, 0, c, c, c, c, alpha)
+draw_text_transformed_colour(x, y, text, 0.7, 0.7, 0, c, c, c, c, alpha)
 </string>
           </argument>
         </arguments>

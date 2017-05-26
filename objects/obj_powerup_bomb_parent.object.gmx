@@ -65,6 +65,13 @@ for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     }
     
 }
+
+with (obj_player) {
+    gun_heat = 0
+    can_dash = dash_max_count
+}
+
+text_fx(x, y, "DMG UP")
 </string>
           </argument>
         </arguments>

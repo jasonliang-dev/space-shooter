@@ -27,13 +27,16 @@
             <kind>1</kind>
             <string>shaking = false
 
-follow_rate = 24
+follow_speed = view_hspeed[0]
 
 shake_counter = 0
 shake_value = 0
 shake_strength = 0
 
+focus = false
+
 DISTANCE = 20
+LONG_DISTANCE = view_hview[0] / 2
 </string>
           </argument>
         </arguments>
@@ -57,6 +60,13 @@ DISTANCE = 20
           <argument>
             <kind>1</kind>
             <string>if (!global.paused) {
+    if (mouse_check_button_pressed(mb_right)) {
+        focus = !focus
+        if (focus) text_fx(obj_player.x, obj_player.y, "FOCUS ON")
+        else text_fx(obj_player.x, obj_player.y, "FOCUS OFF")
+    }
+    
+    // camera shake
     if (shaking) {
         shake_counter++
         if (shake_counter &gt;= shake_value) {
@@ -64,14 +74,29 @@ DISTANCE = 20
             shake_counter = 0
         }
         do shake_offset = irandom_range(-shake_strength, shake_strength)
-        until (abs(shake_offset) &gt; shake_strength / 2) // camera shake shouldn't be too small
+        until (abs(shake_offset) &gt; abs(shake_strength) / 2) // camera shake shouldn't be too small
     }
     else shake_offset = 0
     
-    player_direction = obj_player.direction_towards_mouse
-    x_pos = obj_player.x + lengthdir_x(DISTANCE, player_direction)
-    y_pos = obj_player.y + lengthdir_y(DISTANCE, player_direction) + shake_offset
-    move_towards_point(x_pos, y_pos, min(24, distance_to_point(x_pos, y_pos)))
+    // camera view
+    if (focus) {
+        closest = closest_enemy(obj_cursor)
+        if (instance_number(obj_enemy_parent) != 0 and within_view(closest.x, closest.y, view_hview[0] / 4)) {
+            x_pos = (obj_player.x + closest.x) / 2
+            y_pos = (obj_player.y + closest.y) / 2
+        }
+        else {
+            x_pos = (obj_player.x + mouse_x) / 2
+            y_pos = (obj_player.y + mouse_y) / 2
+        }
+    }
+    else {
+        player_direction = obj_player.direction_towards_mouse
+        x_pos = obj_player.x + lengthdir_x(DISTANCE, player_direction)
+        y_pos = obj_player.y + lengthdir_y(DISTANCE, player_direction)
+    }
+    y_pos += shake_offset
+    move_towards_point(x_pos, y_pos, min(follow_speed, distance_to_point(x_pos, y_pos)))
     
     // make sure that the view is within the room
     half_view_x = view_wview[0] / 2

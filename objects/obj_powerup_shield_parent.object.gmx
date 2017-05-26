@@ -53,11 +53,16 @@ strength = 1
 if (instance_exists(obj_shield)) {
     if (obj_shield.shield_strength &lt; strength) {
         obj_shield.shield_strength = strength
+        text_fx(x, y, "DEF UP")
+    }
+    else {
+        add_score(100)
     }
 }
 else {
     new_shield = instance_create(obj_player.x, obj_player.y, obj_shield)
     new_shield.shield_strength = strength
+    text_fx(x, y, "DEF UP")
 }
 </string>
           </argument>

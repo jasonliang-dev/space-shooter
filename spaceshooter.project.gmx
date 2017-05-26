@@ -248,6 +248,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\add_score.gml</script>
+    <script>scripts\text_fx.gml</script>
     <script>scripts\ghost_trail.gml</script>
     <scripts name="player">
       <script>scripts\direction_to_player.gml</script>
@@ -257,6 +258,7 @@
       <script>scripts\shield_hit.gml</script>
     </scripts>
     <scripts name="nonplayer">
+      <script>scripts\closest_enemy.gml</script>
       <script>scripts\enemy_drop.gml</script>
       <script>scripts\enemy_meteor_collision.gml</script>
       <script>scripts\meteor_split.gml</script>
@@ -281,7 +283,7 @@
     <object>objects\ctrl_global</object>
     <object>objects\ctrl_spawner</object>
     <object>objects\ctrl_hud</object>
-    <object>objects\obj_score</object>
+    <object>objects\obj_text_fx</object>
     <object>objects\ctrl_hit_stun</object>
     <object>objects\obj_moving</object>
     <object>objects\obj_ghost</object>

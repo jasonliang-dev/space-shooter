@@ -51,6 +51,7 @@ hp_value = 1
             <kind>1</kind>
             <string>event_inherited()
 obj_player.hit_points += hp_value
+text_fx(x, y, "HP UP")
 </string>
           </argument>
         </arguments>
