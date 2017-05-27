@@ -100,7 +100,7 @@ LONG_DISTANCE = view_hview[0] / 2
     y_pos += shake_offset
     move_towards_point(x_pos, y_pos, min(follow_speed, distance_to_point(x_pos, y_pos)))
     
-    // make sure that the view is within the room
+    // make sure that the camera is within the room
     half_view_x = view_wview[0] / 2
     half_view_y = view_hview[0] / 2
     x = clamp(x, half_view_x, room_width - half_view_x)

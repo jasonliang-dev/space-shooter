@@ -100,7 +100,7 @@ if (!global.paused) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ufo_hit()
+            <string>if (object_get_name(other.object_index) != "obj_meteor_tiny") ufo_hit()
 </string>
           </argument>
         </arguments>

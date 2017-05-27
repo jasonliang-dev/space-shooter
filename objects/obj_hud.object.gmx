@@ -141,12 +141,6 @@ draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
 
 
 draw_set_valign(fa_middle)
-
-// gameover/pause screen
-if (global.game_over) draw_text(view_x + 200, center_y - 100, "GAME OVER")
-else if (global.game_win) draw_text(view_x + 200, center_y - 100, "MISSION SUCCESSFUL")
-else if (global.paused) draw_text(view_x + 200, center_y - 100, "PAUSED")
-
 draw_set_halign(fa_center)
 
 // how to play (tutorial) text
@@ -169,9 +163,9 @@ if (instance_number(obj_ufo)) {
     ufo_hpbar[0] = view_x + ufo_hp_padding
     ufo_hpbar[1] = view_y + (padding * 2)
     ufo_hpbar[2] = view_x + view_wview[0] - ufo_hp_padding
-    ufo_hpbar[3] = ufo_hpbar[1] + 5
+    ufo_hpbar[3] = ufo_hpbar[1] + 4
     ufo_hp_percent = (obj_ufo.hit_points / obj_ufo.max_hit_points) * 100
-    draw_healthbar(ufo_hpbar[0], ufo_hpbar[1], ufo_hpbar[2], ufo_hpbar[3], ufo_hp_percent, c_dkgray, c_teal, c_aqua, 0, 1, 0)
+    draw_healthbar(ufo_hpbar[0], ufo_hpbar[1], ufo_hpbar[2], ufo_hpbar[3], ufo_hp_percent, c_gray, c_teal, c_aqua, 0, 1, 0)
 }
 else {
     draw_text_transformed(center_x, view_y + padding, "MISSION: STAY ALIVE", 0.8, 0.8, 0)
