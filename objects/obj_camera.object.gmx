@@ -62,8 +62,10 @@ LONG_DISTANCE = view_hview[0] / 2
             <string>if (!global.paused) {
     if (mouse_check_button_pressed(mb_right)) {
         focus = !focus
-        if (focus) text_fx(obj_player.x, obj_player.y, "FOCUS ON")
-        else text_fx(obj_player.x, obj_player.y, "FOCUS OFF")
+        with (obj_player) {
+            if (other.focus) text_fx(x, y, "FOCUS ON")
+            else text_fx(x, y, "FOCUS OFF")
+        }
     }
     
     // camera shake

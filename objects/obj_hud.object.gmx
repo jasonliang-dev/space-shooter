@@ -51,6 +51,11 @@ mmap_scale = 0.08
 mmap_x = VIEW_X + view_wview[0] - (room_width * mmap_scale) - PADDING
 mmap_y = VIEW_Y + view_hview[0] - (room_height * mmap_scale) - PADDING
 
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_colour(c_white)
+draw_set_font(fnt_kenvector_future)
+
 
 // draw shooting and dash bar
 with (obj_player) {
@@ -66,7 +71,6 @@ with (obj_player) {
 
 
 // draw minimap
-draw_set_colour(c_white)
 draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 1)
 draw_rectangle(mmap_x + VIEW_X * mmap_scale,
     mmap_y + VIEW_Y * mmap_scale,
@@ -101,18 +105,21 @@ for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     }
 }
 
-
-draw_set_halign(fa_left)
-draw_set_valign(fa_top)
+// point to enemy if camera is "focused"
+if (obj_camera.focus) {
+    closest = closest_enemy(obj_cursor)
+    if (instance_number(obj_enemy_parent) != 0 and within_view(closest.x, closest.y, view_hview[0] / 4)) {
+        draw_sprite_ext(spr_point, 0, closest.x, closest.y - 100, 1, 1, 0, closest.colour, 1)
+    }
+}
 
 // draw life sprite
 draw_sprite(spr_life_blue_1, 0, life_x, life_y)
 
-draw_set_font(fnt_kenvector_future)
-
 // draw score and lives
 draw_text(score_x, score_y, global.game_score)
 draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
+
 
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)

@@ -30,8 +30,8 @@ speed = 12
 event_inherited()
 
 switch (irandom(1)) {
-    case 0: sprite_index = spr_meteor_brown_tiny_1; break
-    case 1: sprite_index = spr_meteor_brown_tiny_2; break
+    case 0: sprite_index = spr_meteor_brown_tiny_1 break
+    case 1: sprite_index = spr_meteor_brown_tiny_2 break
 }
 </string>
           </argument>

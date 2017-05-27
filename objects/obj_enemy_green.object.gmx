@@ -58,22 +58,20 @@ rand_sprite(enemy_list)
             <kind>1</kind>
             <string>event_inherited()
 if (!global.paused) {
+    if (within_view(x, y, sprite_width)) {
+        initial_speed = 0
+        speed = 0
+    }
     direction = direction_to_player(id)
     image_angle = direction + 90
     
     can_shoot++
-    if (within_view(x, y, -100)) {
-        speed = 0
-        if (can_shoot &gt; 20) {
-            can_shoot = 0
-            new_lazer = instance_create(x, y, obj_lazer_enemy_homing)
-            new_lazer.direction = direction
-            new_lazer.image_angle = image_angle
-            audio_play_sound(sfx_lazer2, 0, false)
-        }
-    }
-    else {
-        speed = initial_speed
+    if (can_shoot &gt; 20) {
+        can_shoot = 0
+        new_lazer = instance_create(x, y, obj_lazer_enemy_homing)
+        new_lazer.direction = direction
+        new_lazer.image_angle = image_angle
+        audio_play_sound(sfx_lazer2, 0, false)
     }
 }
 </string>

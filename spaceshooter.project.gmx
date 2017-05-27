@@ -14,6 +14,7 @@
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\spr_debug</sprite>
+    <sprite>sprites\spr_point</sprite>
     <sprites name="ufo">
       <sprite>sprites\spr_ufo_blue</sprite>
       <sprite>sprites\spr_ufo_green</sprite>
@@ -247,9 +248,8 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\add_score.gml</script>
-    <script>scripts\text_fx.gml</script>
-    <script>scripts\ghost_trail.gml</script>
+    <script>scripts\menu_add.gml</script>
+    <script>scripts\within_view.gml</script>
     <scripts name="player">
       <script>scripts\direction_to_player.gml</script>
       <script>scripts\gun_cooldown_rate.gml</script>
@@ -270,27 +270,31 @@
       <script>scripts\draw_all_mmap_obj.gml</script>
       <script>scripts\draw_mmap_obj.gml</script>
     </scripts>
-    <scripts name="view">
+    <scripts name="effects">
+      <script>scripts\add_score.gml</script>
+      <script>scripts\ghost_trail.gml</script>
       <script>scripts\hit_stun.gml</script>
       <script>scripts\shake_camera.gml</script>
-      <script>scripts\within_view.gml</script>
+      <script>scripts\text_fx.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
-    <object>objects\ctrl_global</object>
-    <object>objects\ctrl_spawner</object>
-    <object>objects\ctrl_hud</object>
+    <object>objects\obj_global</object>
+    <object>objects\obj_spawner</object>
+    <object>objects\obj_hud</object>
     <object>objects\obj_text_fx</object>
-    <object>objects\ctrl_hit_stun</object>
+    <object>objects\obj_main_menu</object>
+    <object>objects\obj_menu</object>
+    <object>objects\obj_hit_stun</object>
     <object>objects\obj_moving</object>
     <object>objects\obj_ghost</object>
     <object>objects\obj_camera</object>
     <object>objects\obj_cursor</object>
     <objects name="enemy">
-      <object>objects\ctrl_spawner_enemy</object>
+      <object>objects\obj_spawner_enemy</object>
       <object>objects\obj_enemy_parent</object>
       <object>objects\obj_enemy_black</object>
       <object>objects\obj_enemy_blue</object>
@@ -305,7 +309,7 @@
       <object>objects\obj_lazer_enemy_homing</object>
     </objects>
     <objects name="meteor">
-      <object>objects\ctrl_spawner_meteor</object>
+      <object>objects\obj_spawner_meteor</object>
       <object>objects\obj_meteor_parent</object>
       <object>objects\obj_meteor_big</object>
       <object>objects\obj_meteor_med</object>
@@ -338,8 +342,9 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\survival_room</room>
-    <room>rooms\main_menu</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_survival</room>
+    <room>rooms\rm_defence</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

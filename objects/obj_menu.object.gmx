@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>ctrl_spawner</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,15 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spawn_rate = room_speed * 2
+            <string>menu_options = ds_list_create()
+menu_command = ds_list_create()
+menu_end = 0
 
-alarm[0] = spawn_rate
+padding = 50
+position = 0
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,11 +53,54 @@ alarm[0] = spawn_rate
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (random(1) &lt; 0.5) meteor = obj_meteor_big
-else meteor = obj_meteor_med
-spawner(meteor)
+            <string>UP = max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")))
+DOWN = max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")))
 
-alarm[1] = 1
+SELECT = max(keyboard_check_pressed(vk_enter), keyboard_check_pressed(vk_space))
+
+// user makes a selection
+if (SELECT) {
+    command = ds_list_find_value(menu_command, position)
+    if (command = "CONTINUE") global.paused = false
+    else if (command = "EXIT") game_end()
+    else room_goto(command)
+}
+
+position += DOWN - UP
+if (position &lt; 0) position = menu_end
+if (position &gt; menu_end) position = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_left)
+draw_set_valign(fa_middle)
+draw_set_colour(c_white)
+draw_set_font(fnt_kenvector_future)
+
+for (i = 0; i &lt;= menu_end; i++) {
+    draw_text(x, y + (i * padding), ds_list_find_value(menu_options, i))
+}
+
+draw_sprite_ext(spr_point, 0, x - (padding / 2), y + (position * padding), 0.5, 0.5, 90, c_white, 1)
 </string>
           </argument>
         </arguments>

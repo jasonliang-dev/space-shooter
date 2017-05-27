@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>ctrl_spawner</parentName>
+  <parentName>obj_spawner</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,13 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>enemies = ds_list_create()
-ds_list_add(enemies, obj_enemy_black, obj_enemy_blue, obj_enemy_green, obj_enemy_red)
+            <string>spawn_rate = room_speed * 2
 
-spawn_rate = 2.2 * room_speed
-
-alarm[0] = 15 * room_speed
-
+alarm[0] = spawn_rate
 </string>
           </argument>
         </arguments>
@@ -54,14 +50,11 @@ alarm[0] = 15 * room_speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(obj_enemy_parent) &lt; 6) {
-    rand_enemy = ds_list_find_value(enemies, irandom(ds_list_size(enemies) - 1))
-    spawner(rand_enemy)
-    if (spawn_rate &gt;= 16) spawn_rate--
-}
+            <string>if (random(1) &lt; 0.5) meteor = obj_meteor_big
+else meteor = obj_meteor_med
+spawner(meteor)
 
-if (!global.paused) alarm[0] = spawn_rate
-else alarm[1] = spawn_rate
+alarm[1] = 1
 </string>
           </argument>
         </arguments>

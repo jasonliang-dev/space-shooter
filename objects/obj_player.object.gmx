@@ -157,22 +157,22 @@ invulnerable = false
             <kind>1</kind>
             <string>/// a bunch of stuff
 
-// user input
-UP    = keyboard_check(ord("W"))
-LEFT  = keyboard_check(ord("A"))
-DOWN  = keyboard_check(ord("S"))
-RIGHT = keyboard_check(ord("D"))
-
-DASH = keyboard_check_pressed(vk_space)
-
-SHOOTING = mouse_check_button(mb_left)
-
-direction_towards_mouse = point_direction(x, y, mouse_x, mouse_y)
-
-// cheats
-if (keyboard_check(ord("H"))) hit_points += 1
-
 if (!global.paused) {
+    // user input
+    UP    = keyboard_check(ord("W"))
+    LEFT  = keyboard_check(ord("A"))
+    DOWN  = keyboard_check(ord("S"))
+    RIGHT = keyboard_check(ord("D"))
+    
+    DASH = keyboard_check_pressed(vk_space)
+    
+    SHOOTING = mouse_check_button(mb_left)
+    
+    direction_towards_mouse = point_direction(x, y, mouse_x, mouse_y)
+    
+    // cheats
+    if (keyboard_check(ord("H"))) hit_points += 1
+    
     // acceleration
     ax = 2 * (RIGHT - LEFT)
     ay = 2 * (DOWN - UP)
@@ -195,11 +195,9 @@ if (!global.paused) {
     
     // velocity
     if (dashing) {
-        // I'm mad.
-        // -45 degrees SHOULDN'T BE IN THE FIRST QUADRANT
-        // REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-        // took me 30 mins to figure this out
-        dash_direction = 360 - darctan2(vy, vx)
+        // the following line took 30 mins to write
+        dash_direction = darctan2(-vy, vx) // nice
+        
         vx = lengthdir_x(dash_speed, dash_direction)
         vy = lengthdir_y(dash_speed, dash_direction)
     }
