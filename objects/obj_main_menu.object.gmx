@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>// create a menu
-with (instance_create(200, 500, obj_menu)) {
+with (instance_create(200, 600, obj_menu)) {
     menu_add("SURVIVAL", rm_survival)
     menu_add("DEFENCE", rm_defence)
     menu_add("EXIT", "EXIT")

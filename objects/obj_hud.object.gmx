@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>player_moved = false
+player_dashed = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -124,13 +148,25 @@ draw_text(life_x + 32, life_y - 18, obj_player.hit_points)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 
+// how to play text
+player_moved = player_moved or obj_player.ax != 0 or obj_player.ay != 0
+player_dashed = player_dashed or obj_player.DASH
+if (!player_moved) {
+    draw_text_transformed(CENTER_X, CENTER_Y + 200, "WASD TO MOVE", 0.7, 0.7, 0)
+}
+else if (!player_dashed) {
+    draw_text_transformed(CENTER_X, CENTER_Y + 200, "SPACEBAR TO DASH", 0.7, 0.7, 0)
+}
+
+draw_set_halign(fa_left)
+
 // game over screen
 if (global.game_over) {
-    draw_text(CENTER_X, CENTER_Y - 100, "GAME OVER")
+    draw_text(VIEW_X + 200, CENTER_Y - 100, "GAME OVER")
 }
 // pause screen
 else if (global.paused) {
-    draw_text(CENTER_X, CENTER_Y - 100, "PAUSED")
+    draw_text(VIEW_X + 200, CENTER_Y - 100, "PAUSED")
 }
 </string>
           </argument>

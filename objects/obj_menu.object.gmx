@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -53,8 +53,8 @@ position = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>UP = max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")))
-DOWN = max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")))
+            <string>UP = max(keyboard_check_pressed(vk_up), keyboard_check_pressed(ord("W")), mouse_wheel_up())
+DOWN = max(keyboard_check_pressed(vk_down), keyboard_check_pressed(ord("S")), mouse_wheel_down())
 
 SELECT = max(keyboard_check_pressed(vk_enter), keyboard_check_pressed(vk_space))
 
@@ -100,7 +100,9 @@ for (i = 0; i &lt;= menu_end; i++) {
     draw_text(x, y + (i * padding), ds_list_find_value(menu_options, i))
 }
 
-draw_sprite_ext(spr_point, 0, x - (padding / 2), y + (position * padding), 0.5, 0.5, 90, c_white, 1)
+px = x - (padding / 2)
+py = y + (position * padding)
+draw_sprite_ext(spr_point, 0, px, py, 0.5, 0.5, 90, c_white, 1)
 </string>
           </argument>
         </arguments>

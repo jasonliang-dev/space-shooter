@@ -54,7 +54,7 @@ global.game_score = 0
             <string>// score is never under 0
 if (global.game_score &lt; 0) global.game_score = 0
 
-PAUSE = keyboard_check_pressed(vk_escape)
+PAUSE = max(keyboard_check_pressed(vk_escape), mouse_check_button_pressed(mb_middle))
 if (PAUSE and !global.game_over) global.paused = !global.paused
 
 if (global.paused) { 

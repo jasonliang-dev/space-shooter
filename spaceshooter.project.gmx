@@ -285,9 +285,9 @@
     <object>objects\obj_global</object>
     <object>objects\obj_spawner</object>
     <object>objects\obj_hud</object>
-    <object>objects\obj_text_fx</object>
     <object>objects\obj_main_menu</object>
     <object>objects\obj_menu</object>
+    <object>objects\obj_text_fx</object>
     <object>objects\obj_hit_stun</object>
     <object>objects\obj_moving</object>
     <object>objects\obj_ghost</object>
