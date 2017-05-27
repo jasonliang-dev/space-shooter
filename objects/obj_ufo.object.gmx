@@ -29,7 +29,7 @@
 hit_points = max_hit_points
 can_shoot = 0
 fire_mode = 0
-speed = 20
+speed = 3
 event_inherited()
 </string>
           </argument>
