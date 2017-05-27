@@ -54,7 +54,6 @@ strength = 3
 for (i = 0; i &lt; instance_number(obj_lazer_enemy); i++) {
     lazer = instance_find(obj_lazer_enemy, i)
     with (lazer) {
-        if (within_view(x, y, sprite_width)) effect_create_above(ef_flare, x, y, 10, c_white)
         instance_destroy()
     }
     

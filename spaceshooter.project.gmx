@@ -249,13 +249,14 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\menu_add.gml</script>
+    <script>scripts\shoot_lazer.gml</script>
     <script>scripts\within_view.gml</script>
     <scripts name="player">
-      <script>scripts\direction_to_player.gml</script>
       <script>scripts\gun_cooldown_rate.gml</script>
       <script>scripts\hitbox_collision.gml</script>
       <script>scripts\player_hit.gml</script>
       <script>scripts\shield_hit.gml</script>
+      <script>scripts\ufo_hit.gml</script>
     </scripts>
     <scripts name="nonplayer">
       <script>scripts\closest_enemy.gml</script>
@@ -282,17 +283,7 @@
     <font>fonts\fnt_kenvector_future</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_global</object>
-    <object>objects\obj_spawner</object>
-    <object>objects\obj_hud</object>
-    <object>objects\obj_main_menu</object>
-    <object>objects\obj_menu</object>
-    <object>objects\obj_text_fx</object>
-    <object>objects\obj_hit_stun</object>
     <object>objects\obj_moving</object>
-    <object>objects\obj_ghost</object>
-    <object>objects\obj_camera</object>
-    <object>objects\obj_cursor</object>
     <objects name="enemy">
       <object>objects\obj_spawner_enemy</object>
       <object>objects\obj_enemy_parent</object>
@@ -303,10 +294,17 @@
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>
-      <object>objects\obj_lazer_enemy_parent</object>
-      <object>objects\obj_lazer_player</object>
-      <object>objects\obj_lazer_enemy</object>
-      <object>objects\obj_lazer_enemy_homing</object>
+      <objects name="player">
+        <object>objects\obj_lazer_player_parent</object>
+        <object>objects\obj_lazer_player</object>
+        <object>objects\obj_lazer_ufo</object>
+        <object>objects\obj_lazer_ufo_homing</object>
+      </objects>
+      <objects name="enemy">
+        <object>objects\obj_lazer_enemy_parent</object>
+        <object>objects\obj_lazer_enemy</object>
+        <object>objects\obj_lazer_enemy_homing</object>
+      </objects>
     </objects>
     <objects name="meteor">
       <object>objects\obj_spawner_meteor</object>
@@ -317,9 +315,11 @@
       <object>objects\obj_meteor_tiny</object>
     </objects>
     <objects name="player">
+      <object>objects\obj_camera</object>
       <object>objects\obj_player</object>
       <object>objects\obj_shield</object>
       <object>objects\obj_hitbox</object>
+      <object>objects\obj_ufo</object>
     </objects>
     <objects name="powerup">
       <object>objects\obj_powerup_parent</object>
@@ -339,6 +339,19 @@
         <object>objects\obj_powerup_bomb_silver</object>
         <object>objects\obj_powerup_bomb_gold</object>
       </objects>
+    </objects>
+    <objects name="other">
+      <objects name="menu">
+        <object>objects\obj_main_menu</object>
+        <object>objects\obj_menu</object>
+      </objects>
+      <object>objects\obj_global</object>
+      <object>objects\obj_spawner</object>
+      <object>objects\obj_hud</object>
+      <object>objects\obj_text_fx</object>
+      <object>objects\obj_ghost</object>
+      <object>objects\obj_hit_stun</object>
+      <object>objects\obj_cursor</object>
     </objects>
   </objects>
   <rooms name="rooms">

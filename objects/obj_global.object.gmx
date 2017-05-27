@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.paused = false
-global.game_over = false
+            <string>global.paused = 0
+global.game_over = 0
+global.game_win = 0
 
 global.game_score = 0
 </string>
@@ -55,12 +56,12 @@ global.game_score = 0
 if (global.game_score &lt; 0) global.game_score = 0
 
 PAUSE = max(keyboard_check_pressed(vk_escape), mouse_check_button_pressed(mb_middle))
-if (PAUSE and !global.game_over) global.paused = !global.paused
+if (PAUSE and !global.game_over and !global.game_win) global.paused = !global.paused
 
 if (global.paused) { 
     if (!instance_number(obj_menu)) { // check if there's already a menu open
         with (instance_create(view_xview[0] + 200, view_yview[0] + 600, obj_menu)) {
-            if (!global.game_over) menu_add("CONTINUE", "CONTINUE")
+            if (!global.game_over and !global.game_win) menu_add("CONTINUE", "CONTINUE")
             menu_add("RESTART", room)
             menu_add("MAIN MENU", rm_menu)
             menu_add("EXIT", "EXIT")

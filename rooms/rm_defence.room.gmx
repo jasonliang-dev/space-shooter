@@ -78,6 +78,7 @@
     <instance objName="obj_meteor_big" x="6560" y="1312" name="inst_8D2732B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="7776" y="640" name="inst_CD722861" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="4672" y="480" name="inst_729779F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ufo" x="-64" y="768" name="inst_15F84BB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

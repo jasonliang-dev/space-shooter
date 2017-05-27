@@ -34,7 +34,7 @@ event_inherited()
 // random sprite
 meteor_list = ds_list_create()
 ds_list_add(meteor_list, spr_meteor_brown_big_1, spr_meteor_brown_big_2, spr_meteor_brown_big_3, spr_meteor_brown_big_4)
-sprite_index = ds_list_find_value(meteor_list, irandom(ds_list_size(meteor_list) - 1))
+rand_sprite(meteor_list)
 </string>
           </argument>
         </arguments>
