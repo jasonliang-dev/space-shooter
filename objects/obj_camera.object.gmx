@@ -58,7 +58,7 @@ focus = false
           <argument>
             <kind>1</kind>
             <string>if (!global.paused) {
-    if (mouse_check_button(mb_right)) {
+    if (mouse_check_button_pressed(mb_right)) {
         focus = !focus
         with (obj_player) {
             if (other.focus) text_fx(x, y, "FOCUS ON")
