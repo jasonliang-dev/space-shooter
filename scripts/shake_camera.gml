@@ -5,6 +5,6 @@
 
 C = obj_camera
 
-C.shaking = true
+C.shaking = 1
 C.shake_value = argument0
 C.shake_strength = argument1

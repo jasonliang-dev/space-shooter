@@ -64,13 +64,8 @@
     <instance objName="obj_meteor_big" x="640" y="1184" name="inst_23014C3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="1600" y="736" name="inst_128F7D13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="1888" y="1216" name="inst_4B990FA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_meteor_big" x="2880" y="512" name="inst_AC03886A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_meteor_big" x="2912" y="1152" name="inst_1D2E1674" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="2144" y="416" name="inst_655BC883" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_meteor_big" x="3584" y="736" name="inst_B79BF567" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_meteor_big" x="3968" y="256" name="inst_34D7FE02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="6048" y="832" name="inst_F7FBF306" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_meteor_big" x="4256" y="1152" name="inst_2ACFCD14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="5344" y="480" name="inst_AD0A2B7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="5280" y="1216" name="inst_75392E95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="7168" y="416" name="inst_B9E171AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -79,6 +74,46 @@
     <instance objName="obj_meteor_big" x="7776" y="640" name="inst_CD722861" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="4672" y="480" name="inst_729779F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ufo" x="-64" y="768" name="inst_15F84BB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="4224" y="1312" name="inst_A429257F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="4512" y="832" name="inst_52FB357C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="6016" y="320" name="inst_6920B4BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="6816" y="800" name="inst_3E1C8F0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="3520" y="192" name="inst_62BB14D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="2464" y="416" name="inst_BC05F377" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="3552" y="736" name="inst_577A662B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="2624" y="928" name="inst_E1EE1F03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="3168" y="576" name="inst_3AAF38C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="3232" y="1088" name="inst_D14F1014" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="2560" y="1216" name="inst_DAFD8A46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="3776" y="1216" name="inst_D001C80F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="4032" y="416" name="inst_5890D8BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="4032" y="896" name="inst_DE32D2A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="5504" y="704" name="inst_2EEDB731" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="4896" y="1344" name="inst_21572937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="6016" y="1280" name="inst_8A7441FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="6304" y="384" name="inst_5CE37889" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="7232" y="832" name="inst_ADE07350" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="2272" y="832" name="inst_A2919C3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1600" y="192" name="inst_9F40D9B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1376" y="1216" name="inst_98379503" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1216" y="160" name="inst_3763C3DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1664" y="352" name="inst_1D070C55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1696" y="544" name="inst_4E150DEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1472" y="544" name="inst_515ED426" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1760" y="896" name="inst_CBCBC36A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1504" y="928" name="inst_B0C89842" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1600" y="1120" name="inst_96A625B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1632" y="1312" name="inst_CA3E497E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1440" y="1376" name="inst_0BD13AE1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1856" y="1056" name="inst_4640D1C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1888" y="1376" name="inst_72394B45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1888" y="672" name="inst_35007384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1440" y="736" name="inst_9E09582B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1440" y="288" name="inst_77908504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1920" y="256" name="inst_4059C8A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1888" y="448" name="inst_3753F78D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="1760" y="96" name="inst_BCF05D9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_meteor_big" x="2816" y="96" name="inst_8F5502F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

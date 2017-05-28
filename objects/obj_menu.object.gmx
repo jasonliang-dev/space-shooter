@@ -31,10 +31,6 @@ menu_end = 0
 
 padding = 50
 position = 0
-
-if (instance_number(obj_menu) &gt; 1) {
-    show_error("yeah, so more than one menu is on the screen right now. That's bad.", 0)
-}
 </string>
           </argument>
         </arguments>
@@ -126,7 +122,7 @@ draw_set_font(fnt_kenvector_future)
 
 // menu title
 y_pos = y - 200
-if (global.game_over) draw_text(x, y_pos, "GAME OVER")
+if (global.game_over) draw_text(x, y_pos, "MISSION FAILED")
 else if (global.game_win) draw_text(x, y_pos, "MISSION SUCCESSFUL")
 else if (global.paused) draw_text(x, y_pos, "PAUSED")
 
