@@ -32,9 +32,12 @@ ghost_count = 0
 colour = c_aqua
 event_inherited()
 
-enemy_list = ds_list_create()
-ds_list_add(enemy_list, spr_enemy_blue_1, spr_enemy_blue_2, spr_enemy_blue_3, spr_enemy_blue_4, spr_enemy_blue_5)
-rand_sprite(enemy_list)
+arr_sprite[4] = spr_enemy_blue_1
+arr_sprite[3] = spr_enemy_blue_2
+arr_sprite[2] = spr_enemy_blue_3
+arr_sprite[1] = spr_enemy_blue_4
+arr_sprite[0] = spr_enemy_blue_5
+rand_sprite(arr_sprite)
 
 direction = old_direction_to_player
 </string>

@@ -27,13 +27,16 @@
             <kind>1</kind>
             <string>hit_points = 8
 can_shoot = 0
-speed = 15
+speed = 16
 colour = c_lime
 event_inherited()
 
-enemy_list = ds_list_create()
-ds_list_add(enemy_list, spr_enemy_green_1, spr_enemy_green_2, spr_enemy_green_3, spr_enemy_green_4, spr_enemy_green_5)
-rand_sprite(enemy_list)
+arr_sprite[4] = spr_enemy_green_1
+arr_sprite[3] = spr_enemy_green_2
+arr_sprite[2] = spr_enemy_green_3
+arr_sprite[1] = spr_enemy_green_4
+arr_sprite[0] = spr_enemy_green_5
+rand_sprite(arr_sprite)
 </string>
           </argument>
         </arguments>
@@ -59,7 +62,7 @@ rand_sprite(enemy_list)
             <string>event_inherited()
 if (!global.paused) {
     if (within_view(x, y, sprite_width)) {
-        speed = initial_speed / 3
+        speed = initial_speed / 2
     }
     direction = point_direction(x, y, obj_player.x, obj_player.y)
     image_angle = direction + 90

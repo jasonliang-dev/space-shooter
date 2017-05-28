@@ -53,9 +53,7 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused) {
-    turn_to_player()
-}
+if (!global.paused) turn_to_player()
 </string>
           </argument>
         </arguments>

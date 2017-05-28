@@ -31,9 +31,12 @@ speed = 11
 colour = c_ltgray
 event_inherited()
 
-enemy_list = ds_list_create()
-ds_list_add(enemy_list, spr_enemy_black_1, spr_enemy_black_2, spr_enemy_black_3, spr_enemy_black_4, spr_enemy_black_5)
-rand_sprite(enemy_list)
+arr_sprite[4] = spr_enemy_black_1
+arr_sprite[3] = spr_enemy_black_2
+arr_sprite[2] = spr_enemy_black_3
+arr_sprite[1] = spr_enemy_black_4
+arr_sprite[0] = spr_enemy_black_5
+rand_sprite(arr_sprite)
 </string>
           </argument>
         </arguments>
@@ -58,17 +61,14 @@ rand_sprite(enemy_list)
             <kind>1</kind>
             <string>event_inherited()
 if (!global.paused) {
-    direction = point_direction(x, y, obj_player.x, obj_player.y)
+    ally = closest_ally()
+    direction = point_direction(x, y, ally.x, ally.y)
     image_angle = direction + 90
     
     can_shoot++
     if (can_shoot &gt; 20) {
         can_shoot = 0
         shoot_lazer(obj_lazer_enemy, sfx_lazer2)
-        l = instance_create(x, y, obj_lazer_enemy)
-        l.direction = direction
-        l.image_angle = image_angle
-        audio_play_sound(sfx_lazer2, 0, false)
     }
 }
 </string>

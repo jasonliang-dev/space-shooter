@@ -1,3 +1,6 @@
+/// ufo_hit()
+// ufo loses hit_points + some effects
+
 shake_camera(5, 15)
 hit_stun(4)
 add_score(-100)

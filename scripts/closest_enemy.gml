@@ -1,5 +1,6 @@
 /// closest_enemy(obj)
 // returns the closest enemy to obj
+
 with (argument0) {
     closest = instance_find(obj_enemy_parent, 0)
     for (i = 1; i < instance_number(obj_enemy_parent); i++) {

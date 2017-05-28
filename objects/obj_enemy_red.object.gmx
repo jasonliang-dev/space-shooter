@@ -31,9 +31,12 @@ ghost_count = 0
 colour = c_orange
 event_inherited()
 
-enemy_list = ds_list_create()
-ds_list_add(enemy_list, spr_enemy_red_1, spr_enemy_red_2, spr_enemy_red_3, spr_enemy_red_4, spr_enemy_red_5)
-rand_sprite(enemy_list)
+arr_sprite[4] = spr_enemy_red_1
+arr_sprite[3] = spr_enemy_red_2
+arr_sprite[2] = spr_enemy_red_3
+arr_sprite[1] = spr_enemy_red_4
+arr_sprite[0] = spr_enemy_red_5
+rand_sprite(arr_sprite)
 </string>
           </argument>
         </arguments>

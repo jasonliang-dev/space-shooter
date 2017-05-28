@@ -31,6 +31,34 @@ menu_end = 0
 
 padding = 50
 position = 0
+
+if (instance_number(obj_menu) &gt; 1) {
+    show_error("yeah, so more than one menu is on the screen right now. That's bad.", 0)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy(menu_options)
+ds_list_destroy(menu_command)
 </string>
           </argument>
         </arguments>
@@ -100,7 +128,7 @@ draw_set_font(fnt_kenvector_future)
 y_pos = y - 200
 if (room = room_first) {
     draw_text(x, y_pos - 50, "WELCOME TO:")
-    draw_text(x, y_pos, "gam projec fina")
+    draw_text(x, y_pos, "SPACE SHOOTER")
 }
 else if (global.game_over) draw_text(x, y_pos, "GAME OVER")
 else if (global.game_win) draw_text(x, y_pos, "MISSION SUCCESSFUL")

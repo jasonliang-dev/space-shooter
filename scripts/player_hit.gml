@@ -5,8 +5,13 @@
 // hit_stun: the amount to steps for hit stun
 // effect_colour: the colour of the ring above the player
 
-shake_camera(argument0, argument1)
-hit_stun(argument2)
+arg_step = argument0
+arg_stren = argument1
+arg_stun = argument2
+arg_col = argument3
+
+shake_camera(arg_step, arg_stren)
+hit_stun(arg_stun)
 add_score(-500)
 
 with (obj_player) {
@@ -17,7 +22,7 @@ with (obj_player) {
             global.game_over = 1
             global.paused = 1
         }
-        effect_create_above(ef_ring, other.x, other.y, 5, argument3)
+        effect_create_above(ef_ring, other.x, other.y, 5, other.arg_col)
         audio_play_sound(sfx_lose, 0, 0)
         
         alarm[0] = 3 * room_speed // set vulnerability

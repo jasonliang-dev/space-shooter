@@ -253,6 +253,41 @@ if (!global.paused) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+
+// shooting and dashing bar
+if (reloading) cgun = c_green
+else cgun = c_lime
+if (can_dash = dash_max_count) cdash = c_aqua
+else cdash = c_teal
+
+gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
+dash_percent = (can_dash / dash_max_count) * 100
+
+draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
+draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
