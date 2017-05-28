@@ -126,11 +126,7 @@ draw_set_font(fnt_kenvector_future)
 
 // menu title
 y_pos = y - 200
-if (room = room_first) {
-    draw_text(x, y_pos - 50, "WELCOME TO:")
-    draw_text(x, y_pos, "SPACE SHOOTER")
-}
-else if (global.game_over) draw_text(x, y_pos, "GAME OVER")
+if (global.game_over) draw_text(x, y_pos, "GAME OVER")
 else if (global.game_win) draw_text(x, y_pos, "MISSION SUCCESSFUL")
 else if (global.paused) draw_text(x, y_pos, "PAUSED")
 
