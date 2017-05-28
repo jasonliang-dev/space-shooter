@@ -246,6 +246,7 @@
   <backgrounds name="background">
     <background>background\bg_blue</background>
     <background>background\bg_dark_purple</background>
+    <background>background\bg_splash</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -346,6 +347,7 @@
       <objects name="menu">
         <object>objects\obj_main_menu</object>
         <object>objects\obj_menu</object>
+        <object>objects\obj_splash</object>
         <object>objects\obj_title</object>
       </objects>
       <object>objects\obj_global</object>
@@ -358,6 +360,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_splash</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_survival</room>
     <room>rooms\rm_defence</room>
