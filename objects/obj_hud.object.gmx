@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>player_moved = false
 player_dashed = false
+player_shot = false
 </string>
           </argument>
         </arguments>
@@ -59,7 +60,6 @@ view_y = obj_camera.y - (view_hview[0] / 2) + obj_camera.shake_offset
 center_x = view_x + (view_wview[0] / 2)
 center_y = view_y + (view_hview[0] / 2)
 
-
 padding = 50
 
 // minimap
@@ -74,7 +74,9 @@ draw_set_font(fnt_kenvector_future)
 
 
 // draw minimap
-draw_rectangle(mmap_x, mmap_y, mmap_x + room_width * mmap_scale, mmap_y + room_height * mmap_scale, 1)
+mmap_x2 = mmap_x + room_width * mmap_scale
+mmap_y2 = mmap_y + room_height * mmap_scale
+draw_rectangle(mmap_x, mmap_y, mmap_x2, mmap_y2, 1)
 view_rect[3] = mmap_y + (view_y + view_hview[0]) * mmap_scale
 view_rect[2] = mmap_x + (view_x + view_wview[0]) * mmap_scale
 view_rect[1] = mmap_y + view_y * mmap_scale
@@ -102,16 +104,20 @@ for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     enemy = instance_find(obj_enemy_parent, i)
     if (!within_view(enemy.x, enemy.y, enemy.sprite_width)) {
         arrow_rot = point_direction(enemy.x, enemy.y, obj_player.x, obj_player.y) - 180
-        ex = clamp(enemy.x, view_x + (padding * 2), view_x + view_wview[0] - (padding * 2))
-        ey = clamp(enemy.y, view_y + (padding * 2), view_y + view_hview[0] - (padding * 2))
+        offscr_left = view_x + (padding * 2)
+        offscr_right = view_x + view_wview[0] - (padding * 2)
+        offscr_top = view_y + (padding * 2)
+        offscr_bot = view_y + view_hview[0] - (padding * 2)
+        ex = clamp(enemy.x, offscr_left, offscr_right)
+        ey = clamp(enemy.y, offscr_top, offscr_bot)
         draw_sprite_ext(spr_arrow, 0, ex, ey, 1, 1, arrow_rot, enemy.colour, 1)
     }
 }
 
+
 // point to enemy if camera is "focused"
-if (obj_camera.focus) {
-    closest = closest_enemy(obj_cursor)
-    if (instance_number(obj_enemy_parent) != 0 and within_view(closest.x, closest.y, view_hview[0] / 4)) {
+with (obj_camera) {
+    if (focus and closest and can_focus()) {
         draw_sprite_ext(spr_point, 0, closest.x, closest.y - 100, 1, 1, 0, closest.colour, 1)
     }
 }
@@ -132,17 +138,20 @@ draw_set_halign(fa_center)
 // how to play (tutorial) text
 player_moved = player_moved or obj_player.ax != 0 or obj_player.ay != 0
 player_dashed = player_dashed or obj_player.DASH
+player_shot = player_shot or obj_player.SHOOTING
 
-if (!player_moved) {
-    draw_text_transformed(center_x, center_y + 200, "WASD TO MOVE", 0.7, 0.7, 0)
-}
-else if (!player_dashed) {
-    draw_text_transformed(center_x, center_y + 200, "SPACEBAR TO DASH", 0.7, 0.7, 0)
-}
+tutorial_text = ""
+if (!player_moved) tutorial_text = "WASD TO MOVE"
+else if (!player_shot) tutorial_text = "LEFT MOUSE TO SHOOT"
+else if (!player_dashed) tutorial_text = "SPACEBAR TO DASH"
 
+draw_text_transformed(center_x, center_y + 200, tutorial_text, 0.7, 0.7, 0)
+
+
+mission_text = ""
 // draw ufo healthbar and minimap icon
 if (instance_number(obj_ufo)) {
-    draw_text_transformed(center_x, view_y + padding, "MISSION: ESCORT UFO", 0.8, 0.8, 0)
+    mission_text = "MISSION: ESCORT UFO"
     
     // draw ufo on minimap
     draw_set_colour(c_aqua)
@@ -157,9 +166,10 @@ if (instance_number(obj_ufo)) {
     ufo_hp_percent = (obj_ufo.hit_points / obj_ufo.max_hit_points) * 100
     draw_healthbar(ufo_hpbar[0], ufo_hpbar[1], ufo_hpbar[2], ufo_hpbar[3], ufo_hp_percent, c_dkgray, c_aqua, c_aqua, 0, 1, 0)
 }
-else {
-    draw_text_transformed(center_x, view_y + padding, "MISSION: STAY ALIVE", 0.8, 0.8, 0)
-}
+else mission_text = "MISSION: STAY ALIVE"
+
+draw_set_colour(c_white)
+draw_text_transformed(center_x, view_y + padding, mission_text, 0.8, 0.8, 0)
 </string>
           </argument>
         </arguments>

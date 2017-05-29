@@ -250,16 +250,17 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\can_focus.gml</script>
     <script>scripts\menu_add.gml</script>
     <script>scripts\shoot_lazer.gml</script>
     <script>scripts\within_view.gml</script>
     <scripts name="ally">
+      <script>scripts\closest_ally.gml</script>
       <script>scripts\gun_cooldown_rate.gml</script>
       <script>scripts\hitbox_collision.gml</script>
       <script>scripts\player_hit.gml</script>
       <script>scripts\shield_hit.gml</script>
       <script>scripts\ufo_hit.gml</script>
-      <script>scripts\closest_ally.gml</script>
     </scripts>
     <scripts name="nonplayer">
       <script>scripts\closest_enemy.gml</script>

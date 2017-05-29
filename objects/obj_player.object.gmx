@@ -32,25 +32,21 @@ vy = 0
 ax = 0
 ay = 0
 
-upgrade_reload = false
-upgrade_shooting = false
-upgrade_brakes = false
-
 gun_cooldown = 0
 gun_heat = 0
 max_gun_heat = 30
 
 hit_points = 5
 can_shoot = 0
-dash_length = room_speed / 2
+dash_duration = room_speed * 0.7
 dash_max_count = room_speed * 4
 can_dash = dash_max_count
 ghost_count = 0
 direction_towards_mouse = 0
 
 friction_strength = 0.3
-MAX_SPEED = 12
-dash_speed = MAX_SPEED * 3
+max_speed = 12
+dash_speed = max_speed * 3
 
 reloading = false
 invulnerable = false
@@ -182,8 +178,9 @@ if (!global.paused) {
     if (DASH and can_dash = dash_max_count) {
         dashing = true
         can_dash = 0
-        shake_camera(dash_length, 10)
-        alarm[2] = dash_length
+        dash_direction = direction_towards_mouse
+        shake_camera(dash_duration, 10)
+        alarm[2] = dash_duration
     }
     
     // friction 
@@ -194,9 +191,6 @@ if (!global.paused) {
     
     // velocity
     if (dashing) {
-        // the following line took 30 mins to write
-        dash_direction = darctan2(-vy, vx) // nice
-        
         vx = lengthdir_x(dash_speed, dash_direction)
         vy = lengthdir_y(dash_speed, dash_direction)
     }
@@ -208,8 +202,8 @@ if (!global.paused) {
     // don't let the player move faster than max_speed
     // unless if the player is dashing
     if (!dashing) {
-        vx = clamp(vx, -MAX_SPEED, MAX_SPEED)
-        vy = clamp(vy, -MAX_SPEED, MAX_SPEED)
+        vx = clamp(vx, -max_speed, max_speed)
+        vy = clamp(vy, -max_speed, max_speed)
     }
     
     // apply velocity to position
@@ -281,8 +275,12 @@ else cdash = c_teal
 gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
 dash_percent = (can_dash / dash_max_count) * 100
 
-draw_healthbar(x - 40, y + 80, x + 40, y + 84, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
-draw_healthbar(x - 40, y + 87, x + 40, y + 91, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
+bar_width = 40
+bar_height = 4
+gunbar_y = y + 80
+dashbar_y = gunbar_y + 8
+draw_healthbar(x - bar_width, gunbar_y, x + bar_width, gunbar_y + bar_height, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
+draw_healthbar(x - bar_width, dashbar_y, x + bar_width, dashbar_y + bar_height, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
 </string>
           </argument>
         </arguments>

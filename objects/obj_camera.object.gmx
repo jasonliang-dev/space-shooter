@@ -81,7 +81,7 @@ focus = false
     // camera view
     if (focus) {
         closest = closest_enemy(obj_cursor)
-        if (instance_number(obj_enemy_parent) != 0 and within_view(closest.x, closest.y, view_hview[0] / 4)) {
+        if (closest and can_focus()) {
             x_pos = (obj_player.x + closest.x) / 2
             y_pos = (obj_player.y + closest.y) / 2
         }
