@@ -32,7 +32,7 @@ shake_counter = 0
 shake_value = 0
 shake_strength = 0
 
-distance = 20
+distance = 80
 
 focus = false
 </string>
