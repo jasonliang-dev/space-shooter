@@ -65,19 +65,12 @@ ds_list_add(powerups[2], obj_powerup_shield_gold, obj_powerup_bomb_gold, obj_pow
     audio_play_sound(sfx_two_tone, 0, false)
 }
 
-switch (irandom(20)) {
-    case 0: enemy_drop(powerups[2]) break
-    case 1: 
-    case 2: 
-    case 3: enemy_drop(powerups[1]) break
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8: enemy_drop(powerups[0]) break
-}
+rand = irandom(20)
+if (rand = 0) enemy_drop(powerups[2])
+else if (rand &lt; 3) enemy_drop(powerups[1])
+else if (rand &lt; 8) enemy_drop(powerups[0])
 
-powerups = 0 // something... something... memory leak
+obj_player.kills++
 </string>
           </argument>
         </arguments>

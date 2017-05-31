@@ -61,7 +61,7 @@ rand_sprite(arr_sprite)
             <kind>1</kind>
             <string>event_inherited()
 if (!global.paused) {
-    if (within_view(x, y, sprite_width)) {
+    if (within_view(x, y, -sprite_width)) {
         speed = initial_speed / 2
     }
     direction = point_direction(x, y, obj_player.x, obj_player.y)

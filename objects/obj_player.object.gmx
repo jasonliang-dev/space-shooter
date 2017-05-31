@@ -36,13 +36,16 @@ gun_cooldown = 0
 gun_heat = 0
 max_gun_heat = 30
 
-hit_points = 5
 can_shoot = 0
+direction_towards_mouse = 0
+kills = 0
+ghost_count = 0
+hit_points = 20
+invulnerable_duration = room_speed
+
 dash_duration = room_speed * 0.7
 dash_max_count = room_speed * 4
 can_dash = dash_max_count
-ghost_count = 0
-direction_towards_mouse = 0
 
 friction_strength = 0.3
 max_speed = 12

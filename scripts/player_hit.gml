@@ -25,7 +25,7 @@ with (obj_player) {
         effect_create_above(ef_ring, other.x, other.y, 5, other.arg_col)
         audio_play_sound(sfx_lose, 0, 0)
         
-        alarm[0] = 3 * room_speed // set vulnerability
+        alarm[0] = invulnerable_duration // set invulnerability
         alarm[1] = 1 // blink
     }
 }

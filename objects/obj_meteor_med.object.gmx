@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hit_points = 8
+            <string>hit_points = 4
 speed = 4
 event_inherited()
 

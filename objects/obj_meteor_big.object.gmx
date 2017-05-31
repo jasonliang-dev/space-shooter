@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// hp, speed, sprite
-hit_points = 16
+hit_points = 8
 speed = 1
 
 event_inherited()
