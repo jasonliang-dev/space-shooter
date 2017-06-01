@@ -64,6 +64,7 @@ else {
     new_shield.shield_strength = strength
     text_fx(x, y, "DEF UP")
 }
+audio_play_sound(sfx_powerup_2, 0, 0)
 </string>
           </argument>
         </arguments>

@@ -62,7 +62,7 @@ if (!global.paused or obj_hit_stun.stuned) {
     can_shoot++
     if (can_shoot &gt; 20) {
         can_shoot = 0
-        shoot_lazer(obj_lazer_enemy_homing, sfx_lazer2)
+        shoot_lazer(obj_lazer_enemy_homing, sfx_shoot_2)
     }
 }
 </string>

@@ -179,6 +179,7 @@ if (!global.paused or obj_hit_stun.stuned) {
     
     // dashing
     can_dash++
+    if (can_dash = dash_max_count) text_fx(x, y, "DASH READY")
     if (can_dash &gt; dash_max_count) can_dash = dash_max_count
     if (DASH and can_dash = dash_max_count) {
         dashing = true
@@ -186,6 +187,7 @@ if (!global.paused or obj_hit_stun.stuned) {
         dash_direction = direction_towards_mouse
         shake_camera(dash_duration, 10)
         alarm[2] = dash_duration
+        audio_play_sound(sfx_dash, 0, 0)
     }
     
     // friction 
@@ -230,7 +232,10 @@ if (!global.paused or obj_hit_stun.stuned) {
     if (dashing) ghost_trail(1)
     
     // reload
-    if (gun_heat = max_gun_heat and !reloading) reloading = true
+    if (gun_heat = max_gun_heat and !reloading) {
+        reloading = true
+        text_fx(x, y, "RELOADING")
+    }
     else if (gun_heat = 0 and reloading) reloading = false
     
     // shooting
@@ -248,7 +253,7 @@ if (!global.paused or obj_hit_stun.stuned) {
                 l.direction = image_angle + 90 + scatter + (i * angle_diff)
                 l.image_angle = l.direction - 90
             }
-            audio_play_sound(sfx_lazer1, 0, false)
+            audio_play_sound(sfx_shoot_4, 0, 0)
         }
     }
     else gun_cooldown_rate(1)

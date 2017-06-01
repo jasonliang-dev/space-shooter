@@ -70,7 +70,7 @@ edge[1] = view_y + padding // top
 edge[0] = view_x + padding // left
 
 // minimap
-mmap_scale = 0.06
+mmap_scale = 0.065
 mmap_x = view_x + view_wview[0] - (room_width * mmap_scale) - padding
 mmap_y = view_y + view_hview[0] - (room_height * mmap_scale) - padding
 
