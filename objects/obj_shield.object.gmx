@@ -76,8 +76,6 @@ y = obj_player.y
 
 image_angle = obj_player.image_angle
 
-if (shield_strength = 0) instance_destroy()
-
 switch (shield_strength) {
     case 1: sprite_index = spr_shield_1 break
     case 2: sprite_index = spr_shield_2 break

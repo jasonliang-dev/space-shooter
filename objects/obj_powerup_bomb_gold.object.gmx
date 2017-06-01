@@ -51,13 +51,7 @@ strength = 3
             <kind>1</kind>
             <string>event_inherited()
 
-for (i = 0; i &lt; instance_number(obj_lazer_enemy); i++) {
-    lazer = instance_find(obj_lazer_enemy, i)
-    with (lazer) {
-        instance_destroy()
-    }
-    
-}
+with (obj_player) gun_upfirerate = 2
 </string>
           </argument>
         </arguments>

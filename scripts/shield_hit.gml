@@ -1,4 +1,10 @@
 /// shield_hit()
 // shield is downgraded
-obj_shield.shield_strength--
-shake_camera(5, 10)
+
+shake_camera(7, 10)
+hit_stun(3)
+
+with (obj_shield) {
+    shield_strength--
+    if (!shield_strength) instance_destroy()
+}

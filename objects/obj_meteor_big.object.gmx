@@ -31,12 +31,7 @@ speed = 1
 
 event_inherited()
 
-// random sprite
-arr_sprite[3] = spr_meteor_brown_big_1
-arr_sprite[2] = spr_meteor_brown_big_2
-arr_sprite[1] = spr_meteor_brown_big_3
-arr_sprite[0] = spr_meteor_brown_big_4
-rand_sprite(arr_sprite)
+sprite_index = choose(spr_meteor_brown_big_1, spr_meteor_brown_big_2, spr_meteor_brown_big_3, spr_meteor_brown_big_4)
 </string>
           </argument>
         </arguments>

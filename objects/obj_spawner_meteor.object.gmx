@@ -50,9 +50,7 @@ alarm[0] = spawn_rate
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (random(1) &lt; 0.5) meteor = obj_meteor_big
-else meteor = obj_meteor_med
-spawner(meteor)
+            <string>spawner(obj_meteor_big)
 
 alarm[1] = 1
 </string>

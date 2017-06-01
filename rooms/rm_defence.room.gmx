@@ -58,8 +58,7 @@
     <instance objName="obj_cursor" x="32" y="96" name="inst_CDEBAE6E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera" x="64" y="96" name="inst_FA019CCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hitbox" x="96" y="96" name="inst_620A6C63" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="608" y="448" name="inst_F686C573" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_shield" x="608" y="320" name="inst_64379702" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="672" y="544" name="inst_F686C573" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_spawner_meteor" x="32" y="32" name="inst_34A6BC76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="640" y="1184" name="inst_23014C3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="1600" y="736" name="inst_128F7D13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -73,7 +72,7 @@
     <instance objName="obj_meteor_big" x="6560" y="1312" name="inst_8D2732B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="7776" y="640" name="inst_CD722861" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="4672" y="480" name="inst_729779F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_ufo" x="-64" y="768" name="inst_15F84BB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ufo" x="-32" y="768" name="inst_15F84BB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="4224" y="1312" name="inst_A429257F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="4512" y="832" name="inst_52FB357C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_meteor_big" x="6016" y="320" name="inst_6920B4BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

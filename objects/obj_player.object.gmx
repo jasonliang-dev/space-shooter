@@ -35,6 +35,7 @@ ay = 0
 gun_cooldown = 0
 gun_heat = 0
 max_gun_heat = 30
+gun_upfirerate = 0
 
 can_shoot = 0
 direction_towards_mouse = 0
@@ -54,6 +55,7 @@ dash_speed = max_speed * 3
 reloading = false
 invulnerable = false
 dashing = false
+wander = false
 </string>
           </argument>
         </arguments>
@@ -155,7 +157,7 @@ invulnerable = false
             <kind>1</kind>
             <string>/// a bunch of stuff
 
-if (!global.paused) {
+if (!global.paused or obj_hit_stun.stuned) {
     // user input
     UP    = keyboard_check(ord("W"))
     LEFT  = keyboard_check(ord("A"))
@@ -213,6 +215,10 @@ if (!global.paused) {
     x += vx
     y += vy
     
+    // check if the player is not near the ufo
+    if (instance_number(obj_ufo)) {
+        wander = !within_view(obj_ufo.x, obj_ufo.y, obj_ufo.sprite_width)
+    }
     // player is always within the room
     x = clamp(x, 0, room_width)
     y = clamp(y, 0, room_height)
@@ -230,15 +236,18 @@ if (!global.paused) {
     // shooting
     can_shoot++
     if (!reloading) {
-        if (!SHOOTING) gun_cooldown_rate(2)
-        else if (can_shoot &gt; 1) {
+        if (!SHOOTING or dashing) gun_cooldown_rate(2)
+        else if (can_shoot &gt; 2 - gun_upfirerate) {
             can_shoot = 0
-            shake_camera(1, 1)
+            shake_camera(1, 2)
             gun_heat++
-            rand_offset = irandom_range(-12, 12)
-            l = instance_create(x, y, obj_lazer_player)
-            l.direction = image_angle + 90 + rand_offset
-            l.image_angle = image_angle + rand_offset
+            for (i = -1; i &lt; 2; i++) {
+                angle_diff = 15
+                scatter = irandom_range(-12, 12)
+                l = instance_create(x, y, obj_lazer_player)
+                l.direction = image_angle + 90 + scatter + (i * angle_diff)
+                l.image_angle = l.direction - 90
+            }
             audio_play_sound(sfx_lazer1, 0, false)
         }
     }

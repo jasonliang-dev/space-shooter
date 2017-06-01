@@ -264,10 +264,8 @@
     </scripts>
     <scripts name="nonplayer">
       <script>scripts\closest_enemy.gml</script>
-      <script>scripts\enemy_drop.gml</script>
       <script>scripts\enemy_meteor_collision.gml</script>
       <script>scripts\meteor_split.gml</script>
-      <script>scripts\rand_sprite.gml</script>
       <script>scripts\spawner.gml</script>
       <script>scripts\turn_to_player.gml</script>
     </scripts>

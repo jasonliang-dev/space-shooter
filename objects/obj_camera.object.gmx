@@ -29,10 +29,10 @@
 
 shaking = 0
 shake_counter = 0
-shake_value = 0
+shake_steps = 0
 shake_strength = 0
 
-distance = 20
+distance = 80
 
 focus = false
 </string>
@@ -69,14 +69,20 @@ focus = false
     // camera shake
     if (shaking) {
         shake_counter++
-        if (shake_counter &gt;= shake_value) {
+        if (shake_counter &gt;= shake_steps) {
             shaking = false
             shake_counter = 0
         }
-        do shake_offset = irandom_range(-shake_strength, shake_strength)
-        until (abs(shake_offset) &gt; abs(shake_strength) / 2) // camera shake shouldn't be too small
+        shake_direction = irandom(360)
+        x_shake = choose(-1, 1) * shake_strength
+        y_shake = choose(-1, 1) * shake_strength
+        x_shake = lengthdir_x(x_shake, shake_direction)
+        y_shake = lengthdir_y(y_shake, shake_direction)
     }
-    else shake_offset = 0
+    else {
+        x_shake = 0
+        y_shake = 0
+    }
     
     // camera view
     if (focus) {
@@ -95,7 +101,8 @@ focus = false
         x_pos = obj_player.x + lengthdir_x(distance, player_direction)
         y_pos = obj_player.y + lengthdir_y(distance, player_direction)
     }
-    y_pos += shake_offset
+    x_pos += x_shake
+    y_pos += y_shake
     move_towards_point(x_pos, y_pos, min(follow_speed, distance_to_point(x_pos, y_pos)))
     
     // make sure that the camera is within the room

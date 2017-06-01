@@ -49,7 +49,7 @@
           <argument>
             <kind>1</kind>
             <string>/// pause
-if (global.paused) speed = 0
+if (global.paused or obj_hit_stun.stuned) speed = 0
 else speed = initial_speed
 </string>
           </argument>
