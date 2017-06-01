@@ -5,10 +5,54 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sfx_lose</sound>
-    <sound>sound\sfx_lazer1</sound>
-    <sound>sound\sfx_lazer2</sound>
-    <sound>sound\sfx_two_tone</sound>
+    <sound>sound\snd_startup</sound>
+    <sounds name="effects">
+      <sound>sound\sfx_gamewin</sound>
+      <sound>sound\sfx_gameover</sound>
+      <sound>sound\sfx_dash</sound>
+      <sounds name="explosion">
+        <sound>sound\sfx_explosion_1</sound>
+        <sound>sound\sfx_explosion_2</sound>
+        <sound>sound\sfx_explosion_3</sound>
+        <sound>sound\sfx_explosion_4</sound>
+        <sound>sound\sfx_explosion_5</sound>
+      </sounds>
+      <sounds name="menu">
+        <sound>sound\sfx_menu_nav_1</sound>
+        <sound>sound\sfx_menu_nav_2</sound>
+        <sound>sound\sfx_menu_nav_3</sound>
+        <sound>sound\sfx_menu_nav_4</sound>
+      </sounds>
+      <sounds name="powerup">
+        <sound>sound\sfx_powerup_1</sound>
+        <sound>sound\sfx_powerup_2</sound>
+        <sound>sound\sfx_powerup_3</sound>
+        <sound>sound\sfx_powerup_4</sound>
+        <sound>sound\sfx_powerup_5</sound>
+      </sounds>
+      <sounds name="shoot">
+        <sound>sound\sfx_shoot_1</sound>
+        <sound>sound\sfx_shoot_2</sound>
+        <sound>sound\sfx_shoot_3</sound>
+        <sound>sound\sfx_shoot_4</sound>
+      </sounds>
+      <sounds name="hit">
+        <sound>sound\sfx_hit_1</sound>
+        <sound>sound\sfx_hit_2</sound>
+        <sound>sound\sfx_hit_3</sound>
+      </sounds>
+    </sounds>
+    <sounds name="music">
+      <sound>sound\snd_mars</sound>
+      <sound>sound\snd_mercury</sound>
+      <sound>sound\snd_venus</sound>
+    </sounds>
+    <sounds name="old">
+      <sound>sound\sfx_lose</sound>
+      <sound>sound\sfx_lazer2</sound>
+      <sound>sound\sfx_lazer1</sound>
+      <sound>sound\sfx_two_tone</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_title</sprite>

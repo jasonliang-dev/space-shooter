@@ -51,7 +51,7 @@ strength = 2
             <kind>1</kind>
             <string>event_inherited()
 
-with (obj_player) gun_upfirerate = 1
+with (obj_player) gun_upfirerate = max(gun_upfirerate, 1)
 </string>
           </argument>
         </arguments>

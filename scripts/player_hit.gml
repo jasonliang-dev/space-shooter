@@ -5,7 +5,7 @@
 with (obj_player) {
     if (!invulnerable) {
         shake_camera(15, 12)
-        hit_stun(5)
+        hit_stun(6)
         add_score(-300)
         invulnerable = 1
         gun_upfirerate = 0
@@ -15,7 +15,8 @@ with (obj_player) {
             global.paused = 1
         }
         effect_create_above(ef_ring, other.x, other.y, 5, argument0)
-        audio_play_sound(sfx_lose, 0, 0)
+        hit_sound = choose(sfx_hit_1, sfx_hit_2)
+        audio_play_sound(hit_sound, 0, 0)
         
         alarm[0] = invulnerable_duration // set invulnerability
         alarm[1] = 1 // blink

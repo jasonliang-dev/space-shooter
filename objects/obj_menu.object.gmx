@@ -90,7 +90,9 @@ if (SELECT) {
     else room_goto(command)
 }
 
-position += DOWN - UP
+input = DOWN - UP
+if (input != 0) audio_play_sound(sfx_menu_nav_4, 0, 0)
+position += input
 if (position &lt; 0) position = menu_end
 if (position &gt; menu_end) position = 0
 </string>

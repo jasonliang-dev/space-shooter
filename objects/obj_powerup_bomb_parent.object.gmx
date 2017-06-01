@@ -69,6 +69,7 @@ with (obj_player) {
 }
 
 text_fx(x, y, "DMG UP")
+audio_play_sound(sfx_powerup_5, 0, 0)
 </string>
           </argument>
         </arguments>

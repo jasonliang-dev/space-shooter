@@ -66,6 +66,8 @@ else drop_obj = noone
 if (drop_obj) instance_create(x, y, drop_obj)
 
 obj_player.kills++
+explosion_sound = choose(sfx_explosion_1, sfx_explosion_2, sfx_explosion_3, sfx_explosion_4, sfx_explosion_5)
+audio_play_sound(explosion_sound, 0, 0)
 </string>
           </argument>
         </arguments>

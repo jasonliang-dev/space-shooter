@@ -28,6 +28,7 @@
             <string>max_hit_points = 80
 hit_points = max_hit_points
 can_shoot = 0
+fire_rate = 20
 fire_mode = 0
 speed = 3
 event_inherited()
@@ -60,7 +61,7 @@ if (!global.paused or obj_hit_stun.stuned) {
         global.paused = 1
     }
     can_shoot++
-    if (instance_number(obj_enemy_parent) and can_shoot &gt;= room_speed) {
+    if (instance_number(obj_enemy_parent) and can_shoot &gt;= fire_rate) {
         can_shoot = 0
         fire_mode = !fire_mode
         if (fire_mode) {
@@ -76,6 +77,7 @@ if (!global.paused or obj_hit_stun.stuned) {
             l.direction = (360 / lazers) * i
             l.image_angle = l.direction - 90
         }
+        audio_play_sound(sfx_shoot_3, 0, 0)
     }
 }
 </string>
