@@ -29,10 +29,7 @@
 speed = 8
 event_inherited()
 
-switch (irandom(1)) {
-    case 0: sprite_index = spr_meteor_brown_small_1 break
-    case 1: sprite_index = spr_meteor_brown_small_2 break
-}
+sprite_index = choose(spr_meteor_brown_small_1, spr_meteor_brown_small_2)
 </string>
           </argument>
         </arguments>

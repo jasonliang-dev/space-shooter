@@ -54,7 +54,7 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused) {
+if (!global.paused or obj_hit_stun.stuned) {
     if (x &gt; room_width) {
         global.game_win = 1
         global.paused = 1

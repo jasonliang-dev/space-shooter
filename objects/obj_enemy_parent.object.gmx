@@ -26,15 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-
-powerups[0] = ds_list_create()
-powerups[1] = ds_list_create()
-powerups[2] = ds_list_create()
-
-ds_list_add(powerups[0], obj_powerup_shield_bronze, obj_powerup_bomb_bronze)
-ds_list_add(powerups[1], obj_powerup_shield_silver, obj_powerup_bomb_silver)
-ds_list_add(powerups[2], obj_powerup_shield_gold, obj_powerup_bomb_gold, obj_powerup_health)
-
 </string>
           </argument>
         </arguments>
@@ -57,18 +48,22 @@ ds_list_add(powerups[2], obj_powerup_shield_gold, obj_powerup_bomb_gold, obj_pow
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (within_view(x, y, 0)) {
+            <string>shake_camera(8, 12)
+hit_stun(1)
+
+if (within_view(x, y, 0)) {
     add_score(100)
-    shake_camera(10, 18)
-    hit_stun(2)
     effect_create_above(ef_explosion, x, y, 1, colour)
     audio_play_sound(sfx_two_tone, 0, false)
 }
 
 rand = irandom(20)
-if (rand = 0) enemy_drop(powerups[2])
-else if (rand &lt; 3) enemy_drop(powerups[1])
-else if (rand &lt; 8) enemy_drop(powerups[0])
+if (rand = 0) drop_obj = choose(obj_powerup_health, obj_powerup_bomb_gold)
+else if (rand &lt; 3) drop_obj = choose(obj_powerup_shield_gold, obj_powerup_bomb_silver)
+else if (rand &lt; 7) drop_obj = choose(obj_powerup_shield_silver, obj_powerup_bomb_bronze)
+else if (rand &lt; 10) drop_obj = obj_powerup_shield_bronze
+else drop_obj = noone
+if (drop_obj) instance_create(x, y, drop_obj)
 
 obj_player.kills++
 </string>

@@ -25,10 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 20
+            <string>speed = 25
 closest = closest_enemy(id)
 old_direction_to_enemy = point_direction(x, y, closest.x, closest.y)
-turn_rate = 16
+turn_rate = 20
 event_inherited()
 </string>
           </argument>
