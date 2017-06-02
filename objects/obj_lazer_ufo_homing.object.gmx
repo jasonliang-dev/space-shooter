@@ -53,7 +53,7 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused) {
+if (can_move()) {
     closest = closest_enemy(id)
     if (closest) {
         direction_to_enemy = point_direction(x, y, closest.x, closest.y)

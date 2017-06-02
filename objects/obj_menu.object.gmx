@@ -125,7 +125,7 @@ draw_set_font(fnt_kenvector_future)
 // menu title
 y_pos = y - 200
 if (global.game_over) draw_text(x, y_pos, "MISSION FAILED")
-else if (global.game_win) draw_text(x, y_pos, "MISSION SUCCESSFUL")
+else if (global.game_win) draw_text(x, y_pos, "MISSION COMPLETE")
 else if (global.paused) draw_text(x, y_pos, "PAUSED")
 
 for (i = 0; i &lt;= menu_end; i++) {

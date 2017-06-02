@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -159,25 +159,32 @@ draw_set_halign(fa_center)
 draw_text_transformed(center_x, center_y + 200, tutorial_text, tutortext_size, tutortext_size, 0)
 
 
-// draw ufo healthbar and minimap icon
-if (room = rm_defence) {
-    mission_text = "MISSION: ESCORT UFO"
+// draw the mission title and healthbar
+if (room = rm_survival) mission_text = "MISSION: STAY ALIVE"
+else {
+    top_hp_padding = padding * 7
+    top_hpbar[3] = view_y + (padding * 2)                  // bottom
+    top_hpbar[2] = view_x + view_wview[0] - top_hp_padding // right
+    top_hpbar[1] = top_hpbar[3] - 4        // top
+    top_hpbar[0] = view_x + top_hp_padding // left
     
-    // draw ufo on minimap
-    draw_set_colour(c_aqua)
-    draw_mmap_obj(obj_ufo)
+    if (room = rm_duel) {
+        mission_text = "MISSION: DEFEAT ENEMY"
+        top_colour = c_red
+        top_obj = obj_boss
+        
+    }
+    else if (room = rm_defence) {
+        mission_text = "MISSION: ESCORT UFO"
+        top_colour = c_aqua
+        top_obj = obj_ufo
+    }
     
-    // hp bar
-    ufo_hp_padding = padding * 7
-    ufo_hpbar[3] = view_y + (padding * 2)                  // bottom
-    ufo_hpbar[2] = view_x + view_wview[0] - ufo_hp_padding // right
-    ufo_hpbar[1] = ufo_hpbar[3] - 4        // top
-    ufo_hpbar[0] = view_x + ufo_hp_padding // left
-    ufo_hp_percent = (obj_ufo.hit_points / obj_ufo.max_hit_points) * 100
-    draw_healthbar(ufo_hpbar[0], ufo_hpbar[1], ufo_hpbar[2], ufo_hpbar[3], ufo_hp_percent, c_dkgray, c_aqua, c_aqua, 0, 1, 0)
+    draw_set_color(top_colour)
+    draw_mmap_obj(top_obj)
+    top_hp_percent = (top_obj.hit_points / top_obj.max_hit_points) * 100
+    draw_healthbar(top_hpbar[0], top_hpbar[1], top_hpbar[2], top_hpbar[3], top_hp_percent, c_dkgray, top_colour, top_colour, 0, 1, 0)
 }
-else if (room = rm_survival) mission_text = "MISSION: STAY ALIVE"
-else mission_text = ""
 
 draw_set_colour(c_white)
 draw_text_transformed(center_x, view_y + padding, mission_text, missiontext_size, missiontext_size, 0)

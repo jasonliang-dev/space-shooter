@@ -51,9 +51,6 @@ strength = 1
             <kind>1</kind>
             <string>event_inherited()
 
-hit_stun(4)
-shake_camera(2, 8)
-
 for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     enemy = instance_find(obj_enemy_parent, i)
     with (enemy) {

@@ -157,7 +157,7 @@ invulnerable = false
             <kind>1</kind>
             <string>/// a bunch of stuff
 
-if (!global.paused or obj_hit_stun.stuned) {
+if (!global.paused and !obj_hit_stun.stunned) {
     // user input
     UP    = keyboard_check(ord("W"))
     LEFT  = keyboard_check(ord("A"))
@@ -246,7 +246,7 @@ if (!global.paused or obj_hit_stun.stuned) {
             can_shoot = 0
             shake_camera(1, 2)
             gun_heat++
-            for (i = -1; i &lt; 2; i++) {
+            for (i = -1; i &lt;= 1; i++) {
                 angle_diff = 15
                 scatter = irandom_range(-12, 12)
                 l = instance_create(x, y, obj_lazer_player)

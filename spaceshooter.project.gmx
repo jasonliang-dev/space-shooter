@@ -46,6 +46,8 @@
       <sound>sound\snd_mars</sound>
       <sound>sound\snd_mercury</sound>
       <sound>sound\snd_venus</sound>
+      <sound>sound\snd_boss_intro</sound>
+      <sound>sound\snd_boss</sound>
     </sounds>
     <sounds name="old">
       <sound>sound\sfx_lose</sound>
@@ -67,6 +69,9 @@
       <sprite>sprites\spr_ufo_yellow</sprite>
     </sprites>
     <sprites name="enemy">
+      <sprite>sprites\spr_boss</sprite>
+      <sprite>sprites\spr_minion_1</sprite>
+      <sprite>sprites\spr_minion_2</sprite>
       <sprites name="black">
         <sprite>sprites\spr_enemy_black_1</sprite>
         <sprite>sprites\spr_enemy_black_2</sprite>
@@ -180,6 +185,11 @@
           <sprite>sprites\spr_lazer_red_10</sprite>
           <sprite>sprites\spr_lazer_red_11</sprite>
         </sprites>
+      </sprites>
+      <sprites name="boss">
+        <sprite>sprites\spr_boss_missile_1</sprite>
+        <sprite>sprites\spr_boss_missile_2</sprite>
+        <sprite>sprites\spr_boss_missile_3</sprite>
       </sprites>
     </sprites>
     <sprites name="player">
@@ -295,8 +305,8 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\can_focus.gml</script>
+    <script>scripts\can_move.gml</script>
     <script>scripts\menu_add.gml</script>
-    <script>scripts\shoot_lazer.gml</script>
     <script>scripts\within_view.gml</script>
     <scripts name="ally">
       <script>scripts\closest_ally.gml</script>
@@ -310,6 +320,7 @@
       <script>scripts\closest_enemy.gml</script>
       <script>scripts\enemy_meteor_collision.gml</script>
       <script>scripts\meteor_split.gml</script>
+      <script>scripts\shoot_lazer.gml</script>
       <script>scripts\spawner.gml</script>
       <script>scripts\turn_to_player.gml</script>
     </scripts>
@@ -337,6 +348,9 @@
       <object>objects\obj_enemy_blue</object>
       <object>objects\obj_enemy_green</object>
       <object>objects\obj_enemy_red</object>
+      <object>objects\obj_boss</object>
+      <object>objects\obj_minion_1</object>
+      <object>objects\obj_minion_2</object>
     </objects>
     <objects name="lazer">
       <object>objects\obj_lazer_parent</object>
@@ -350,6 +364,8 @@
         <object>objects\obj_lazer_enemy_parent</object>
         <object>objects\obj_lazer_enemy</object>
         <object>objects\obj_lazer_enemy_homing</object>
+        <object>objects\obj_missile_1</object>
+        <object>objects\obj_missile_2</object>
       </objects>
     </objects>
     <objects name="meteor">
@@ -394,11 +410,11 @@
         <object>objects\obj_title</object>
       </objects>
       <object>objects\obj_global</object>
-      <object>objects\obj_spawner</object>
-      <object>objects\obj_hud</object>
-      <object>objects\obj_text_fx</object>
       <object>objects\obj_ghost</object>
       <object>objects\obj_hit_stun</object>
+      <object>objects\obj_hud</object>
+      <object>objects\obj_text_fx</object>
+      <object>objects\obj_spawner</object>
       <object>objects\obj_cursor</object>
     </objects>
   </objects>
@@ -407,6 +423,7 @@
     <room>rooms\rm_menu</room>
     <room>rooms\rm_survival</room>
     <room>rooms\rm_defence</room>
+    <room>rooms\rm_duel</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

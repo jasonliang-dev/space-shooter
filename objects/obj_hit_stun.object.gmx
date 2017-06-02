@@ -25,9 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>stuned = false
+            <string>stunned = false
 steps = 0
-INITIAL_ROOM_SPEED = room_speed
 </string>
           </argument>
         </arguments>
@@ -50,13 +49,9 @@ INITIAL_ROOM_SPEED = room_speed
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (stuned) {
+            <string>if (stunned) {
     steps--
-    room_speed = INITIAL_ROOM_SPEED * 0.8
-    if (steps = 0) {
-        stuned = false
-        room_speed = INITIAL_ROOM_SPEED
-    }
+    if (steps = 0) stunned = false
 }
 </string>
           </argument>

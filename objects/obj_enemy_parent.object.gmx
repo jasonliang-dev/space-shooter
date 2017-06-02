@@ -55,6 +55,8 @@ if (within_view(x, y, 0)) {
     add_score(100)
     effect_create_above(ef_explosion, x, y, 1, colour)
     audio_play_sound(sfx_two_tone, 0, false)
+    explosion_sound = choose(sfx_explosion_1, sfx_explosion_2, sfx_explosion_3, sfx_explosion_4, sfx_explosion_5)
+    audio_play_sound(explosion_sound, 0, 0)
 }
 
 rand = irandom(20)
@@ -66,8 +68,6 @@ else drop_obj = noone
 if (drop_obj) instance_create(x, y, drop_obj)
 
 obj_player.kills++
-explosion_sound = choose(sfx_explosion_1, sfx_explosion_2, sfx_explosion_3, sfx_explosion_4, sfx_explosion_5)
-audio_play_sound(explosion_sound, 0, 0)
 </string>
           </argument>
         </arguments>
@@ -117,8 +117,8 @@ audio_play_sound(explosion_sound, 0, 0)
           <argument>
             <kind>1</kind>
             <string>with (other) {
-    add_score(1)
-    effect_create_above(ef_ring, x, y, 1, c_aqua)
+    add_score(irandom(2) + 1)
+    effect_create_above(ef_ring, x, y, 0, c_aqua)
     instance_destroy()
 }
 

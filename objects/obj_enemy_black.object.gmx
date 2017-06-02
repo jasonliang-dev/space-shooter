@@ -55,7 +55,7 @@ sprite_index = choose(spr_enemy_black_1, spr_enemy_black_2, spr_enemy_black_3, s
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused or obj_hit_stun.stuned) {
+if (can_move()) {
     ally = closest_ally()
     direction = point_direction(x, y, ally.x, ally.y)
     image_angle = direction + 90

@@ -58,7 +58,7 @@ direction = old_direction_to_player
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused or obj_hit_stun.stuned) {
+if (can_move()) {
     if (within_view(x, y, 100)) {
         turn_rate = 2
         ghost_trail(2)

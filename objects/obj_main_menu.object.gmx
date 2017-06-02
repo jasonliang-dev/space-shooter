@@ -29,6 +29,7 @@
 with (instance_create(200, 600, obj_menu)) {
     menu_add("SURVIVAL", rm_survival)
     menu_add("DEFENCE", rm_defence)
+    menu_add("BONUS: DUEL", rm_duel)
     menu_add("EXIT", "EXIT")
 }
 </string>

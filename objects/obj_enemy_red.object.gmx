@@ -55,7 +55,7 @@ sprite_index = choose(spr_enemy_red_1, spr_enemy_red_2, spr_enemy_red_3, spr_ene
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused or obj_hit_stun.stuned) {
+if (can_move()) {
     if (!within_view(x, y, 100)) {
         direction = point_direction(x, y, obj_player.x, obj_player.y)
         image_angle = direction + 90

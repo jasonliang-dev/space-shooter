@@ -34,6 +34,7 @@ global.game_score = 0
 audio_stop_all()
 music_track = choose(snd_mars, snd_mercury, snd_venus)
 if (room = rm_splash) audio_play_sound(snd_startup, 0, 0)
+else if (room = rm_duel) audio_play_sound(snd_boss_intro, 100, 0)
 else audio_play_sound(music_track, 100, 1)
 </string>
           </argument>
@@ -57,7 +58,10 @@ else audio_play_sound(music_track, 100, 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room != rm_menu) {
+            <string>if (room = rm_duel and !audio_is_playing(snd_boss_intro) and !audio_is_playing(snd_boss)) {
+    audio_play_sound(snd_boss, 100, 1)
+}
+if (room != rm_menu) {
     // score is never under 0
     if (global.game_score &lt; 0) global.game_score = 0
     
