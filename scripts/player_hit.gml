@@ -13,7 +13,6 @@ with (obj_player) {
         if (hit_points = 0) {
             global.game_over = 1
             global.paused = 1
-                audio_play_sound(sfx_gameover, 100, 0)
         }
         effect_create_above(ef_ring, other.x, other.y, 2, argument0)
         hit_sound = choose(sfx_hit_1, sfx_hit_2)

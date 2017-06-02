@@ -167,9 +167,6 @@ hit_points--
 if (hit_points &lt;= 0) {
     global.game_win = 1
     global.paused = 1
-    audio_stop_all()
-    sound_stop(snd_boss)
-    audio_play_sound(sfx_gamewin, 100, 0)
 }
 </string>
           </argument>
