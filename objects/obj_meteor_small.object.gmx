@@ -53,7 +53,7 @@ sprite_index = choose(spr_meteor_brown_small_1, spr_meteor_brown_small_2)
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-effect_create_above(ef_explosion, x, y, 1, c_orange)
+effect_create_above(ef_explosion, x, y, 0, c_orange)
 meteor_split(2, obj_meteor_tiny)
 </string>
           </argument>

@@ -122,7 +122,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
             default:
                 num = 4
                 shoot_rate = 12
-                missile_num = 36
+                missile_num = 24
                 for (i = 0; i &lt; missile_num; i++) {
                     angle[num] = i * (360 / missile_num)
                     m = instance_create(x, y, obj_missile_1)
@@ -167,6 +167,9 @@ hit_points--
 if (hit_points &lt;= 0) {
     global.game_win = 1
     global.paused = 1
+    audio_stop_all()
+    sound_stop(snd_boss)
+    audio_play_sound(sfx_gamewin, 100, 0)
 }
 </string>
           </argument>

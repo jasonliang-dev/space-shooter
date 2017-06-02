@@ -48,10 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>shake_camera(8, 12)
-hit_stun(1)
-
-if (within_view(x, y, 0)) {
+            <string>if (within_view(x, y, 0)) {
+    shake_camera(8, 12)
+    hit_stun(1)
     add_score(100)
     effect_create_above(ef_explosion, x, y, 1, colour)
     audio_play_sound(sfx_two_tone, 0, false)

@@ -55,10 +55,11 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
-if (!global.paused or obj_hit_stun.stuned) {
+if (can_move()) {
     if (x &gt; room_width) {
         global.game_win = 1
         global.paused = 1
+        audio_play_sound(sfx_gamewin, 100, 0)
     }
     can_shoot++
     if (instance_number(obj_enemy_parent) and can_shoot &gt;= fire_rate) {

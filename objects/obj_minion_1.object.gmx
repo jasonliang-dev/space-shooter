@@ -58,7 +58,7 @@ if (can_move()) {
     image_angle = direction + 90
     
     can_shoot++
-    if (can_shoot &gt; 12) {
+    if (can_shoot &gt; room_speed) {
         can_shoot = 0
         shoot_lazer(obj_lazer_enemy, sfx_shoot_1)
     }
