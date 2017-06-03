@@ -117,24 +117,26 @@ if (position &gt; menu_end) position = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_left)
-draw_set_valign(fa_middle)
-draw_set_colour(c_white)
-draw_set_font(fnt_kenvector_future)
-
-// menu title
-y_pos = y - 200
-if (global.game_over) draw_text(x, y_pos, "MISSION FAILED")
-else if (global.game_win) draw_text(x, y_pos, "MISSION COMPLETE")
-else if (global.paused) draw_text(x, y_pos, "PAUSED")
-
-for (i = 0; i &lt;= menu_end; i++) {
-    draw_text(x, y + (i * padding), ds_list_find_value(menu_options, i))
+            <string>if (!instance_exists(obj_hud) or !obj_hud.hide) {
+    draw_set_halign(fa_left)
+    draw_set_valign(fa_middle)
+    draw_set_colour(c_white)
+    draw_set_font(fnt_kenvector_future)
+    
+    // menu title
+    y_pos = y - 200
+    if (global.game_over) draw_text(x, y_pos, "MISSION FAILED")
+    else if (global.game_win) draw_text(x, y_pos, "MISSION COMPLETE")
+    else if (global.paused) draw_text(x, y_pos, "PAUSED")
+    
+    for (i = 0; i &lt;= menu_end; i++) {
+        draw_text(x, y + (i * padding), ds_list_find_value(menu_options, i))
+    }
+    
+    px = x - (padding / 2)
+    py = y + (position * padding)
+    draw_sprite_ext(spr_arrow, 0, px, py, 0.5, 0.5, 0, c_white, 1)
 }
-
-px = x - (padding / 2)
-py = y + (position * padding)
-draw_sprite_ext(spr_arrow, 0, px, py, 0.5, 0.5, 0, c_white, 1)
 </string>
           </argument>
         </arguments>
