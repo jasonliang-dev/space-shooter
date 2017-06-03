@@ -51,7 +51,10 @@ strength = 1
             <kind>1</kind>
             <string>event_inherited()
 
-with (obj_lazer_enemy_parent) instance_destroy()
+with (obj_lazer_enemy_parent) {
+    effect_create_above(ef_flare, x, y, 1, colour)
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

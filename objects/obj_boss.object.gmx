@@ -28,7 +28,7 @@
             <string>x = room_width / 2
 y = room_height / 2
 
-hit_points = 800
+hit_points = 1000
 max_hit_points = hit_points
 can_shoot = 0
 shoot_rate = 20
@@ -36,6 +36,7 @@ old_shoot_rate = shoot_rate
 fire_mode = 0
 angle[1] = -90
 angle[2] = 0
+flash = 0
 
 speed = 0
 event_inherited()
@@ -62,6 +63,11 @@ event_inherited()
           <argument>
             <kind>1</kind>
             <string>event_inherited()
+if (flash) {
+    flash = 0
+    image_blend = make_colour_rgb(120, 120, 120)
+}
+else image_blend = c_white
 if (can_move() and audio_is_playing(snd_boss)) {
     direction = point_direction(x, y, obj_player.x, obj_player.y)
     image_angle = direction + 90
@@ -108,15 +114,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
                 }
                 break
             case 3:
-                ml = 800
-                minion_num = 3
-                for (i = 0; i &lt; minion_num; i++) {
-                    angle[3] = i * (360 / minion_num)
-                    mx = obj_player.x + lengthdir_x(ml, angle[3])
-                    my = obj_player.y + lengthdir_y(ml, angle[3])
-                    m = instance_create(mx, my, obj_minion_1)
-                    m.direction = point_direction(m.x, m.y, obj_player.x, obj_player.y)
-                }
+                spawner(obj_minion_1)
                 fire_mode++
                 break
             default:
@@ -163,6 +161,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
     instance_destroy()
 }
 
+flash = 1
 hit_points--
 if (hit_points &lt;= 0) {
     global.game_win = 1

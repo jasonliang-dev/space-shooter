@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>max_hit_points = 80
+            <string>max_hit_points = 60
 hit_points = max_hit_points
 can_shoot = 0
 fire_rate = 20

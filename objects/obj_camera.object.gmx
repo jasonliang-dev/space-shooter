@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>follow_speed = view_hspeed[0]
+            <string>follow_speed = 30
 
 shaking = 0
 shake_counter = 0
