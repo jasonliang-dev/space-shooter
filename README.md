@@ -5,7 +5,7 @@ TODO: add some cool screenshots or something
 
 #### Game assets adapted from:
 
-"[Space Shooter Redux](http://kenney.nl/assets/space-shooter-redux)" by [Kenny](http://kenney.nl) / [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+"[Space Shooter Redux](http://kenney.nl/assets/space-shooter-redux)" and "[Space Shooter Extension](https://kenney.nl/assets/space-shooter-extension)" by [Kenney Vleugels](http://kenney.nl) / [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 "[NES Shooter Music](https://opengameart.org/content/nes-shooter-music-5-tracks-3-jingles)" by [SketchyLogic](https://opengameart.org/users/sketchylogic) / [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
 
