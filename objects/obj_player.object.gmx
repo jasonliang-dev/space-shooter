@@ -300,10 +300,7 @@ if (!global.paused and !obj_hit_stun.stunned) {
     draw_healthbar(x - bar_width, gunbar_y, x + bar_width, gunbar_y + bar_height, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
     draw_healthbar(x - bar_width, dashbar_y, x + bar_width, dashbar_y + bar_height, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
 }
-else {
-    with (obj_enemy_parent) instance_destroy()
-    with (obj_lazer_parent) instance_destroy()
-}
+else with (obj_lazer_player_parent) instance_destroy()
 </string>
           </argument>
         </arguments>
