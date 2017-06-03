@@ -8,11 +8,15 @@ or download an [[executable][https://github.com/SummerJacket/another-bad-game/re
 
 ** Screenshots
 
-[[file:screenshots/title.png]] \\
-[[file:screenshots/1.png]] \\
-[[file:screenshots/2.png]] \\
-[[file:screenshots/3.png]] \\
-[[file:screenshots/4.png]] \\
+[[file:screenshots/title.png]]
+
+[[file:screenshots/1.png]]
+
+[[file:screenshots/2.png]]
+
+[[file:screenshots/3.png]]
+
+[[file:screenshots/4.png]]
 
 *** Game assets adapted from:
 
