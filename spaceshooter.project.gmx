@@ -306,6 +306,7 @@
   <scripts name="scripts">
     <script>scripts\can_focus.gml</script>
     <script>scripts\can_move.gml</script>
+    <script>scripts\explosion_fx.gml</script>
     <script>scripts\menu_add.gml</script>
     <script>scripts\within_view.gml</script>
     <scripts name="ally">
@@ -416,6 +417,7 @@
       <object>objects\obj_text_fx</object>
       <object>objects\obj_spawner</object>
       <object>objects\obj_cursor</object>
+      <object>objects\obj_particle</object>
     </objects>
   </objects>
   <rooms name="rooms">

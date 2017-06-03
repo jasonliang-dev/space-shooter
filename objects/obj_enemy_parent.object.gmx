@@ -49,16 +49,19 @@ flash = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (within_view(x, y, 0)) {
+            <string>// effects
+if (within_view(x, y, 0)) {
+    explosion_fx(4, 8, 5, 4)
     shake_camera(8, 12)
     hit_stun(1)
     add_score(100)
-    effect_create_above(ef_explosion, x, y, 1, colour)
+    effect_create_above(ef_explosion, x, y, 0, colour)
     audio_play_sound(sfx_two_tone, 0, false)
     explosion_sound = choose(sfx_explosion_1, sfx_explosion_2, sfx_explosion_3, sfx_explosion_4, sfx_explosion_5)
     audio_play_sound(explosion_sound, 0, 0)
 }
 
+// random drop
 rand = irandom(20)
 if (rand = 0) drop_obj = choose(obj_powerup_health, obj_powerup_bomb_gold)
 else if (rand &lt; 3) drop_obj = choose(obj_powerup_shield_gold, obj_powerup_bomb_silver)

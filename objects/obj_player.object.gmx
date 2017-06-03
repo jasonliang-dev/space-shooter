@@ -281,23 +281,29 @@ if (!global.paused and !obj_hit_stun.stunned) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-
-// shooting and dashing bar
-if (reloading) cgun = c_green
-else cgun = c_lime
-if (can_dash = dash_max_count) cdash = c_aqua
-else cdash = c_teal
-
-gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
-dash_percent = (can_dash / dash_max_count) * 100
-
-bar_width = 40
-bar_height = 4
-gunbar_y = y + 80
-dashbar_y = gunbar_y + 8
-draw_healthbar(x - bar_width, gunbar_y, x + bar_width, gunbar_y + bar_height, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
-draw_healthbar(x - bar_width, dashbar_y, x + bar_width, dashbar_y + bar_height, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
+            <string>if (!global.game_over) {
+    draw_self()
+    
+    // shooting and dashing bar
+    if (reloading) cgun = c_green
+    else cgun = c_lime
+    if (can_dash = dash_max_count) cdash = c_aqua
+    else cdash = c_teal
+    
+    gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
+    dash_percent = (can_dash / dash_max_count) * 100
+    
+    bar_width = 40
+    bar_height = 4
+    gunbar_y = y + 80
+    dashbar_y = gunbar_y + 8
+    draw_healthbar(x - bar_width, gunbar_y, x + bar_width, gunbar_y + bar_height, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
+    draw_healthbar(x - bar_width, dashbar_y, x + bar_width, dashbar_y + bar_height, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
+}
+else {
+    with (obj_enemy_parent) instance_destroy()
+    with (obj_lazer_parent) instance_destroy()
+}
 </string>
           </argument>
         </arguments>
