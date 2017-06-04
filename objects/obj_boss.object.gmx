@@ -37,6 +37,7 @@ fire_mode = 0
 angle[1] = -90
 angle[2] = 0
 flash = 0
+colour = c_red
 
 speed = 0
 event_inherited()

@@ -4,7 +4,7 @@
 
 with (obj_player) {
     if (!invulnerable) {
-        explosion_fx(4, 6, 6, 6)
+        explosion_fx(6, 8, 5, 4)
         shake_camera(15, 12)
         hit_stun(6)
         add_score(-300)
