@@ -58,7 +58,7 @@ if (within_view(x, y, 0)) {
     effect_create_above(ef_explosion, x, y, 0, colour)
     audio_play_sound(sfx_two_tone, 0, false)
     explosion_sound = choose(sfx_explosion_1, sfx_explosion_2, sfx_explosion_3, sfx_explosion_4, sfx_explosion_5)
-    audio_play_sound(explosion_sound, 0, 0)
+    audio_play_sound_on(global.sfx, explosion_sound, 0, 0)
 }
 
 // random drop

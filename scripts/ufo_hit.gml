@@ -13,6 +13,6 @@ if (hit_points = 0) {
 }
 effect_create_above(ef_ring, other.x, other.y, 5, other.colour)
 hit_sound = choose(sfx_hit_1, sfx_hit_2)
-audio_play_sound(hit_sound, 0, 0)
+audio_play_sound_on(global.sfx, hit_sound, 0, 0)
 
 with (other) instance_destroy()

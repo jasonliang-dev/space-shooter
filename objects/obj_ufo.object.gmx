@@ -77,7 +77,7 @@ if (can_move()) {
             l.direction = (360 / lazers) * i
             l.image_angle = l.direction - 90
         }
-        audio_play_sound(sfx_shoot_3, 0, 0)
+        audio_play_sound_on(global.sfx, sfx_shoot_3, 0, 0)
     }
 }
 </string>

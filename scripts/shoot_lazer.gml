@@ -6,4 +6,4 @@
 l = instance_create(x, y, argument0)
 l.direction = direction
 l.image_angle = image_angle
-audio_play_sound(argument1, 0, 0)
+audio_play_sound_on(global.sfx, argument1, 0, 0)

@@ -18,7 +18,7 @@ with (obj_player) {
         }
         effect_create_above(ef_ring, other.x, other.y, 1, argument0)
         hit_sound = choose(sfx_hit_1, sfx_hit_2)
-        audio_play_sound(hit_sound, 0, 0)
+        audio_play_sound_on(global.sfx, hit_sound, 0, 0)
         
         alarm[0] = invulnerable_duration // set invulnerability
         alarm[1] = 1 // blink

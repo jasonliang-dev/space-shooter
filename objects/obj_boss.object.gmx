@@ -84,7 +84,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
                     m.direction = direction + angle[0]
                     m.image_angle = image_angle - 180 + angle[0]
                 }
-                audio_play_sound(sfx_shoot_2, 0, 0)
+                audio_play_sound_on(global.sfx, sfx_shoot_2, 0, 0)
                 fire_mode++
                 break
             case 1:
@@ -93,7 +93,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
                 m = instance_create(x, y, obj_missile_1)
                 m.direction = direction + angle[1]
                 m.image_angle = image_angle - 180 + angle[1]
-                audio_play_sound(sfx_shoot_1, 0, 0)
+                audio_play_sound_on(global.sfx, sfx_shoot_1, 0, 0)
                 if (angle[1] &gt;= 90) {
                     angle[1] = -90
                     shoot_rate = 10
@@ -128,7 +128,7 @@ if (can_move() and audio_is_playing(snd_boss)) {
                     m.direction = direction + angle[num]
                     m.image_angle = image_angle - 180 + angle[num]
                 }
-                audio_play_sound(sfx_shoot_1, 0, 0)
+                audio_play_sound_on(global.sfx, sfx_shoot_1, 0, 0)
                 fire_mode = 0
                 break
         }

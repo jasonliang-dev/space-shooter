@@ -26,11 +26,25 @@
           <argument>
             <kind>1</kind>
             <string>// create a menu
-with (instance_create(200, 600, obj_menu)) {
-    menu_add("SURVIVAL", rm_survival)
-    menu_add("DEFENCE", rm_defence)
-    menu_add("BONUS: DUEL", rm_duel)
-    menu_add("EXIT", "EXIT")
+with (instance_create(view_xview[0] + 200, view_yview[0] + 600, obj_menu)) {
+    if (room = rm_menu) {
+        menu_add("SURVIVAL", rm_survival)
+        menu_add("DEFENCE", rm_defence)
+        menu_add("BONUS: DUEL", rm_duel)
+        menu_add("OPTIONS", rm_options)
+        menu_add("EXIT", "EXIT")
+    }
+    else if (room = rm_options) {
+        menu_add("SOUND EFFECTS", "SFX")
+        menu_add("MUSIC", "MUSIC")
+        menu_add("BACK", rm_menu)
+    }
+    else {
+        if (obj_global.can_unpause) menu_add("CONTINUE", "CONTINUE")
+        menu_add("RESTART", room)
+        menu_add("MAIN MENU", rm_menu)
+        menu_add("EXIT", "EXIT")
+    }
 }
 </string>
           </argument>

@@ -49,8 +49,12 @@ rotation = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// move cursor to mouse position
-rotation++
+            <string>rotation++
+
+window_x = min(window_mouse_get_x(), window_get_width())
+window_y = min(window_mouse_get_y(), window_get_height())
+if (can_move()) window_mouse_set(window_x, window_y)
+
 x = mouse_x
 y = mouse_y
 </string>
@@ -76,6 +80,7 @@ y = mouse_y
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(spr_cursor, 0, x, y, 1, 1, rotation, -1, 1)
+
 </string>
           </argument>
         </arguments>

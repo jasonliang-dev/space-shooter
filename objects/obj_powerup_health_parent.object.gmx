@@ -52,7 +52,7 @@ hp_value = 1
             <string>event_inherited()
 obj_player.hit_points += hp_value
 text_fx(x, y, "HP UP")
-audio_play_sound(sfx_powerup_4, 0, 0)
+audio_play_sound_on(global.sfx, sfx_powerup_4, 0, 0)
 </string>
           </argument>
         </arguments>

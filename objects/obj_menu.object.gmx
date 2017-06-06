@@ -31,6 +31,8 @@ menu_end = 0
 
 padding = 50
 position = 0
+
+command = "CONTINUE"
 </string>
           </argument>
         </arguments>
@@ -79,22 +81,41 @@ ds_list_destroy(menu_command)
             <kind>1</kind>
             <string>UP = keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord("W")) or mouse_wheel_up()
 DOWN = keyboard_check_pressed(vk_down) or keyboard_check_pressed(ord("S")) or mouse_wheel_down()
+LEFT = keyboard_check(vk_left) or keyboard_check(ord("A"))
+RIGHT = keyboard_check(vk_right) or keyboard_check(ord("D"))
 
 SELECT = keyboard_check_pressed(vk_enter) or keyboard_check_pressed(vk_space)
 
+input = DOWN - UP
+vol_input = RIGHT - LEFT
+
+command = ds_list_find_value(menu_command, position)
 // user makes a selection
+if (vol_input != 0) {
+    switch (command) {
+        case "SFX": set_vol(global.sfx, vol_input) break
+        case "MUSIC": set_vol(global.music, vol_input) break
+    }
+}
 if (SELECT) {
-    command = ds_list_find_value(menu_command, position)
-    if (command = "CONTINUE") global.paused = false
-    else if (command = "EXIT") game_end()
-    else room_goto(command)
+    switch (command) {
+        case "SFX":
+        case "MUSIC": break
+        case "CONTINUE": global.paused = 0 break
+        case "EXIT": game_end() break
+        default:
+            room_goto(command)
+            obj_sound.new_room = 1
+            break
+    }
 }
 
-input = DOWN - UP
-if (input != 0) audio_play_sound(sfx_menu_nav_4, 0, 0)
+if (input != 0) audio_play_sound_on(global.sfx, sfx_menu_nav_4, 0, 0)
+if (vol_input != 0) audio_play_sound_on(global.sfx, sfx_menu_nav_3, 0, 0)
 position += input
 if (position &lt; 0) position = menu_end
 if (position &gt; menu_end) position = 0
+
 </string>
           </argument>
         </arguments>
@@ -130,12 +151,22 @@ if (position &gt; menu_end) position = 0
     else if (global.paused) draw_text(x, y_pos, "PAUSED")
     
     for (i = 0; i &lt;= menu_end; i++) {
+        if (i = position) draw_set_colour(c_white)
+        else draw_set_colour(c_gray)
         draw_text(x, y + (i * padding), ds_list_find_value(menu_options, i))
     }
     
-    px = x - (padding / 2)
-    py = y + (position * padding)
-    draw_sprite_ext(spr_arrow, 0, px, py, 0.5, 0.5, 0, c_white, 1)
+    switch (command) {
+        case "SFX": vol_text = audio_emitter_get_gain(global.sfx) break
+        case "MUSIC": vol_text = audio_emitter_get_gain(global.music) break
+        default: vol_text = -1 break
+    }
+    vol_text *= 100
+    if (vol_text &gt;= 0) {
+        draw_set_halign(fa_right)
+        draw_set_colour(c_white)
+        draw_text(x + 800, y, "VOL: " + string(round(vol_text)))
+    }
 }
 </string>
           </argument>
