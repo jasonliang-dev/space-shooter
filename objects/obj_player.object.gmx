@@ -44,8 +44,8 @@ ghost_count = 0
 hit_points = 20
 invulnerable_duration = room_speed
 
-dash_duration = room_speed * 0.7
-dash_max_count = room_speed * 4
+dash_duration = 10
+dash_max_count = room_speed * 3
 can_dash = dash_max_count
 
 friction_strength = 0.3
@@ -171,7 +171,9 @@ if (!global.paused and !obj_hit_stun.stunned) {
     direction_towards_mouse = point_direction(x, y, mouse_x, mouse_y)
     
     // cheats
-    if (keyboard_check_pressed(ord("H"))) hit_points += 1
+    if (keyboard_check_pressed(ord("H"))) {
+        hit_points += 1
+    }
     
     // acceleration
     ax = 2 * (RIGHT - LEFT)
@@ -179,8 +181,12 @@ if (!global.paused and !obj_hit_stun.stunned) {
     
     // dashing
     can_dash++
-    if (can_dash = dash_max_count) text_fx(x, y, "DASH READY")
-    if (can_dash &gt; dash_max_count) can_dash = dash_max_count
+    if (can_dash = dash_max_count) {
+        text_fx(x, y, "DASH READY")
+    }
+    if (can_dash &gt; dash_max_count) {
+        can_dash = dash_max_count
+    }
     if (DASH and can_dash = dash_max_count) {
         dashing = true
         can_dash = 0
@@ -229,19 +235,25 @@ if (!global.paused and !obj_hit_stun.stunned) {
     image_angle = direction_towards_mouse - 90
     
     // create a trail if the player is dashing
-    if (dashing) ghost_trail(1)
+    if (dashing) {
+        ghost_trail(1)
+    }
     
     // reload
     if (gun_heat = max_gun_heat and !reloading) {
         reloading = true
         text_fx(x, y, "RELOADING")
     }
-    else if (gun_heat = 0 and reloading) reloading = false
+    else if (gun_heat = 0 and reloading) {
+        reloading = 0
+    }
     
     // shooting
     can_shoot++
     if (!reloading) {
-        if (!SHOOTING or dashing) gun_cooldown_rate(2)
+        if (!SHOOTING or dashing) {
+            gun_cooldown_rate(2)
+        }
         else if (can_shoot &gt; 2 - gun_upfirerate) {
             can_shoot = 0
             shake_camera(1, 2)
@@ -256,7 +268,9 @@ if (!global.paused and !obj_hit_stun.stunned) {
             audio_play_sound_on(global.sfx, sfx_shoot_4, 0, 0)
         }
     }
-    else gun_cooldown_rate(1)
+    else {
+        gun_cooldown_rate(1)
+    }
 
 } //end if (!global.paused)
 </string>
@@ -282,13 +296,28 @@ if (!global.paused and !obj_hit_stun.stunned) {
           <argument>
             <kind>1</kind>
             <string>if (!global.game_over) {
+    if (can_dash = dash_max_count - 1) {
+    d3d_set_fog(true, c_white, 0, 0);
+    draw_self();
+    d3d_set_fog(false, c_white, 0, 0);
+}
+else {
     draw_self()
+}
     
     // shooting and dashing bar
-    if (reloading) cgun = c_green
-    else cgun = c_lime
-    if (can_dash = dash_max_count) cdash = c_aqua
-    else cdash = c_teal
+    if (reloading) {
+        cgun = c_green
+    }
+    else {
+        cgun = c_lime
+    }
+    if (can_dash = dash_max_count) {
+        cdash = c_aqua
+    }
+    else {
+        cdash = c_teal
+    }
     
     gun_percent = ((max_gun_heat - gun_heat) / max_gun_heat) * 100
     dash_percent = (can_dash / dash_max_count) * 100
@@ -300,7 +329,11 @@ if (!global.paused and !obj_hit_stun.stunned) {
     draw_healthbar(x - bar_width, gunbar_y, x + bar_width, gunbar_y + bar_height, gun_percent, c_dkgray, cgun, cgun, 0, 1, 0)
     draw_healthbar(x - bar_width, dashbar_y, x + bar_width, dashbar_y + bar_height, dash_percent, c_dkgray, cdash, cdash, 0, 1, 0)
 }
-else with (obj_lazer_player_parent) instance_destroy()
+else {
+    with (obj_lazer_player_parent) {
+        instance_destroy()
+    }
+}
 </string>
           </argument>
         </arguments>

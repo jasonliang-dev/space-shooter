@@ -58,7 +58,9 @@ audio_play_sound(snd_startup, 0, 0)
             <string>if (new_room) {
     new_room = 0
     audio_stop_all()
-    if (room = rm_duel) audio_play_sound_on(global.music, snd_boss_intro, 0, 100)
+    if (room = rm_duel) {
+        audio_play_sound_on(global.music, snd_boss_intro, 0, 100)
+    }
     else {
         music_tracks = choose(snd_mars, snd_mercury, snd_venus)
         audio_play_sound_on(global.music, music_tracks, 1, 100)

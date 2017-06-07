@@ -61,8 +61,12 @@ focus = false
     if (mouse_check_button_pressed(mb_right)) {
         focus = !focus
         with (obj_player) {
-            if (other.focus) text_fx(x, y, "FOCUS ON")
-            else text_fx(x, y, "FOCUS OFF")
+            if (other.focus) {
+                text_fx(x, y, "FOCUS ON")
+            }
+            else {
+                text_fx(x, y, "FOCUS OFF")
+            }
         }
     }
     
@@ -111,7 +115,9 @@ focus = false
     x = clamp(x, half_view_x, room_width - half_view_x)
     y = clamp(y, half_view_y, room_height - half_view_y)
 }
-else speed = 0
+else {
+    speed = 0
+}
 </string>
           </argument>
         </arguments>

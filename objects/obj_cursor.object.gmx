@@ -53,7 +53,9 @@ rotation = 0
 
 window_x = min(window_mouse_get_x(), window_get_width())
 window_y = min(window_mouse_get_y(), window_get_height())
-if (can_move()) window_mouse_set(window_x, window_y)
+if (can_move()) {
+    window_mouse_set(window_x, window_y)
+}
 
 x = mouse_x
 y = mouse_y

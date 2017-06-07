@@ -63,7 +63,9 @@ if (can_move()) {
         turn_rate = 2
         ghost_trail(2)
     }
-    else turn_rate = 30
+    else {
+        turn_rate = 30
+    }
     
     turn_to_player()
 }

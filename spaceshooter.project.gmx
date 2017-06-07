@@ -306,7 +306,6 @@
   <scripts name="scripts">
     <script>scripts\can_focus.gml</script>
     <script>scripts\can_move.gml</script>
-    <script>scripts\explosion_fx.gml</script>
     <script>scripts\menu_add.gml</script>
     <script>scripts\set_vol.gml</script>
     <script>scripts\within_view.gml</script>
@@ -332,6 +331,7 @@
     </scripts>
     <scripts name="effects">
       <script>scripts\add_score.gml</script>
+      <script>scripts\explosion_fx.gml</script>
       <script>scripts\ghost_trail.gml</script>
       <script>scripts\hit_stun.gml</script>
       <script>scripts\shake_camera.gml</script>
@@ -411,7 +411,7 @@
         <object>objects\obj_title</object>
       </objects>
       <object>objects\obj_global</object>
-      <object>objects\obj_sound</object>
+      <object>objects\obj_persistent</object>
       <object>objects\obj_ghost</object>
       <object>objects\obj_hit_stun</object>
       <object>objects\obj_hud</object>
@@ -425,10 +425,10 @@
   <rooms name="rooms">
     <room>rooms\rm_splash</room>
     <room>rooms\rm_menu</room>
+    <room>rooms\rm_options</room>
     <room>rooms\rm_survival</room>
     <room>rooms\rm_defence</room>
     <room>rooms\rm_duel</room>
-    <room>rooms\rm_options</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

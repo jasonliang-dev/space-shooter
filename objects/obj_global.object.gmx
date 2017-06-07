@@ -54,19 +54,27 @@ global.game_score = 0
             <kind>1</kind>
             <string>if (room != rm_menu and room != rm_options) {
     // score is never under 0
-    if (global.game_score &lt; 0) global.game_score = 0
+    if (global.game_score &lt; 0) {
+        global.game_score = 0
+    }
     
     // game pause
     PAUSE = max(keyboard_check_pressed(vk_escape), mouse_check_button_pressed(mb_middle))
     can_unpause = !global.game_over and !global.game_win
-    if (PAUSE and can_unpause) global.paused = !global.paused
+    if (PAUSE and can_unpause) {
+        global.paused = !global.paused
+    }
     
     if (global.paused) { 
         if (!instance_number(obj_menu)) { // check if there's already a menu open
             instance_create(x, y, obj_menu_creator)
         }
     }
-    else with (obj_menu) instance_destroy()
+    else {
+        with (obj_menu) {
+            instance_destroy()
+        }
+    }
 }
 </string>
           </argument>

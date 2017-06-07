@@ -91,28 +91,35 @@ vol_input = RIGHT - LEFT
 
 command = ds_list_find_value(menu_command, position)
 // user makes a selection
-if (vol_input != 0) {
-    switch (command) {
-        case "SFX": set_vol(global.sfx, vol_input) break
-        case "MUSIC": set_vol(global.music, vol_input) break
-    }
-}
 if (SELECT) {
     switch (command) {
+        case "":
         case "SFX":
         case "MUSIC": break
         case "CONTINUE": global.paused = 0 break
         case "EXIT": game_end() break
         default:
             room_goto(command)
-            obj_sound.new_room = 1
+            obj_persistent.new_room = 1
             break
     }
 }
+// change volume
+if (vol_input != 0) {
+    switch (command) {
+        case "SFX": set_vol(global.sfx, vol_input) break
+        case "MUSIC": set_vol(global.music, vol_input) break
+    }
+}
 
+// play sound
 if (input != 0) audio_play_sound_on(global.sfx, sfx_menu_nav_4, 0, 0)
-if (vol_input != 0) audio_play_sound_on(global.sfx, sfx_menu_nav_3, 0, 0)
+if (vol_input != 0 and room = rm_options) {
+    audio_play_sound_on(global.sfx, sfx_menu_nav_3, 0, 0)
+}
+
 position += input
+// wrap to the beginning/end
 if (position &lt; 0) position = menu_end
 if (position &gt; menu_end) position = 0
 
@@ -146,9 +153,12 @@ if (position &gt; menu_end) position = 0
     
     // menu title
     y_pos = y - 200
-    if (global.game_over) draw_text(x, y_pos, "MISSION FAILED")
-    else if (global.game_win) draw_text(x, y_pos, "MISSION COMPLETE")
-    else if (global.paused) draw_text(x, y_pos, "PAUSED")
+    if (room = rm_options) menu_title = "OPTIONS"
+    else if (global.game_over) menu_title = "MISSION FAILED"
+    else if (global.game_win) menu_title = "MISSION COMPLETE"
+    else if (global.paused) menu_title = "PAUSED"
+    else menu_title = ""
+    draw_text(x, y_pos, menu_title)
     
     for (i = 0; i &lt;= menu_end; i++) {
         if (i = position) draw_set_colour(c_white)
@@ -157,15 +167,15 @@ if (position &gt; menu_end) position = 0
     }
     
     switch (command) {
-        case "SFX": vol_text = audio_emitter_get_gain(global.sfx) break
-        case "MUSIC": vol_text = audio_emitter_get_gain(global.music) break
-        default: vol_text = -1 break
+        case "SFX": side_text = audio_emitter_get_gain(global.sfx) break
+        case "MUSIC": side_text = audio_emitter_get_gain(global.music) break
+        default: side_text = -1 break
     }
-    vol_text *= 100
-    if (vol_text &gt;= 0) {
+    side_text *= 100
+    if (side_text &gt;= 0) {
         draw_set_halign(fa_right)
         draw_set_colour(c_white)
-        draw_text(x + 800, y, "VOL: " + string(round(vol_text)))
+        draw_text(x + 800, y, "VOL: " + string(round(side_text)))
     }
 }
 </string>

@@ -49,8 +49,12 @@
           <argument>
             <kind>1</kind>
             <string>/// pause
-if (can_move()) speed = initial_speed
-else speed = 0
+if (can_move()) {
+    speed = initial_speed
+}
+else {
+    speed = 0
+}
 </string>
           </argument>
         </arguments>

@@ -63,12 +63,25 @@ if (within_view(x, y, 0)) {
 
 // random drop
 rand = irandom(20)
-if (rand = 0) drop_obj = choose(obj_powerup_health, obj_powerup_bomb_gold)
-else if (rand &lt; 3) drop_obj = choose(obj_powerup_shield_gold, obj_powerup_bomb_silver)
-else if (rand &lt; 7) drop_obj = choose(obj_powerup_shield_silver, obj_powerup_bomb_bronze)
-else if (rand &lt; 10) drop_obj = obj_powerup_shield_bronze
-else drop_obj = noone
-if (drop_obj) instance_create(x, y, drop_obj)
+if (rand = 0) {
+    drop_obj = choose(obj_powerup_health, obj_powerup_bomb_gold)
+}
+else if (rand &lt; 3) {
+    drop_obj = choose(obj_powerup_shield_gold, obj_powerup_bomb_silver)
+}
+else if (rand &lt; 7) {
+    drop_obj = choose(obj_powerup_shield_silver, obj_powerup_bomb_bronze)
+}
+else if (rand &lt; 10) {
+    drop_obj = obj_powerup_shield_bronze
+}
+else {
+    drop_obj = noone
+}
+
+if (drop_obj) {
+    instance_create(x, y, drop_obj)
+}
 
 obj_player.kills++
 </string>
@@ -118,7 +131,9 @@ flash = 0
           <argument>
             <kind>1</kind>
             <string>if (random(1) &lt; 0.01) {
-    with (other) instance_destroy()
+    with (other) {
+        instance_destroy()
+    }
     instance_destroy()
 }
 </string>
@@ -151,7 +166,9 @@ flash = 0
 
 flash = 1
 hit_points--
-if (hit_points &lt;= 0) instance_destroy()
+if (hit_points &lt;= 0) {
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>
@@ -203,7 +220,9 @@ if (flash) {
     draw_self();
     d3d_set_fog(false, c_white, 0, 0);
 }
-else draw_self()
+else {
+    draw_self()
+}
 </string>
           </argument>
         </arguments>

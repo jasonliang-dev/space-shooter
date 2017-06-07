@@ -25,8 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!can_move()) alarm[1] = spawn_rate
-else alarm[0] = spawn_rate
+            <string>if (!can_move()) {
+    alarm[1] = spawn_rate
+}
+else {
+    alarm[0] = spawn_rate
+}
 </string>
           </argument>
         </arguments>

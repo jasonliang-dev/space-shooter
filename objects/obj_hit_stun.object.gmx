@@ -51,7 +51,9 @@ steps = 0
             <kind>1</kind>
             <string>if (stunned) {
     steps--
-    if (steps = 0) stunned = false
+    if (steps = 0) {
+        stunned = false
+    }
 }
 </string>
           </argument>

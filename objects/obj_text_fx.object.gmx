@@ -51,7 +51,9 @@ text = "--"
             <kind>1</kind>
             <string>alpha -= 0.04
 y -= 5
-if (alpha &lt;= 0) instance_destroy()
+if (alpha &lt;= 0) {
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>

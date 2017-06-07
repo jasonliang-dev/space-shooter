@@ -6,7 +6,8 @@
 do {
     rand_x = irandom(room_width)
     rand_y = irandom(room_height)
-} until (!within_view(rand_x, rand_y, 200))
+}
+until (!within_view(rand_x, rand_y, 200))
 
 // create the object
 new_object = instance_create(rand_x, rand_y, argument0)

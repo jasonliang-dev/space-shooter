@@ -59,11 +59,17 @@ alarm[0] = 10 * room_speed
             <string>if (instance_number(obj_enemy_parent) &lt; max_enemies) {
     rand_enemy = ds_list_find_value(enemies, irandom(ds_list_size(enemies) - 1))
     spawner(rand_enemy)
-    if (spawn_rate &gt;= max_spawn_rate) spawn_rate *= 0.9
+    if (spawn_rate &gt;= max_spawn_rate) {
+        spawn_rate *= 0.9
+    }
 }
 
-if (!global.paused) alarm[0] = spawn_rate
-else alarm[1] = spawn_rate
+if (!global.paused) {
+    alarm[0] = spawn_rate
+}
+else {
+    alarm[1] = spawn_rate
+}
 </string>
           </argument>
         </arguments>

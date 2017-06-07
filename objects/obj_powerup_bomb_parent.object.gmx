@@ -55,7 +55,9 @@ for (i = 0; i &lt; instance_number(obj_enemy_parent); i++) {
     enemy = instance_find(obj_enemy_parent, i)
     with (enemy) {
         hit_points -= other.strength
-        if (hit_points &lt;= 0) instance_destroy()
+        if (hit_points &lt;= 0) {
+            instance_destroy()
+        }
     }
     
 }

@@ -51,7 +51,9 @@ fade_speed = random_range(0.01, 0.1)
           <argument>
             <kind>1</kind>
             <string>image_alpha -= fade_speed
-if (!image_alpha) instance_destroy()
+if (!image_alpha) {
+    instance_destroy()
+}
 </string>
           </argument>
         </arguments>
